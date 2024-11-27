@@ -41,7 +41,7 @@ Public Sub CreateOutlook()
    Assert.IsNotNull OL
 End Sub
 
-Public Sub SendEmail()
+Public Sub SendEmailNoAttach()
     CurrentDb.Execute "INSERT INTO Tbl_Users(ID, UserName, Name, [E-mailAddress]) VALUES (1, 'alberto', 'Alberto', 'alberto.paganini70@gmail.com');"
     CurrentDb.Execute "INSERT INTO Tbl_Users(ID, UserName, Name, Querywithoutcreditcontroller, Onaccountsstillopen, Whopaidyesterdayroutine, Superuser, EmailSentToSender) VALUES (2, 'aaa', 'admin', False, False, False, False, False);"
 
@@ -76,17 +76,52 @@ Public Sub SendEmail()
     Dim Result As Boolean
     Result = App.IOutlook_SendEmailFromTemplate("Test Subject", Header, Details, a, Template, False)
     stopwatch.StopAndShowTimer
-'    Assert.AreEqual Result, True
-'    Assert.AreEqual OL.NAttachment, 0
-'    Assert.AreEqual OL.SendImmediately, False
 
-
-   Assert.That Result, Iz.EqualTo(True)
-   Assert.IsNotNull OL
-
-
+    Assert.That Result, Iz.EqualTo(True)
+    Assert.AreEqual App.IOutlook_NAttachment, 0
+    Assert.IsNotNull OL
 End Sub
 
+Public Sub SendEmailWithAttach()
+    CurrentDb.Execute "INSERT INTO Tbl_Users(ID, UserName, Name, [E-mailAddress]) VALUES (1, 'alberto', 'Alberto', 'alberto.paganini70@gmail.com');"
+    CurrentDb.Execute "INSERT INTO Tbl_Users(ID, UserName, Name, Querywithoutcreditcontroller, Onaccountsstillopen, Whopaidyesterdayroutine, Superuser, EmailSentToSender) VALUES (2, 'aaa', 'admin', False, False, False, False, False);"
+
+    Dim App As clsOutlook
+    Set App = New clsOutlook
+    Dim Expected As Boolean
+    Expected = True
+    Dim Actual As Boolean
+
+    CurrentDb.Execute "INSERT INTO Tbl_Customers(Customer_code, Credit_controller, Name, Address, NextAppointment, Email, ToSendStatement, ToSendRequestRelease, StatementForm, RetailOEM, ToReleaseOrder, Language, FacturaNumberToBePrinted, PullTicketNumberToBePrinted, OriginalInvoiceAmountToBePrinted, [Credit Limit]) VALUES ('Strike Electrical Distributors Limited', 1, 'Strike Electrical Distributors Limited', '245 Green Lane Walsall West Midlands', #17/07/2024#, 'mytest@gmmail.com', False, False, 0, 'Retail', False, 1, False, False, False, 50000);"
+    CurrentDb.Execute "INSERT INTO Tbl_Customers(Customer_code) VALUES ('abc');"
+
+    Dim Header As clsCustomerHeader
+    Set Header = New clsCustomerHeader
+    Call Header.Populate("Strike Electrical Distributors Limited")
+'
+    Dim Details As clsCustomerDetails
+    Set Details = New clsCustomerDetails
+    Call Details.Populate(2, 1, "USD")
+
+
+    Dim Template As String
+    Template = Application.CurrentProject.path()
+    Template = Template & "\Templates\Word\test.docx"
+    Dim stopwatch As clsTimer
+    Set stopwatch = New clsTimer
+    stopwatch.StartTimer
+
+    Dim a As Collection
+    Set a = New Collection
+    a.Add "C:\Users\alberto\OneDrive\Credit Hunter\Tests\Test attachment.txt"
+    Dim Result As Boolean
+    Result = App.IOutlook_SendEmailFromTemplate("Test Subject", Header, Details, a, Template, False)
+    stopwatch.StopAndShowTimer
+
+    Assert.AreEqual App.IOutlook_NAttachment, 1
+    Assert.That Result, Iz.EqualTo(True)
+    Assert.IsNotNull OL
+End Sub
 
 
 

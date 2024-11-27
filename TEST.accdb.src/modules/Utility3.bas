@@ -476,7 +476,7 @@ End Sub
 
 Function FillGeneralCashTargetByEmail() As String
     Dim qdfNew As DAO.QueryDef
-    Dim SqlText As String
+    Dim SQLText As String
     Dim rst2 As Variant
     Dim ExcApp As Excel.Application
     Dim ExcDoc As Excel.Workbook
@@ -492,13 +492,13 @@ Function FillGeneralCashTargetByEmail() As String
 
         Set rst2 = CurrentDb.OpenRecordset("SELECT TOP 1 Tbl_MonthEnd.LatestPaymentDate, Tbl_MonthEnd.FiscalYear, Tbl_MonthEnd.FiscalQuarter, Tbl_MonthEnd.FiscalMonth FROM Tbl_MonthEnd WHERE (((Tbl_MonthEnd.MonthEnd)>=#" & Format(DMax("[Payment Date]", "[Tbl_CashCollected]"), "mm/dd/yy") & "#)) ;")
 
-        SqlText = "SELECT Tbl_CashCollected.FiscalYear, Tbl_CashCollected.FiscalMonth, Tbl_CashCollected.FiscalQuarter, 'Cash Receipts to date (actual)' AS Description, DateValue('01/' & [Tbl_CashCollected].[fiscalmonth] & '/' & [Tbl_CashCollected].[fiscalyear]) AS StartDate, Round(Sum([Tbl_CashCollected].[amount]/1000)) AS TotalAmount FROM Tbl_CashCollected GROUP BY Tbl_CashCollected.FiscalYear, Tbl_CashCollected.FiscalMonth, Tbl_CashCollected.FiscalQuarter, 'Cash Receipts to date (actual)', DateValue('01/' & [Tbl_CashCollected].[fiscalmonth] & '/' & [Tbl_CashCollected].[fiscalyear]) HAVING (((Tbl_CashCollected.FiscalYear)=" & rst2.Fields("FiscalYear") & ") AND ((Tbl_CashCollected.FiscalQuarter)=" & rst2.Fields("FiscalQuarter") & ")); " & _
+        SQLText = "SELECT Tbl_CashCollected.FiscalYear, Tbl_CashCollected.FiscalMonth, Tbl_CashCollected.FiscalQuarter, 'Cash Receipts to date (actual)' AS Description, DateValue('01/' & [Tbl_CashCollected].[fiscalmonth] & '/' & [Tbl_CashCollected].[fiscalyear]) AS StartDate, Round(Sum([Tbl_CashCollected].[amount]/1000)) AS TotalAmount FROM Tbl_CashCollected GROUP BY Tbl_CashCollected.FiscalYear, Tbl_CashCollected.FiscalMonth, Tbl_CashCollected.FiscalQuarter, 'Cash Receipts to date (actual)', DateValue('01/' & [Tbl_CashCollected].[fiscalmonth] & '/' & [Tbl_CashCollected].[fiscalyear]) HAVING (((Tbl_CashCollected.FiscalYear)=" & rst2.Fields("FiscalYear") & ") AND ((Tbl_CashCollected.FiscalQuarter)=" & rst2.Fields("FiscalQuarter") & ")); " & _
                   "UNION SELECT Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalMonth, Tbl_Cash_Target_Breakdown.FiscalQuarter, 'Cash Target' AS Description, DateValue('01/' & [fiscalmonth] & '/' & [fiscalyear]) AS StartDate, Round(([Tbl_Cash_Target_Breakdown].[amount]/[Tbl_Cash_Target_Breakdown].[ExchangeRateToMainCurrency]/1000)) AS TotalAmount FROM Tbl_Cash_Target_Breakdown GROUP BY Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalMonth, Tbl_Cash_Target_Breakdown.FiscalQuarter, 'Cash Target', DateValue('01/' & [fiscalmonth] & '/' & [fiscalyear]), Round(([Tbl_Cash_Target_Breakdown].[amount]/[Tbl_Cash_Target_Breakdown].[ExchangeRateToMainCurrency]/1000)) HAVING (((Tbl_Cash_Target_Breakdown.FiscalYear)=" & rst2.Fields("FiscalYear") & ") AND ((Tbl_Cash_Target_Breakdown.FiscalQuarter)=" & rst2.Fields("FiscalQuarter") & "));"
 
         '    SqlText = "SELECT Tbl_CashCollected.FiscalYear, Tbl_CashCollected.FiscalMonth, Tbl_CashCollected.FiscalQuarter, 'Cash Receipts to date (actual)' AS Description, DateValue('01/' & [Tbl_CashCollected].[fiscalmonth] & '/' & [Tbl_CashCollected].[fiscalyear]) AS StartDate, (Round(Sum([Tbl_CashCollected].[amount]/1000))/" & UDSExchangeRate & ") AS TotalAmount FROM Tbl_CashCollected GROUP BY Tbl_CashCollected.FiscalYear, Tbl_CashCollected.FiscalMonth, Tbl_CashCollected.FiscalQuarter, 'Cash Receipts to date (actual)', DateValue('01/' & [Tbl_CashCollected].[fiscalmonth] & '/' & [Tbl_CashCollected].[fiscalyear]) HAVING (((Tbl_CashCollected.FiscalYear)=" & rst2.Fields("FiscalYear") & ") AND ((Tbl_CashCollected.FiscalQuarter)=" & rst2.Fields("FiscalQuarter") & ")); " & _
         '             "UNION SELECT Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalMonth, Tbl_Cash_Target_Breakdown.FiscalQuarter, 'Cash Target' AS Description, DateValue('01/' & [fiscalmonth] & '/' & [fiscalyear]) AS StartDate, Round((([Tbl_Cash_Target_Breakdown].[Amount] / [Tbl_Cash_Target_Breakdown].[ExchangeRateToMainCurrency] / 1000)) / " & UDSExchangeRate & ") As TotalAmount FROM Tbl_Cash_Target_Breakdown GROUP BY Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalMonth, Tbl_Cash_Target_Breakdown.FiscalQuarter, 'Cash Target', DateValue('01/' & [fiscalmonth] & '/' & [fiscalyear]), Round ((([Tbl_Cash_Target_Breakdown].[Amount] / [Tbl_Cash_Target_Breakdown].[ExchangeRateToMainCurrency] / 1000)) / " & UDSExchangeRate & ") HAVING (((Tbl_Cash_Target_Breakdown.FiscalYear)=" & rst2.Fields("FiscalYear") & ") AND ((Tbl_Cash_Target_Breakdown.FiscalQuarter)=" & rst2.Fields("FiscalQuarter") & "));"
 
-        Set qdfNew = .CreateQueryDef("Query1", SqlText)
+        Set qdfNew = .CreateQueryDef("Query1", SQLText)
         DoCmd.OutputTo acOutputQuery, "Query1", acFormatXLS, GetPathExcelDirectory() & "GeneralCashTarget.xls", False
         .QueryDefs.Delete ("Query1")
 
@@ -631,7 +631,7 @@ End Function
 
 Function FillCashTargetWithChannelByEmail()
     Dim qdfNew As DAO.QueryDef
-    Dim SqlText, StringCurrency As String
+    Dim SQLText, StringCurrency As String
     Dim rst2 As Variant
     Dim rst As Variant
     Dim ExcApp As Excel.Application
@@ -643,13 +643,13 @@ Function FillCashTargetWithChannelByEmail()
         Set rst2 = CurrentDb.OpenRecordset("SELECT TOP 1 Tbl_MonthEnd.LatestPaymentDate, Tbl_MonthEnd.FiscalYear, Tbl_MonthEnd.FiscalQuarter, Tbl_MonthEnd.FiscalMonth FROM Tbl_MonthEnd WHERE (((Tbl_MonthEnd.MonthEnd)>=#" & Format(DMax("[Payment Date]", "[Tbl_CashCollected]"), "mm/dd/yy") & "#)) ;")
 
 
-        SqlText = "SELECT Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalMonth, Tbl_Cash_Target_Breakdown.FiscalQuarter, 'Cash Target' AS Description, DateValue('01/' & [fiscalmonth] & '/' & [fiscalyear]) AS StartDate, round((([Tbl_Cash_Target_Breakdown].[amount] / [Tbl_Cash_Target_Breakdown].[ExchangeRateToMainCurrency])/1000)) AS TotalAmount, Tbl_Cash_Target_Breakdown.Channel FROM Tbl_Cash_Target_Breakdown GROUP BY Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalMonth, Tbl_Cash_Target_Breakdown.FiscalQuarter, 'Cash Target', DateValue('01/' & [fiscalmonth] & '/' & [fiscalyear]), Round(([Tbl_Cash_Target_Breakdown].[amount]/[Tbl_Cash_Target_Breakdown].[ExchangeRateToMainCurrency]/1000)) , Tbl_Cash_Target_Breakdown.Channel HAVING (((Tbl_Cash_Target_Breakdown.FiscalYear)=" & rst2.Fields("FiscalYear") & ") AND ((Tbl_Cash_Target_Breakdown.FiscalQuarter)=" & rst2.Fields("FiscalQuarter") & ")); " & _
+        SQLText = "SELECT Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalMonth, Tbl_Cash_Target_Breakdown.FiscalQuarter, 'Cash Target' AS Description, DateValue('01/' & [fiscalmonth] & '/' & [fiscalyear]) AS StartDate, round((([Tbl_Cash_Target_Breakdown].[amount] / [Tbl_Cash_Target_Breakdown].[ExchangeRateToMainCurrency])/1000)) AS TotalAmount, Tbl_Cash_Target_Breakdown.Channel FROM Tbl_Cash_Target_Breakdown GROUP BY Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalMonth, Tbl_Cash_Target_Breakdown.FiscalQuarter, 'Cash Target', DateValue('01/' & [fiscalmonth] & '/' & [fiscalyear]), Round(([Tbl_Cash_Target_Breakdown].[amount]/[Tbl_Cash_Target_Breakdown].[ExchangeRateToMainCurrency]/1000)) , Tbl_Cash_Target_Breakdown.Channel HAVING (((Tbl_Cash_Target_Breakdown.FiscalYear)=" & rst2.Fields("FiscalYear") & ") AND ((Tbl_Cash_Target_Breakdown.FiscalQuarter)=" & rst2.Fields("FiscalQuarter") & ")); " & _
                   "UNION SELECT Tbl_CashCollected.FiscalYear, Tbl_CashCollected.FiscalMonth, Tbl_CashCollected.FiscalQuarter, 'Cash Receipts to date (actual)' AS Description, DateValue('01/' & [Tbl_CashCollected].[fiscalmonth] & '/' & [Tbl_CashCollected].[fiscalyear]) AS StartDate, Round(Sum([Tbl_CashCollected].[amount]/1000)) AS TotalAmount, Tbl_Customers.RetailOEM AS Channel FROM Tbl_CashCollected LEFT JOIN Tbl_Customers ON Tbl_CashCollected.CustomerID = Tbl_Customers.Customer_code " & _
                   "GROUP BY Tbl_CashCollected.FiscalYear, Tbl_CashCollected.FiscalMonth, Tbl_CashCollected.FiscalQuarter, 'Cash Receipts to date (actual)', DateValue('01/' & [Tbl_CashCollected].[fiscalmonth] & '/' & [Tbl_CashCollected].[fiscalyear]), Tbl_Customers.RetailOEM HAVING (((Tbl_CashCollected.FiscalYear)=" & rst2.Fields("FiscalYear") & ") AND ((Tbl_CashCollected.FiscalQuarter)=" & rst2.Fields("FiscalQuarter") & "));"
 
         'Round(([Tbl_Cash_Target_Breakdown].[amount]*[Tbl_Cash_Target_Breakdown].[ExchangeRateToMainCurrency]/1000))
 
-        Set qdfNew = .CreateQueryDef("Query1", SqlText)
+        Set qdfNew = .CreateQueryDef("Query1", SQLText)
         DoCmd.OutputTo acOutputQuery, "Query1", acFormatXLS, GetPathExcelDirectory() & "GeneralCashTargetWithChannel.xls"
         .QueryDefs.Delete ("Query1")
 
@@ -837,7 +837,7 @@ End Function
 
 Function FillCashTargetWithCurrencyByEmail()
     Dim qdfNew As DAO.QueryDef
-    Dim SqlText, StringCurrency As String
+    Dim SQLText, StringCurrency As String
     Dim rst2 As Variant
     Dim rst As Variant
     Dim rst3 As Variant
@@ -849,11 +849,11 @@ Function FillCashTargetWithCurrencyByEmail()
     With CurrentDb
         Set rst2 = CurrentDb.OpenRecordset("SELECT TOP 1 Tbl_MonthEnd.LatestPaymentDate, Tbl_MonthEnd.FiscalYear, Tbl_MonthEnd.FiscalQuarter, Tbl_MonthEnd.FiscalMonth FROM Tbl_MonthEnd WHERE (((Tbl_MonthEnd.MonthEnd)>=#" & Format(DMax("[Payment Date]", "[Tbl_CashCollected]"), "mm/dd/yy") & "#)) ;")
 
-        SqlText = "SELECT Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalMonth, Tbl_Cash_Target_Breakdown.FiscalQuarter, 'Cash Target' AS Description, DateValue('01/' & [fiscalmonth] & '/' & [fiscalyear]) AS StartDate, Round(([Tbl_Cash_Target_Breakdown].[amount]/[Tbl_Cash_Target_Breakdown].[ExchangeRateToMainCurrency]/1000))  AS TotalAmount, Tbl_Cash_Target_Breakdown.OriginalCurrency FROM Tbl_Cash_Target_Breakdown GROUP BY Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalMonth, Tbl_Cash_Target_Breakdown.FiscalQuarter, 'Cash Target', DateValue('01/' & [fiscalmonth] & '/' & [fiscalyear]), Tbl_Cash_Target_Breakdown.OriginalCurrency, Round(([Tbl_Cash_Target_Breakdown].[amount]/[Tbl_Cash_Target_Breakdown].[ExchangeRateToMainCurrency]/1000)) HAVING (((Tbl_Cash_Target_Breakdown.FiscalYear)=" & rst2.Fields("FiscalYear") & ") AND ((Tbl_Cash_Target_Breakdown.FiscalQuarter)=" & rst2.Fields("FiscalQuarter") & "));" & _
+        SQLText = "SELECT Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalMonth, Tbl_Cash_Target_Breakdown.FiscalQuarter, 'Cash Target' AS Description, DateValue('01/' & [fiscalmonth] & '/' & [fiscalyear]) AS StartDate, Round(([Tbl_Cash_Target_Breakdown].[amount]/[Tbl_Cash_Target_Breakdown].[ExchangeRateToMainCurrency]/1000))  AS TotalAmount, Tbl_Cash_Target_Breakdown.OriginalCurrency FROM Tbl_Cash_Target_Breakdown GROUP BY Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalMonth, Tbl_Cash_Target_Breakdown.FiscalQuarter, 'Cash Target', DateValue('01/' & [fiscalmonth] & '/' & [fiscalyear]), Tbl_Cash_Target_Breakdown.OriginalCurrency, Round(([Tbl_Cash_Target_Breakdown].[amount]/[Tbl_Cash_Target_Breakdown].[ExchangeRateToMainCurrency]/1000)) HAVING (((Tbl_Cash_Target_Breakdown.FiscalYear)=" & rst2.Fields("FiscalYear") & ") AND ((Tbl_Cash_Target_Breakdown.FiscalQuarter)=" & rst2.Fields("FiscalQuarter") & "));" & _
                   "UNION SELECT Tbl_CashCollected.FiscalYear, Tbl_CashCollected.FiscalMonth, Tbl_CashCollected.FiscalQuarter, 'Cash Receipts to date (actual)' AS Description, DateValue('01/' & [Tbl_CashCollected].[fiscalmonth] & '/' & [Tbl_CashCollected].[fiscalyear]) AS StartDate, Round(Sum([Tbl_CashCollected].[amount]/1000)) AS TotalAmount, Tbl_CashCollected.Currency AS OriginalCurrency FROM Tbl_CashCollected LEFT JOIN Tbl_Customers ON Tbl_CashCollected.CustomerID = Tbl_Customers.Customer_code GROUP BY Tbl_CashCollected.FiscalYear, Tbl_CashCollected.FiscalMonth, Tbl_CashCollected.FiscalQuarter, 'Cash Receipts to date (actual)', DateValue('01/' & [Tbl_CashCollected].[fiscalmonth] & '/' & [Tbl_CashCollected].[fiscalyear]), Tbl_CashCollected.Currency HAVING (((Tbl_CashCollected.FiscalYear)=" & rst2.Fields("FiscalYear") & ") AND ((Tbl_CashCollected.FiscalQuarter)=" & rst2.Fields("FiscalQuarter") & "));"
 
 
-        Set qdfNew = .CreateQueryDef("Query1", SqlText)
+        Set qdfNew = .CreateQueryDef("Query1", SQLText)
         DoCmd.OutputTo acOutputQuery, "Query1", acFormatXLS, GetPathExcelDirectory() & "GeneralCashTargetWithCurrency.xls"
         .QueryDefs.Delete ("Query1")
 
@@ -1457,7 +1457,7 @@ End Sub
 
 Function FillGeneralCashTargetByEmailInUSD() As String
     Dim qdfNew As DAO.QueryDef
-    Dim SqlText As String
+    Dim SQLText As String
     Dim rst2 As Variant
     Dim ExcApp As Excel.Application
     Dim ExcDoc As Excel.Workbook
@@ -1473,17 +1473,17 @@ Function FillGeneralCashTargetByEmailInUSD() As String
 
         Set rst2 = CurrentDb.OpenRecordset("SELECT TOP 1 Tbl_MonthEnd.LatestPaymentDate, Tbl_MonthEnd.FiscalYear, Tbl_MonthEnd.FiscalQuarter, Tbl_MonthEnd.FiscalMonth FROM Tbl_MonthEnd WHERE (((Tbl_MonthEnd.MonthEnd)>=#" & Format(DMax("[Payment Date]", "[Tbl_CashCollected]"), "mm/dd/yy") & "#)) ;")
 
-        SqlText = "SELECT Tbl_CashCollected.FiscalYear, Tbl_CashCollected.FiscalMonth, Tbl_CashCollected.FiscalQuarter, 'Cash Receipts to date (actual)' AS Description, DateValue('01/' & [Tbl_CashCollected].[fiscalmonth] & '/' & [Tbl_CashCollected].[fiscalyear]) AS StartDate, Round(Sum([Tbl_CashCollected].[AmountInUSD]/1000)) AS TotalAmount FROM Tbl_CashCollected GROUP BY Tbl_CashCollected.FiscalYear, Tbl_CashCollected.FiscalMonth, Tbl_CashCollected.FiscalQuarter, 'Cash Receipts to date (actual)', DateValue('01/' & [Tbl_CashCollected].[fiscalmonth] & '/' & [Tbl_CashCollected].[fiscalyear]) HAVING (((Tbl_CashCollected.FiscalYear)=" & rst2.Fields("FiscalYear") & ") AND ((Tbl_CashCollected.FiscalQuarter)=" & rst2.Fields("FiscalQuarter") & ")); " & _
+        SQLText = "SELECT Tbl_CashCollected.FiscalYear, Tbl_CashCollected.FiscalMonth, Tbl_CashCollected.FiscalQuarter, 'Cash Receipts to date (actual)' AS Description, DateValue('01/' & [Tbl_CashCollected].[fiscalmonth] & '/' & [Tbl_CashCollected].[fiscalyear]) AS StartDate, Round(Sum([Tbl_CashCollected].[AmountInUSD]/1000)) AS TotalAmount FROM Tbl_CashCollected GROUP BY Tbl_CashCollected.FiscalYear, Tbl_CashCollected.FiscalMonth, Tbl_CashCollected.FiscalQuarter, 'Cash Receipts to date (actual)', DateValue('01/' & [Tbl_CashCollected].[fiscalmonth] & '/' & [Tbl_CashCollected].[fiscalyear]) HAVING (((Tbl_CashCollected.FiscalYear)=" & rst2.Fields("FiscalYear") & ") AND ((Tbl_CashCollected.FiscalQuarter)=" & rst2.Fields("FiscalQuarter") & ")); " & _
                   "UNION SELECT Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalMonth, Tbl_Cash_Target_Breakdown.FiscalQuarter, 'Cash Target' AS Description, DateValue('01/' & [fiscalmonth] & '/' & [fiscalyear]) AS StartDate, Round(([Tbl_Cash_Target_Breakdown].[AmountInUSD]/1000)) AS TotalAmount FROM Tbl_Cash_Target_Breakdown GROUP BY Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalMonth, Tbl_Cash_Target_Breakdown.FiscalQuarter, 'Cash Target', DateValue('01/' & [fiscalmonth] & '/' & [fiscalyear]), Round(([Tbl_Cash_Target_Breakdown].[amount]/[Tbl_Cash_Target_Breakdown].[AmountInUSD]/1000)) HAVING (((Tbl_Cash_Target_Breakdown.FiscalYear)=" & rst2.Fields("FiscalYear") & ") AND ((Tbl_Cash_Target_Breakdown.FiscalQuarter)=" & rst2.Fields("FiscalQuarter") & "));"
 
-        SqlText = "SELECT Tbl_CashCollected.FiscalYear, Tbl_CashCollected.FiscalMonth, Tbl_CashCollected.FiscalQuarter, 'Cash Receipts to date (actual)' AS Description, DateValue('01/' & [Tbl_CashCollected].[fiscalmonth] & '/' & [Tbl_CashCollected].[fiscalyear]) AS StartDate, Round(Sum([Tbl_CashCollected].[AmountInUSD]/1000)) AS TotalAmount FROM Tbl_CashCollected GROUP BY Tbl_CashCollected.FiscalYear, Tbl_CashCollected.FiscalMonth, Tbl_CashCollected.FiscalQuarter, 'Cash Receipts to date (actual)', DateValue('01/' & [Tbl_CashCollected].[fiscalmonth] & '/' & [Tbl_CashCollected].[fiscalyear]) HAVING (((Tbl_CashCollected.FiscalYear)=" & rst2.Fields("FiscalYear") & ") AND ((Tbl_CashCollected.FiscalQuarter)=" & rst2.Fields("FiscalQuarter") & ")); " & _
+        SQLText = "SELECT Tbl_CashCollected.FiscalYear, Tbl_CashCollected.FiscalMonth, Tbl_CashCollected.FiscalQuarter, 'Cash Receipts to date (actual)' AS Description, DateValue('01/' & [Tbl_CashCollected].[fiscalmonth] & '/' & [Tbl_CashCollected].[fiscalyear]) AS StartDate, Round(Sum([Tbl_CashCollected].[AmountInUSD]/1000)) AS TotalAmount FROM Tbl_CashCollected GROUP BY Tbl_CashCollected.FiscalYear, Tbl_CashCollected.FiscalMonth, Tbl_CashCollected.FiscalQuarter, 'Cash Receipts to date (actual)', DateValue('01/' & [Tbl_CashCollected].[fiscalmonth] & '/' & [Tbl_CashCollected].[fiscalyear]) HAVING (((Tbl_CashCollected.FiscalYear)=" & rst2.Fields("FiscalYear") & ") AND ((Tbl_CashCollected.FiscalQuarter)=" & rst2.Fields("FiscalQuarter") & ")); " & _
                   "UNION SELECT Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalMonth, Tbl_Cash_Target_Breakdown.FiscalQuarter, 'Cash Target' AS Description, DateValue('01/' & [fiscalmonth] & '/' & [fiscalyear]) AS StartDate, Round(([Tbl_Cash_Target_Breakdown].[AmountInUSD]/1000)) AS TotalAmount FROM Tbl_Cash_Target_Breakdown GROUP BY Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalMonth, Tbl_Cash_Target_Breakdown.FiscalQuarter, 'Cash Target', DateValue('01/' & [fiscalmonth] & '/' & [fiscalyear]), Round(([Tbl_Cash_Target_Breakdown].[AmountInUSD]/1000)) HAVING (((Tbl_Cash_Target_Breakdown.FiscalYear)=" & rst2.Fields("FiscalYear") & ") AND ((Tbl_Cash_Target_Breakdown.FiscalQuarter)=" & rst2.Fields("FiscalQuarter") & "));"
 
 
         '    SqlText = "SELECT Tbl_CashCollected.FiscalYear, Tbl_CashCollected.FiscalMonth, Tbl_CashCollected.FiscalQuarter, 'Cash Receipts to date (actual)' AS Description, DateValue('01/' & [Tbl_CashCollected].[fiscalmonth] & '/' & [Tbl_CashCollected].[fiscalyear]) AS StartDate, (Round(Sum([Tbl_CashCollected].[amount]/1000))/" & UDSExchangeRate & ") AS TotalAmount FROM Tbl_CashCollected GROUP BY Tbl_CashCollected.FiscalYear, Tbl_CashCollected.FiscalMonth, Tbl_CashCollected.FiscalQuarter, 'Cash Receipts to date (actual)', DateValue('01/' & [Tbl_CashCollected].[fiscalmonth] & '/' & [Tbl_CashCollected].[fiscalyear]) HAVING (((Tbl_CashCollected.FiscalYear)=" & rst2.Fields("FiscalYear") & ") AND ((Tbl_CashCollected.FiscalQuarter)=" & rst2.Fields("FiscalQuarter") & ")); " & _
         '             "UNION SELECT Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalMonth, Tbl_Cash_Target_Breakdown.FiscalQuarter, 'Cash Target' AS Description, DateValue('01/' & [fiscalmonth] & '/' & [fiscalyear]) AS StartDate, Round((([Tbl_Cash_Target_Breakdown].[Amount] / [Tbl_Cash_Target_Breakdown].[ExchangeRateToMainCurrency] / 1000)) / " & UDSExchangeRate & ") As TotalAmount FROM Tbl_Cash_Target_Breakdown GROUP BY Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalMonth, Tbl_Cash_Target_Breakdown.FiscalQuarter, 'Cash Target', DateValue('01/' & [fiscalmonth] & '/' & [fiscalyear]), Round ((([Tbl_Cash_Target_Breakdown].[Amount] / [Tbl_Cash_Target_Breakdown].[ExchangeRateToMainCurrency] / 1000)) / " & UDSExchangeRate & ") HAVING (((Tbl_Cash_Target_Breakdown.FiscalYear)=" & rst2.Fields("FiscalYear") & ") AND ((Tbl_Cash_Target_Breakdown.FiscalQuarter)=" & rst2.Fields("FiscalQuarter") & "));"
 
-        Set qdfNew = .CreateQueryDef("Query1", SqlText)
+        Set qdfNew = .CreateQueryDef("Query1", SQLText)
         DoCmd.OutputTo acOutputQuery, "Query1", acFormatXLS, GetPathExcelDirectory() & "GeneralCashTargetInUSD.xls", False
         .QueryDefs.Delete ("Query1")
 

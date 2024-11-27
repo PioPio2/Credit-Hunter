@@ -231,7 +231,7 @@ On Error Resume Next
     doc.Send False
 End Function
 
-Sub test()
+Sub Test()
 Dim strTo, strcc As String        'The sendee(s) Needs to be fully qualified address. Other names seperated by commas
 Dim strSubject As String    'The subject of the mail. Can be "" if no subject needed
 Dim strBody As String       'The main body text of the message. Use "" if no text is to be included.

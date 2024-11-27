@@ -6,5 +6,5 @@ Sub DeleteTables()
 'currentdb.Execute "sql....."
 CurrentDb.Execute "DELETE Tbl_Customers.* FROM Tbl_Customers;"
 CurrentDb.Execute "DELETE Tbl_Users.* FROM Tbl_Users;"
-
+CurrentDb.Execute "DELETE Tbl_CustomersList.* FROM Tbl_CustomersList;"
 End Sub
