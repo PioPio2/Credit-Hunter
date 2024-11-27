@@ -6,7 +6,7 @@
   "Items": {
     "MergeBuildDate": null,
     "FullBuildDate": null,
-    "ExportDate": "2024-11-26T22:19:29.000Z",
+    "ExportDate": "2024-11-27T23:44:20.000Z",
     "FullExportDate": "2024-11-26T21:38:03.000Z",
     "OptionsHash": "d620f90",
     "LastMergedCommit": "",
@@ -361,11 +361,11 @@
           "FilePropertiesHash": "53c2f2e"
         },
         "MskWhoPaidYesterday2.bas": {
-          "FileHash": "06bf5cc",
+          "FileHash": "1d61202",
           "OtherHash": "1482c09",
-          "ExportDate": "2024-11-26T21:57:41.000Z",
+          "ExportDate": "2024-11-27T23:44:16.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "6e5c6b1"
+          "FilePropertiesHash": "09ca518"
         },
         "OLDSottomascheraTbl_credit_check_failures.bas": {
           "FileHash": "51fccbe",
@@ -1090,27 +1090,33 @@
         },
         "QueryInvoicesClosedInLastDate.bas": {
           "FileHash": "9a37dbb",
-          "ExportDate": "2024-11-26T21:57:41.000Z",
+          "ExportDate": "2024-11-27T23:44:16.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "96b0216"
+          "FilePropertiesHash": "434f932"
         },
         "QueryInvoicesLastDate.bas": {
           "FileHash": "82f8758",
-          "ExportDate": "2024-11-26T21:57:41.000Z",
+          "ExportDate": "2024-11-27T23:44:16.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "8c7b263"
+          "FilePropertiesHash": "48718db"
         },
         "QueryInvoicesPreviousDate.bas": {
           "FileHash": "43b2932",
-          "ExportDate": "2024-11-26T21:57:41.000Z",
+          "ExportDate": "2024-11-27T23:44:16.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "4f7ea96"
+          "FilePropertiesHash": "76c7903"
         },
         "QueryLastPayments.bas": {
           "FileHash": "7f7ba4a",
           "ExportDate": "2024-11-26T21:38:31.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "6b52ef4"
+        },
+        "QueryMultipleStatements.bas": {
+          "FileHash": "2e720fb",
+          "ExportDate": "2024-11-27T23:44:16.000Z",
+          "SourceModified": null,
+          "FilePropertiesHash": "9948b0a"
         },
         "QueryNewCControllersAndChannels.bas": {
           "FileHash": "cc70946",
