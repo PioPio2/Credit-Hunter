@@ -1,0 +1,21 @@
+﻿CREATE TABLE [Tbl_Invoices] (
+  [ID] AUTOINCREMENT CONSTRAINT [ID] UNIQUE,
+  [Customer_ID] VARCHAR (255),
+  [Update_date] DATETIME,
+  [Date] DATETIME,
+  [Document_Number] VARCHAR (24),
+  [Customer_reference] VARCHAR (50),
+  [SONumber] VARCHAR (25),
+  [Type] VARCHAR (255),
+  [OriginalAmount] CURRENCY,
+  [Amount] CURRENCY,
+  [Overdue_Date] DATETIME,
+  [Currency] VARCHAR (3),
+  [Query] LONG,
+  [mEMO] LONGTEXT,
+  [QueryDate] DATETIME,
+  [QueryToBePrinted] BIT,
+  [Attachment] BIT,
+  [CustomsInvoiceNumber] VARCHAR (25),
+  [PullTicketN#] VARCHAR (18)
+)

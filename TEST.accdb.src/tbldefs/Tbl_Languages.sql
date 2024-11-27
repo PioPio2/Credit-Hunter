@@ -1,0 +1,4 @@
+﻿CREATE TABLE [Tbl_Languages] (
+  [ID] AUTOINCREMENT CONSTRAINT [ID] UNIQUE,
+  [Language] VARCHAR (50)
+)

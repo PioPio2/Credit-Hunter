@@ -1,0 +1,15 @@
+﻿CREATE TABLE [Tbl_Banks] (
+  [Country] VARCHAR (2),
+  [USDLine1] VARCHAR (50),
+  [USDLine2] VARCHAR (50),
+  [USDLine3] VARCHAR (50),
+  [USDLine4] VARCHAR (50),
+  [EURLine1] VARCHAR (50),
+  [EURLine2] VARCHAR (50),
+  [EURLine3] VARCHAR (50),
+  [EURLine4] VARCHAR (50),
+  [GBPLine1] VARCHAR (50),
+  [GBPLine2] VARCHAR (50),
+  [GBPLine3] VARCHAR (50),
+  [GBPLine4] VARCHAR (50)
+)

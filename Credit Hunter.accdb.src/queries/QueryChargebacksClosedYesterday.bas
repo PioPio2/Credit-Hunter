@@ -1,0 +1,26 @@
+﻿dbMemo "SQL" ="SELECT QueryChargebacksOpenNow.Customer_ID, Tbl_Customers.Name, QueryChargebacks"
+    "OpenPreviousDate.Document_Number, QueryChargebacksOpenPreviousDate.*\015\012FROM"
+    " (QueryChargebacksOpenPreviousDate LEFT JOIN QueryChargebacksOpenNow ON (QueryCh"
+    "argebacksOpenPreviousDate.Document_Number=QueryChargebacksOpenNow.Document_Numbe"
+    "r) AND (QueryChargebacksOpenPreviousDate.Customer_ID=QueryChargebacksOpenNow.Cus"
+    "tomer_ID)) INNER JOIN Tbl_Customers ON QueryChargebacksOpenPreviousDate.Customer"
+    "_ID=Tbl_Customers.Customer_code\015\012WHERE (((QueryChargebacksOpenNow.Customer"
+    "_ID) Is Null))\015\012ORDER BY QueryChargebacksOpenPreviousDate.Document_Number;"
+    "\015\012"
+dbMemo "Connect" =""
+dbBoolean "ReturnsRecords" ="-1"
+dbInteger "ODBCTimeout" ="60"
+dbByte "RecordsetType" ="0"
+dbBoolean "OrderByOn" ="0"
+dbByte "Orientation" ="0"
+dbByte "DefaultView" ="2"
+dbBoolean "FilterOnLoad" ="0"
+dbBoolean "OrderByOnLoad" ="-1"
+Begin
+    Begin
+        dbText "Name" ="QueryChargebacksOpenNow.Customer_ID"
+        dbInteger "ColumnWidth" ="4635"
+        dbBoolean "ColumnHidden" ="0"
+        dbLong "AggregateType" ="-1"
+    End
+End

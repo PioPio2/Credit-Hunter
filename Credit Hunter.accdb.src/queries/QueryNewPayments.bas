@@ -1,0 +1,28 @@
+﻿dbMemo "SQL" ="UPDATE (QueryInvoicesPreviousDate LEFT JOIN QueryInvoicesLastDate ON (QueryInvoi"
+    "cesPreviousDate.Document_Number=QueryInvoicesLastDate.Document_Number) AND (Quer"
+    "yInvoicesPreviousDate.Date=QueryInvoicesLastDate.Date) AND (QueryInvoicesPreviou"
+    "sDate.Customer_ID=QueryInvoicesLastDate.Customer_ID)) INNER JOIN Tbl_Invoices_Hi"
+    "story ON (QueryInvoicesPreviousDate.Customer_ID=Tbl_Invoices_History.Customer_ID"
+    ") AND (QueryInvoicesPreviousDate.Date=Tbl_Invoices_History.Date) AND (QueryInvoi"
+    "cesPreviousDate.Document_Number=Tbl_Invoices_History.Document_Number) SET Tbl_In"
+    "voices_History.[mEMO] = Date()\015\012WHERE (((QueryInvoicesLastDate.Tbl_Invoice"
+    "s.Update_date) Is Null));\015\012"
+dbMemo "Connect" =""
+dbBoolean "ReturnsRecords" ="-1"
+dbInteger "ODBCTimeout" ="60"
+dbByte "RecordsetType" ="0"
+dbBoolean "OrderByOn" ="0"
+dbByte "Orientation" ="0"
+dbByte "DefaultView" ="2"
+dbBoolean "UseTransaction" ="-1"
+dbBoolean "FailOnError" ="0"
+dbBoolean "FilterOnLoad" ="0"
+dbBoolean "OrderByOnLoad" ="-1"
+Begin
+    Begin
+        dbText "Name" ="QueryInvoicesLastDate.Tbl_Invoices.Update_date"
+        dbInteger "ColumnWidth" ="2745"
+        dbBoolean "ColumnHidden" ="0"
+        dbLong "AggregateType" ="-1"
+    End
+End

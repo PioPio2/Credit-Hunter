@@ -1,0 +1,4 @@
+﻿CREATE TABLE [Tbl_EmailSoftware] (
+  [ID] AUTOINCREMENT CONSTRAINT [ID] UNIQUE,
+  [Software] VARCHAR (255)
+)

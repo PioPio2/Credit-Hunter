@@ -1,0 +1,5 @@
+﻿CREATE TABLE [Tbl_WhoPaidYesterday] (
+  [ID] AUTOINCREMENT CONSTRAINT [ID] UNIQUE CONSTRAINT [PrimaryKey] PRIMARY KEY UNIQUE NOT NULL,
+  [ToSentStatement] BIT,
+  [Customer_ID] VARCHAR (255)
+)

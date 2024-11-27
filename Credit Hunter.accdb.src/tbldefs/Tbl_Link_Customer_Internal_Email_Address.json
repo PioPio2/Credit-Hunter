@@ -1,0 +1,12 @@
+﻿{
+  "Info": {
+    "Class": "clsDbTableDef",
+    "Description": "Linked Table"
+  },
+  "Items": {
+    "Name": "Tbl_Link_Customer_Internal_Email_Address",
+    "Connect": ";DATABASE=rel:db\\db2.mdb",
+    "SourceTableName": "Tbl_Link_Customer_Internal_Email_Address",
+    "Attributes": 1073741824
+  }
+}

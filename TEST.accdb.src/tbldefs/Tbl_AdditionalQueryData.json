@@ -1,0 +1,12 @@
+﻿{
+  "Info": {
+    "Class": "clsDbTableDef",
+    "Description": "Linked Table"
+  },
+  "Items": {
+    "Name": "Tbl_AdditionalQueryData",
+    "Connect": ";DATABASE=rel:db\\TEST db2.mdb",
+    "SourceTableName": "Tbl_AdditionalQueryData",
+    "Attributes": 1073741824
+  }
+}

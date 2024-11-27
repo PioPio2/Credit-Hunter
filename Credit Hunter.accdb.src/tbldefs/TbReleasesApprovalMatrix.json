@@ -1,0 +1,12 @@
+﻿{
+  "Info": {
+    "Class": "clsDbTableDef",
+    "Description": "Linked Table"
+  },
+  "Items": {
+    "Name": "TbReleasesApprovalMatrix",
+    "Connect": ";DATABASE=rel:db\\db2.mdb",
+    "SourceTableName": "TbReleasesApprovalMatrix",
+    "Attributes": 1073741824
+  }
+}

@@ -1,0 +1,15 @@
+﻿dbMemo "SQL" ="SELECT Tbl_Invoices.*, Tbl_Types.ToFillChargbackFile, Tbl_Invoices.Update_date\015"
+    "\012FROM Tbl_Invoices INNER JOIN Tbl_Types ON Tbl_Invoices.Type=Tbl_Types.ID\015"
+    "\012WHERE (((Tbl_Types.ToFillChargbackFile)=True) And ((Tbl_Invoices.Update_date"
+    ")=#4/6/2010#));\015\012"
+dbMemo "Connect" =""
+dbBoolean "ReturnsRecords" ="-1"
+dbInteger "ODBCTimeout" ="60"
+dbByte "RecordsetType" ="0"
+dbBoolean "OrderByOn" ="0"
+dbByte "Orientation" ="0"
+dbByte "DefaultView" ="2"
+dbBoolean "FilterOnLoad" ="0"
+dbBoolean "OrderByOnLoad" ="-1"
+Begin
+End

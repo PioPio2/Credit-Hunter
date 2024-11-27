@@ -1,0 +1,4 @@
+﻿CREATE TABLE [TblMain] (
+  [ID] AUTOINCREMENT,
+  [Release] LONGTEXT
+)

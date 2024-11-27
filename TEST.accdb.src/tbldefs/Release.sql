@@ -1,0 +1,6 @@
+﻿CREATE TABLE [Release] (
+  [ID] AUTOINCREMENT CONSTRAINT [PrimaryKey] PRIMARY KEY UNIQUE NOT NULL,
+  [rel] VARCHAR (50),
+  [CodeRelease] VARCHAR (50),
+  [ReleaseDate] DATETIME
+)

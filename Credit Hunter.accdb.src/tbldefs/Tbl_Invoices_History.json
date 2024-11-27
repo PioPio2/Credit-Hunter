@@ -1,0 +1,12 @@
+﻿{
+  "Info": {
+    "Class": "clsDbTableDef",
+    "Description": "Linked Table"
+  },
+  "Items": {
+    "Name": "Tbl_Invoices_History",
+    "Connect": ";DATABASE=rel:db\\db2.mdb",
+    "SourceTableName": "Tbl_Invoices_History",
+    "Attributes": 1073741824
+  }
+}

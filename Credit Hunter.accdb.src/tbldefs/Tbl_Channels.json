@@ -1,0 +1,12 @@
+﻿{
+  "Info": {
+    "Class": "clsDbTableDef",
+    "Description": "Linked Table"
+  },
+  "Items": {
+    "Name": "Tbl_Channels",
+    "Connect": ";DATABASE=rel:db\\db2.mdb",
+    "SourceTableName": "Tbl_Channels",
+    "Attributes": 1073741824
+  }
+}

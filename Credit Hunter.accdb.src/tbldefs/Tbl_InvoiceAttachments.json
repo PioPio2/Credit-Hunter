@@ -1,0 +1,12 @@
+﻿{
+  "Info": {
+    "Class": "clsDbTableDef",
+    "Description": "Linked Table"
+  },
+  "Items": {
+    "Name": "Tbl_InvoiceAttachments",
+    "Connect": ";DATABASE=rel:db\\db2.mdb",
+    "SourceTableName": "Tbl_InvoiceAttachments",
+    "Attributes": 1073741824
+  }
+}

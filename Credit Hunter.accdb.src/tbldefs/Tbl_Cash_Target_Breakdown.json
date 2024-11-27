@@ -1,0 +1,12 @@
+﻿{
+  "Info": {
+    "Class": "clsDbTableDef",
+    "Description": "Linked Table"
+  },
+  "Items": {
+    "Name": "Tbl_Cash_Target_Breakdown",
+    "Connect": ";DATABASE=rel:db\\db2.mdb",
+    "SourceTableName": "Tbl_Cash_Target_Breakdown",
+    "Attributes": 1073741824
+  }
+}

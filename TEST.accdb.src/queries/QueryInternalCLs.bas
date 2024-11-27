@@ -1,0 +1,17 @@
+﻿dbMemo "SQL" ="SELECT Tbl_Countries.Country, Tbl_Countries.Area, Tbl_Customers.Country, Tbl_Cus"
+    "tomers.Customer_code, Tbl_Customers.Name, Tbl_CL.CreditLimit, Tbl_Customers.Stat"
+    "us\015\012FROM (Tbl_Customers LEFT JOIN Tbl_CL ON Tbl_Customers.Customer_code=Tb"
+    "l_CL.Customer_code) LEFT JOIN Tbl_Countries ON Tbl_Customers.Country=Tbl_Countri"
+    "es.Code\015\012ORDER BY Tbl_Countries.Area;\015\012"
+dbMemo "Connect" =""
+dbBoolean "ReturnsRecords" ="-1"
+dbInteger "ODBCTimeout" ="60"
+dbByte "RecordsetType" ="0"
+dbBoolean "OrderByOn" ="-1"
+dbByte "Orientation" ="0"
+dbByte "DefaultView" ="2"
+dbMemo "OrderBy" ="QueryInternalCLs.Tbl_Customers.Country"
+dbBoolean "FilterOnLoad" ="0"
+dbBoolean "OrderByOnLoad" ="-1"
+Begin
+End

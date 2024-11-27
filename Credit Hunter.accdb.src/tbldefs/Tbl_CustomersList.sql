@@ -1,0 +1,4 @@
+﻿CREATE TABLE [Tbl_CustomersList] (
+  [ID] AUTOINCREMENT CONSTRAINT [PrimaryKey] PRIMARY KEY UNIQUE NOT NULL,
+  [Customer] VARCHAR (255)
+)

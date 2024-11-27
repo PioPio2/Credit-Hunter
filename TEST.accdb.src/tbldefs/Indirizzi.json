@@ -1,0 +1,12 @@
+﻿{
+  "Info": {
+    "Class": "clsDbTableDef",
+    "Description": "Linked Table"
+  },
+  "Items": {
+    "Name": "Indirizzi",
+    "Connect": ";DATABASE=rel:db\\TEST db2.mdb",
+    "SourceTableName": "Indirizzi",
+    "Attributes": 1073741824
+  }
+}
