@@ -34,7 +34,7 @@ Dim qdef As DAO.QueryDef
 Dim RS As DAO.Recordset
 Dim CustomerLastDate As Date
 Public NextMonthEnd As Date
-Function NumMaxRows(path As String, SheetName As String, Optional Start) As Integer
+Function NumMaxRows(Path As String, SheetName As String, Optional Start) As Integer
     Dim MyXl As Excel.Application
     Dim Min, Max As Long
     Dim SheetNumber, I As Integer
@@ -42,7 +42,7 @@ Function NumMaxRows(path As String, SheetName As String, Optional Start) As Inte
     Max = 65000
     Set MyXl = CreateObject("excel.application")
 Rem    path = "c:\a\a.xls"
-    MyXl.Workbooks.Open path
+    MyXl.Workbooks.Open Path
     MyXl.Visible = False
     SheetNumber = 0
     If SheetName = "" Then

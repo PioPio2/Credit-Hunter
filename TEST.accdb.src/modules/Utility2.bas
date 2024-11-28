@@ -500,11 +500,11 @@ Dim intPos As Integer
     End If
 End Function
 
-Private Function FixPath(ByVal path As String) As String
-    If Right$(path, 1) <> "\" Then
-        FixPath = path & "\"
+Private Function FixPath(ByVal Path As String) As String
+    If Right$(Path, 1) <> "\" Then
+        FixPath = Path & "\"
     Else
-        FixPath = path
+        FixPath = Path
     End If
 End Function
 

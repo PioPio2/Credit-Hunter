@@ -58,14 +58,14 @@ Public Sub SendEmailNoAttach()
     Dim Header As clsCustomerHeader
     Set Header = New clsCustomerHeader
     Call Header.Populate("Strike Electrical Distributors Limited")
-'
+
     Dim Details As clsCustomerDetails
     Set Details = New clsCustomerDetails
     Call Details.Populate(2, 1, "USD")
 
 
     Dim Template As String
-    Template = Application.CurrentProject.path()
+    Template = Application.CurrentProject.Path()
     Template = Template & "\Templates\Word\test.docx"
     Dim stopwatch As clsTimer
     Set stopwatch = New clsTimer
@@ -105,7 +105,7 @@ Public Sub SendEmailWithAttach()
 
 
     Dim Template As String
-    Template = Application.CurrentProject.path()
+    Template = Application.CurrentProject.Path()
     Template = Template & "\Templates\Word\test.docx"
     Dim stopwatch As clsTimer
     Set stopwatch = New clsTimer

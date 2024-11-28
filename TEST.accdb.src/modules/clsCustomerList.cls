@@ -9,15 +9,11 @@ Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 Option Compare Database
 Option Explicit
-
-Public Function SQLText(rst As Variant) As String
-
-    Dim customers  As String
-    'customers = CustomerList(rst)
-
+Public Function SQLText(CustomerSelectRst As Variant) As String
+'    Dim customers  As String
     Dim SQL As String
     SQL = ""
-    If rst.RecordCount > 0 Then
+    If Not CustomerSelectRst.EOF > 0 Then
         SQL = SQL & "SELECT "
         SQL = SQL & "        Tbl_Customers.Name          , "
         SQL = SQL & "        Tbl_Invoices.Date           , "
@@ -34,7 +30,7 @@ Public Function SQLText(rst As Variant) As String
         SQL = SQL & "WHERE "
         SQL = SQL & "        ( "
         SQL = SQL & "                ( "
-        SQL = SQL & CustomerList(rst)
+        SQL = SQL & CustomerList(CustomerSelectRst)
     '    SQL = SQL & "                        ( "
     '    SQL = SQL & "                                Tbl_Customers.Name) Like ' * abc * ' "
     '    SQL = SQL & "                        Or ( "
@@ -48,7 +44,7 @@ Public Function SQLText(rst As Variant) As String
         SQL = SQL & "        Tbl_Invoices.Date; "
     End If
 
-    SQLText = SQL
+    SQLText = Trim(SQL)
 End Function
 
 Public Function CustomerList(rst As Variant) As String
@@ -66,4 +62,30 @@ Public Function CustomerList(rst As Variant) As String
         CustomerList = Left(CustomerList, Len(CustomerList) - 3)
     End If
 
+End Function
+Public Function MakeExcelFile(CustomerSelectRst As Variant, Path As String) As Boolean
+    Const DummyQuery As String = "QueryMultipleStatements"
+    If Not CustomerSelectRst.EOF Then
+        Dim qd As QueryDef
+        Set qd = CurrentDb.QueryDefs(DummyQuery)
+        qd.SQL = SQLText(CustomerSelectRst)
+        qd.OpenRecordset
+        If DCount("*", DummyQuery) > 0 Then
+            On Error GoTo Err
+            DoCmd.TransferSpreadsheet acExport, acSpreadsheetTypeExcel12Xml, DummyQuery, Path, True
+            MakeExcelFile = True
+        Else
+            MakeExcelFile = False
+            Exit Function
+        End If
+        On Error GoTo 0
+        MakeExcelFile = True
+Else
+    MakeExcelFile = False
+End If
+Exit Function
+
+Err:
+    MakeExcelFile = False
+    On Error GoTo 0
 End Function

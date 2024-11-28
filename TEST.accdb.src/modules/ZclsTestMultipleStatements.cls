@@ -46,18 +46,101 @@ Public Sub TestSQLText()
     CurrentDb.Execute "INSERT INTO Tbl_CustomersList(ID, Customer) VALUES (3, 'b');"
 
 
-   Dim Expected As Variant
-   'Expected = "(Tbl_Customers.Name) Like '*a*' OR (Tbl_Customers.Name) Like '*c*' OR (Tbl_Customers.Name) Like '*b*' "
-   Dim Actual As Variant
+    Dim Expected As Variant
+    Expected = "SELECT Tbl_Customers.Name , Tbl_Invoices.Date , Tbl_Invoices.Document_Number, Tbl_Invoices.Amount , Tbl_Invoices.Overdue_Date , Tbl_Invoices.mEMO FROM Tbl_Customers INNER JOIN Tbl_Invoices ON Tbl_Customers.Customer_code = Tbl_Invoices.Customer_ID WHERE ( ( (Tbl_Customers.Name) Like '*a*' OR (Tbl_Customers.Name) Like '*c*' OR (Tbl_Customers.Name) Like '*b*' ) AND ( ( Tbl_Invoices.Update_date)=Date())) ORDER BY Tbl_Customers.Name, Tbl_Invoices.Date;"
+    Dim Actual As Variant
 
-   Dim rst           As ADODB.Recordset
+    Dim rst As ADODB.Recordset
     Set rst = CurrentProject.Connection.Execute("select * from Tbl_CustomersList")
-    rst.MoveLast
-    rst.MoveFirst
-   'Actual = cls.CustomerList(rst)
-   Dim cls As clsCustomerList
-   Set cls = New clsCustomerList
-   Actual = cls.SQLText(rst)
+    Dim cls As clsCustomerList
+    Set cls = New clsCustomerList
+    Actual = cls.SQLText(rst)
+    Dim temp As String
+    Do
+        temp = Actual
+        Actual = Replace(Actual, Space(2), Space(1))
+    Loop Until temp = Actual
 
    Assert.That Actual, Iz.EqualTo(Expected)
+End Sub
+Public Sub TestMakeExcelFileNoInvoices()
+    CurrentDb.Execute "INSERT INTO Tbl_CustomersList(ID, Customer) VALUES (1, 'a');"
+    CurrentDb.Execute "INSERT INTO Tbl_CustomersList(ID, Customer) VALUES (2, 'c');"
+    CurrentDb.Execute "INSERT INTO Tbl_CustomersList(ID, Customer) VALUES (3, 'b');"
+
+    CurrentDb.Execute "INSERT INTO Tbl_Customers(Customer_code, Name, NextAppointment, ToSendStatement, ToSendRequestRelease, StatementForm, RetailOEM, ToReleaseOrder, Language, FacturaNumberToBePrinted, PullTicketNumberToBePrinted, OriginalInvoiceAmountToBePrinted, [Credit Limit]) VALUES (  'a', 'a', #28/11/2024 22:27:27#, False, False, 0, 'Retail', False, 1, False, False, False, 0);"
+    CurrentDb.Execute "INSERT INTO Tbl_Customers(Customer_code, Name, NextAppointment, ToSendStatement, ToSendRequestRelease, StatementForm, RetailOEM, ToReleaseOrder, Language, FacturaNumberToBePrinted, PullTicketNumberToBePrinted, OriginalInvoiceAmountToBePrinted, [Credit Limit]) VALUES (  'b', 'b', #28/11/2024 22:27:29#, False, False, 0, 'Retail', False, 1, False, False, False, 0);"
+    CurrentDb.Execute "INSERT INTO Tbl_Customers(Customer_code, Name, NextAppointment, ToSendStatement, ToSendRequestRelease, StatementForm, RetailOEM, ToReleaseOrder, Language, FacturaNumberToBePrinted, PullTicketNumberToBePrinted, OriginalInvoiceAmountToBePrinted, [Credit Limit]) VALUES (  'c', 'c', #28/11/2024 22:27:30#, False, False, 0, 'Retail', False, 1, False, False, False, 0);"
+    CurrentDb.Execute "INSERT INTO Tbl_Customers(Customer_code, Name, NextAppointment, ToSendStatement, ToSendRequestRelease, StatementForm, RetailOEM, ToReleaseOrder, Language, FacturaNumberToBePrinted, PullTicketNumberToBePrinted, OriginalInvoiceAmountToBePrinted, [Credit Limit]) VALUES (  'd', 'd', #28/11/2024 22:27:30#, False, False, 0, 'Retail', False, 1, False, False, False, 0);"
+
+
+    'CurrentDb.Execute "INSERT INTO Tbl_Invoices([ID], [Customer_ID], [Update_date], [QueryToBePrinted], [Attachment]) VALUES (661554, 'a', #28/11/2024#, True, False);"
+    'CurrentDb.Execute "INSERT INTO Tbl_Invoices([ID], [Customer_ID], [Update_date], [QueryToBePrinted], [Attachment]) VALUES (661555, 'b', #28/11/2024#, True, False);"
+    'CurrentDb.Execute "INSERT INTO Tbl_Invoices([ID], [Customer_ID], [Update_date], [QueryToBePrinted], [Attachment]) VALUES (661556, 'c', #28/11/2024#, True, False);"
+
+    Dim Expected As Variant
+    'Expected = "SELECT Tbl_Customers.Name , Tbl_Invoices.Date , Tbl_Invoices.Document_Number, Tbl_Invoices.Amount , Tbl_Invoices.Overdue_Date , Tbl_Invoices.mEMO FROM Tbl_Customers INNER JOIN Tbl_Invoices ON Tbl_Customers.Customer_code = Tbl_Invoices.Customer_ID WHERE ( ( (Tbl_Customers.Name) Like '*a*' OR (Tbl_Customers.Name) Like '*c*' OR (Tbl_Customers.Name) Like '*b*' ) AND ( ( Tbl_Invoices.Update_date)=Date())) ORDER BY Tbl_Customers.Name, Tbl_Invoices.Date;"
+    Dim Actual As Variant
+
+    Dim rst As ADODB.Recordset
+    Set rst = CurrentProject.Connection.Execute("select * from Tbl_CustomersList")
+    Dim cls As clsCustomerList
+    Set cls = New clsCustomerList
+    Actual = cls.SQLText(rst)
+    Dim temp As String
+    Do
+        temp = Actual
+        Actual = Replace(Actual, Space(2), Space(1))
+    Loop Until temp = Actual
+
+    Dim Path As String
+    Path = Application.CurrentProject.Path & "\test.xlsx"
+    'Path = "C:\Users\alberto\OneDrive\Credit Hunter\test.xlsx"
+    On Error Resume Next
+    Kill Path
+    On Error GoTo 0
+    rst.MoveFirst
+    Assert.IsFalse cls.MakeExcelFile(rst, Path)
+    'Assert.That Actual, Iz.EqualTo(Expected)
+End Sub
+
+
+
+Public Sub TestMakeExcelFileWithInvoices()
+    CurrentDb.Execute "INSERT INTO Tbl_CustomersList(ID, Customer) VALUES (1, 'a');"
+    CurrentDb.Execute "INSERT INTO Tbl_CustomersList(ID, Customer) VALUES (2, 'c');"
+    CurrentDb.Execute "INSERT INTO Tbl_CustomersList(ID, Customer) VALUES (3, 'b');"
+
+    CurrentDb.Execute "INSERT INTO Tbl_Customers(Customer_code, Name, NextAppointment, ToSendStatement, ToSendRequestRelease, StatementForm, RetailOEM, ToReleaseOrder, Language, FacturaNumberToBePrinted, PullTicketNumberToBePrinted, OriginalInvoiceAmountToBePrinted, [Credit Limit]) VALUES (  'a', 'a', #28/11/2024 22:27:27#, False, False, 0, 'Retail', False, 1, False, False, False, 0);"
+    CurrentDb.Execute "INSERT INTO Tbl_Customers(Customer_code, Name, NextAppointment, ToSendStatement, ToSendRequestRelease, StatementForm, RetailOEM, ToReleaseOrder, Language, FacturaNumberToBePrinted, PullTicketNumberToBePrinted, OriginalInvoiceAmountToBePrinted, [Credit Limit]) VALUES (  'b', 'b', #28/11/2024 22:27:29#, False, False, 0, 'Retail', False, 1, False, False, False, 0);"
+    CurrentDb.Execute "INSERT INTO Tbl_Customers(Customer_code, Name, NextAppointment, ToSendStatement, ToSendRequestRelease, StatementForm, RetailOEM, ToReleaseOrder, Language, FacturaNumberToBePrinted, PullTicketNumberToBePrinted, OriginalInvoiceAmountToBePrinted, [Credit Limit]) VALUES (  'c', 'c', #28/11/2024 22:27:30#, False, False, 0, 'Retail', False, 1, False, False, False, 0);"
+    CurrentDb.Execute "INSERT INTO Tbl_Customers(Customer_code, Name, NextAppointment, ToSendStatement, ToSendRequestRelease, StatementForm, RetailOEM, ToReleaseOrder, Language, FacturaNumberToBePrinted, PullTicketNumberToBePrinted, OriginalInvoiceAmountToBePrinted, [Credit Limit]) VALUES (  'd', 'd', #28/11/2024 22:27:30#, False, False, 0, 'Retail', False, 1, False, False, False, 0);"
+
+
+    CurrentDb.Execute "INSERT INTO Tbl_Invoices([ID], [Customer_ID], [Update_date], [QueryToBePrinted], [Attachment]) VALUES (661554, 'a', #28/11/2024#, True, False);"
+    CurrentDb.Execute "INSERT INTO Tbl_Invoices([ID], [Customer_ID], [Update_date], [QueryToBePrinted], [Attachment]) VALUES (661555, 'b', #28/11/2024#, True, False);"
+    CurrentDb.Execute "INSERT INTO Tbl_Invoices([ID], [Customer_ID], [Update_date], [QueryToBePrinted], [Attachment]) VALUES (661556, 'c', #28/11/2024#, True, False);"
+
+    Dim Expected As Variant
+    'Expected = "SELECT Tbl_Customers.Name , Tbl_Invoices.Date , Tbl_Invoices.Document_Number, Tbl_Invoices.Amount , Tbl_Invoices.Overdue_Date , Tbl_Invoices.mEMO FROM Tbl_Customers INNER JOIN Tbl_Invoices ON Tbl_Customers.Customer_code = Tbl_Invoices.Customer_ID WHERE ( ( (Tbl_Customers.Name) Like '*a*' OR (Tbl_Customers.Name) Like '*c*' OR (Tbl_Customers.Name) Like '*b*' ) AND ( ( Tbl_Invoices.Update_date)=Date())) ORDER BY Tbl_Customers.Name, Tbl_Invoices.Date;"
+    Dim Actual As Variant
+
+    Dim rst As ADODB.Recordset
+    Set rst = CurrentProject.Connection.Execute("select * from Tbl_CustomersList")
+    Dim cls As clsCustomerList
+    Set cls = New clsCustomerList
+    Actual = cls.SQLText(rst)
+    Dim temp As String
+    Do
+        temp = Actual
+        Actual = Replace(Actual, Space(2), Space(1))
+    Loop Until temp = Actual
+
+    Dim Path As String
+    Path = Application.CurrentProject.Path & "\test.xlsx"
+    On Error Resume Next
+    Kill Path
+    On Error GoTo 0
+    rst.MoveFirst
+    Assert.IsTrue cls.MakeExcelFile(rst, Path)
 End Sub

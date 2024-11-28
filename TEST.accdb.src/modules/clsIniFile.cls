@@ -15,7 +15,7 @@ Private Declare PtrSafe Function WritePrivateProfileString Lib "kernel32" Alias 
 
 Private Function IniFileName() As String
 Dim CurrentPath As String
-    CurrentPath = Application.CurrentProject.path
+    CurrentPath = Application.CurrentProject.Path
     IniFileName = CurrentPath & "\Credit Hunter.ini"
 End Function
 
