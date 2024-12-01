@@ -68,9 +68,13 @@ Public Function CustomerList(ByRef Rst As DAO.Recordset) As String
         Next I
         CustomerList = Left(CustomerList, Len(CustomerList) - 3)
     End If
+    Rst.MoveFirst
 End Function
 Public Function MakeExcelFile(CustomerSelectRst As DAO.Recordset, Path As String) As Boolean
     Const DummyQuery As String = "QueryMultipleStatements"
+    Call GetRst(CustomerSelectRst)
+    Call SQLText(CustomerSelectRst)
+    CustomerSelectRst.MoveFirst
     If Not CustomerSelectRst.EOF Then
         Dim qd As DAO.QueryDef
         Set qd = CurrentDb.QueryDefs(DummyQuery)

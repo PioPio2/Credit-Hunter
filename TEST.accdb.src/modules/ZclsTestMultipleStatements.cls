@@ -128,13 +128,13 @@ Public Sub TestMakeExcelFileWithInvoices()
     Dim cls As clsCustomerList
     Set cls = New clsCustomerList
     Dim Rst As DAO.Recordset
-    Call cls.GetRst(Rst)
-    Actual = cls.SQLText(Rst)
-    Dim temp As String
-    Do
-        temp = Actual
-        Actual = Replace(Actual, Space(2), Space(1))
-    Loop Until temp = Actual
+'    Call cls.GetRst(Rst)
+ '   Actual = cls.SQLText(Rst)
+  '  Dim temp As String
+   ' Do
+    '    temp = Actual
+     '   Actual = Replace(Actual, Space(2), Space(1))
+    'Loop Until temp = Actual
 
     Dim Path As String
     Path = Application.CurrentProject.Path & "\tests\test.xlsx"
@@ -143,6 +143,6 @@ Public Sub TestMakeExcelFileWithInvoices()
     Kill Path
 
     On Error GoTo 0
-    Rst.MoveFirst
+  '  Rst.MoveFirst
     Assert.IsTrue cls.MakeExcelFile(Rst, Path)
 End Sub
