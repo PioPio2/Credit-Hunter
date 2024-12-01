@@ -6,7 +6,7 @@
   "Items": {
     "MergeBuildDate": null,
     "FullBuildDate": null,
-    "ExportDate": "2024-11-28T23:16:54.000Z",
+    "ExportDate": "2024-12-01T16:50:16.000Z",
     "FullExportDate": "2024-11-20T22:20:12.000Z",
     "OptionsHash": "d620f90",
     "LastMergedCommit": "",
@@ -17,10 +17,10 @@
       },
       "DB Properties": {
         "dbs-properties.json": {
-          "FileHash": "348ba36",
-          "ExportDate": "2024-11-20T22:20:05.000Z",
+          "FileHash": "e31b3a4",
+          "ExportDate": "2024-12-01T16:50:12.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "8047298"
+          "FilePropertiesHash": "44d003b"
         }
       },
       "Doc Properties": {
@@ -93,11 +93,11 @@
           "FilePropertiesHash": "b53aadf"
         },
         "clsCustomerList.cls": {
-          "FileHash": "a2f27e6",
-          "OtherHash": "44459ce",
-          "ExportDate": "2024-11-28T23:16:50.000Z",
+          "FileHash": "6b99959",
+          "OtherHash": "67f06ac",
+          "ExportDate": "2024-12-01T16:50:12.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "6a92929"
+          "FilePropertiesHash": "ef52ef7"
         },
         "clsIniFile.cls": {
           "FileHash": "b42ea70",
@@ -205,11 +205,11 @@
           "FilePropertiesHash": "add76ae"
         },
         "EmailHTML.bas": {
-          "FileHash": "6b36e7c",
-          "OtherHash": "7dffc4e",
-          "ExportDate": "2024-11-20T22:20:11.000Z",
+          "FileHash": "8821cde",
+          "OtherHash": "d9548db",
+          "ExportDate": "2024-12-01T16:50:12.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "b3ecad3"
+          "FilePropertiesHash": "6326e3a"
         },
         "ICustomerHeaderSupport.cls": {
           "FileHash": "71bf0cd",
@@ -268,11 +268,11 @@
           "FilePropertiesHash": "beeab09"
         },
         "ModuloInvioEmails.bas": {
-          "FileHash": "e8415af",
-          "OtherHash": "841b614",
-          "ExportDate": "2024-11-27T23:32:52.000Z",
+          "FileHash": "be02f36",
+          "OtherHash": "ca16dbf",
+          "ExportDate": "2024-12-01T16:50:12.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "5b9ef14"
+          "FilePropertiesHash": "d2bc4bf"
         },
         "ReplaceDBLink.bas": {
           "FileHash": "51a0493",
@@ -282,11 +282,11 @@
           "FilePropertiesHash": "8e9fd75"
         },
         "Utility1.bas": {
-          "FileHash": "e23793e",
-          "OtherHash": "64df863",
-          "ExportDate": "2024-11-28T23:16:50.000Z",
+          "FileHash": "4c3c368",
+          "OtherHash": "73ef9e7",
+          "ExportDate": "2024-12-01T16:50:12.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "d84dccc"
+          "FilePropertiesHash": "d905ca8"
         },
         "Utility2.bas": {
           "FileHash": "8f0f8ca",
@@ -296,18 +296,18 @@
           "FilePropertiesHash": "10455cb"
         },
         "Utility3.bas": {
-          "FileHash": "6de1fe4",
-          "OtherHash": "f285892",
-          "ExportDate": "2024-11-27T23:32:52.000Z",
+          "FileHash": "344c6f6",
+          "OtherHash": "9ae8417",
+          "ExportDate": "2024-12-01T16:50:12.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "74448a1"
+          "FilePropertiesHash": "2781ac3"
         },
         "ZclsTestMultipleStatements.cls": {
-          "FileHash": "55ab5db",
-          "OtherHash": "58724da",
-          "ExportDate": "2024-11-28T23:16:50.000Z",
+          "FileHash": "a949f2c",
+          "OtherHash": "1c25f19",
+          "ExportDate": "2024-12-01T16:50:12.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "634c879"
+          "FilePropertiesHash": "4a787d1"
         },
         "ZclsTestOutlook.cls": {
           "FileHash": "12a802d",
@@ -599,9 +599,9 @@
         },
         "QueryMultipleStatements.bas": {
           "FileHash": "8dd2710",
-          "ExportDate": "2024-11-28T23:16:50.000Z",
+          "ExportDate": "2024-12-01T16:50:12.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "cfe3165"
+          "FilePropertiesHash": "0c4f9f8"
         },
         "QueryNewCControllersAndChannels.bas": {
           "FileHash": "cc70946",
@@ -859,9 +859,9 @@
         },
         "Tbl_Customers.json": {
           "FileHash": "31ac6c6",
-          "ExportDate": "2024-11-28T23:16:50.000Z",
+          "ExportDate": "2024-12-01T16:50:20.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "1f14280"
+          "FilePropertiesHash": "dec3360"
         },
         "Tbl_CustomersList.xml": {
           "FileHash": "8373852",

@@ -4,7 +4,7 @@ Option Compare Database
 Sub SendEmailsHTML(strTo As String, strcc As String, strSubject As String, strBody As String, PicturePath As String, ParamArray strFiles())
 Const CdoReferenceTypeName = 1
 Dim cdomsg, objBP As Variant
-Dim rst As Recordset
+Dim Rst As Recordset
 Dim x As Integer
 If strTo <> "" Then
 '    Set rst = New ADODB.Recordset
@@ -13,12 +13,12 @@ If strTo <> "" Then
 
     Set cdomsg = CreateObject("CDO.message")
     With cdomsg.Configuration.Fields
-        .item("http://schemas.microsoft.com/cdo/configuration/sendusing") = rst.Fields("sendusing") 'NTLM method
-        .item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = rst.Fields("smtpserver")
-        .item("http://schemas.microsoft.com/cdo/configuration/smptserverport") = rst.Fields("SMTPserverport")
-        .item("http://schemas.microsoft.com/cdo/configuration/smtpauthenticate") = rst.Fields("smtpauthenticate")
-        .item("http://schemas.microsoft.com/cdo/configuration/smtpusessl") = rst.Fields("smtpusessl")
-        .item("http://schemas.microsoft.com/cdo/configuration/smtpconnectiontimeout") = rst.Fields("smtpconnectiontimeout")
+        .item("http://schemas.microsoft.com/cdo/configuration/sendusing") = Rst.Fields("sendusing") 'NTLM method
+        .item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = Rst.Fields("smtpserver")
+        .item("http://schemas.microsoft.com/cdo/configuration/smptserverport") = Rst.Fields("SMTPserverport")
+        .item("http://schemas.microsoft.com/cdo/configuration/smtpauthenticate") = Rst.Fields("smtpauthenticate")
+        .item("http://schemas.microsoft.com/cdo/configuration/smtpusessl") = Rst.Fields("smtpusessl")
+        .item("http://schemas.microsoft.com/cdo/configuration/smtpconnectiontimeout") = Rst.Fields("smtpconnectiontimeout")
         .item("http://schemas.microsoft.com/cdo/configuration/sendusername") = DLookup("[E-mailAddress]", "[Tbl_Users]", "UserName='" & fOSUserName() & "'")
         .item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = DLookup("[Password]", "[Tbl_Users]", "UserName='" & fOSUserName() & "'")
         .Update
@@ -58,8 +58,8 @@ If strTo <> "" Then
         End If
         .Send
     End With
-    rst.Close
-    Set rst = Nothing
+    Rst.Close
+    Set Rst = Nothing
     Set cdomsg = Nothing
 Else
     x = MsgBox("Main email recipient is missing. The email will not be sent.", vbCritical, "Error")

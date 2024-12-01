@@ -633,7 +633,7 @@ Function FillCashTargetWithChannelByEmail()
     Dim qdfNew As DAO.QueryDef
     Dim SQLText, StringCurrency As String
     Dim rst2 As Variant
-    Dim rst As Variant
+    Dim Rst As Variant
     Dim ExcApp As Excel.Application
     Dim ExcDoc As Excel.Workbook
     Dim row, col, I, NumQuarters, StartingMonth As Integer
@@ -750,11 +750,11 @@ Function FillCashTargetWithChannelByEmail()
                     StartingMonth = (DMin("FiscalMonth", "Tbl_Cash_Target_Breakdown", "FiscalYear=" & rst2.Fields("FiscalYear") & " AND FiscalQuarter=" & rst2.Fields("FiscalQuarter"))) - 1
                     For I = 1 To NumQuarters
                         '       Set rst = CurrentDb.OpenRecordset("SELECT Tbl_Cash_Target_Breakdown.ExchangeRateToMainCurrency, Tbl_Cash_Target_Breakdown.OriginalCurrency, Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalQuarter, Tbl_Cash_Target_Breakdown.FiscalMonth, Tbl_Cash_Target_Breakdown.OriginalCurrency FROM Tbl_Cash_Target_Breakdown GROUP BY Tbl_Cash_Target_Breakdown.ExchangeRateToMainCurrency, Tbl_Cash_Target_Breakdown.OriginalCurrency, Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalQuarter, Tbl_Cash_Target_Breakdown.FiscalMonth, Tbl_Cash_Target_Breakdown.OriginalCurrency HAVING (((Tbl_Cash_Target_Breakdown.OriginalCurrency)=" & StringCurrency & ") AND ((Tbl_Cash_Target_Breakdown.FiscalYear)=" & rst2.Fields("FiscalYear") & ") AND ((Tbl_Cash_Target_Breakdown.FiscalQuarter)=" & rst2.Fields("FiscalQuarter") & ") AND ((Tbl_Cash_Target_Breakdown.FiscalMonth)=" & StartingMonth + 1 & "));")
-                        Set rst = CurrentDb.OpenRecordset("SELECT Tbl_Cash_Target_Breakdown.ExchangeRateToMainCurrency, Tbl_Cash_Target_Breakdown.OriginalCurrency, Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalQuarter, Tbl_Cash_Target_Breakdown.FiscalMonth FROM Tbl_Cash_Target_Breakdown GROUP BY Tbl_Cash_Target_Breakdown.ExchangeRateToMainCurrency, Tbl_Cash_Target_Breakdown.OriginalCurrency, Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalQuarter, Tbl_Cash_Target_Breakdown.FiscalMonth HAVING (((Tbl_Cash_Target_Breakdown.OriginalCurrency)='" & StringCurrency & "') AND ((Tbl_Cash_Target_Breakdown.FiscalYear)=" & rst2.Fields("FiscalYear") & ") AND ((Tbl_Cash_Target_Breakdown.FiscalQuarter)=" & rst2.Fields("FiscalQuarter") & ") AND ((Tbl_Cash_Target_Breakdown.FiscalMonth)=" & StartingMonth + I & ")); ")
+                        Set Rst = CurrentDb.OpenRecordset("SELECT Tbl_Cash_Target_Breakdown.ExchangeRateToMainCurrency, Tbl_Cash_Target_Breakdown.OriginalCurrency, Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalQuarter, Tbl_Cash_Target_Breakdown.FiscalMonth FROM Tbl_Cash_Target_Breakdown GROUP BY Tbl_Cash_Target_Breakdown.ExchangeRateToMainCurrency, Tbl_Cash_Target_Breakdown.OriginalCurrency, Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalQuarter, Tbl_Cash_Target_Breakdown.FiscalMonth HAVING (((Tbl_Cash_Target_Breakdown.OriginalCurrency)='" & StringCurrency & "') AND ((Tbl_Cash_Target_Breakdown.FiscalYear)=" & rst2.Fields("FiscalYear") & ") AND ((Tbl_Cash_Target_Breakdown.FiscalQuarter)=" & rst2.Fields("FiscalQuarter") & ") AND ((Tbl_Cash_Target_Breakdown.FiscalMonth)=" & StartingMonth + I & ")); ")
 
-                        .ActiveSheet.Cells(row, 2 + I) = "=" & CCur(.ActiveSheet.Cells(row, 2 + I)) * rst.Fields("ExchangeRateToMainCurrency")
+                        .ActiveSheet.Cells(row, 2 + I) = "=" & CCur(.ActiveSheet.Cells(row, 2 + I)) * Rst.Fields("ExchangeRateToMainCurrency")
                         .ActiveSheet.Cells(row, 2 + NumQuarters + 1) = "=Sum(C" & row & ":" & Chr(67 + NumQuarters - 1) & row & ")"
-                        .ActiveSheet.Cells(row + 1, 2 + I) = "=" & CCur(.ActiveSheet.Cells(row + 1, 2 + I)) * rst.Fields("ExchangeRateToMainCurrency")
+                        .ActiveSheet.Cells(row + 1, 2 + I) = "=" & CCur(.ActiveSheet.Cells(row + 1, 2 + I)) * Rst.Fields("ExchangeRateToMainCurrency")
                         .ActiveSheet.Cells(row + 1, 2 + NumQuarters + 1) = "=Sum(C" & row + 1 & ":" & Chr(67 + NumQuarters - 1) & row + 1 & ")"
                     Next I
                     '.ActiveSheet.Cells(Row, 2 + NumQuarters + 1) = "=" & CCur(.ActiveSheet.Cells(Row, 2 + NumQuarters + 1)) / rst.Fields("ExchangeRateToMainCurrency")
@@ -839,7 +839,7 @@ Function FillCashTargetWithCurrencyByEmail()
     Dim qdfNew As DAO.QueryDef
     Dim SQLText, StringCurrency As String
     Dim rst2 As Variant
-    Dim rst As Variant
+    Dim Rst As Variant
     Dim rst3 As Variant
     Dim ExcApp As Excel.Application
     Dim ExcDoc As Excel.Workbook
@@ -951,11 +951,11 @@ Function FillCashTargetWithCurrencyByEmail()
                     Set rst3 = CurrentDb.OpenRecordset("SELECT Tbl_Cash_Target_Breakdown.OriginalCurrency, Tbl_Cash_Target_Breakdown.Channel FROM Tbl_Cash_Target_Breakdown GROUP BY Tbl_Cash_Target_Breakdown.OriginalCurrency, Tbl_Cash_Target_Breakdown.Channel HAVING (((Tbl_Cash_Target_Breakdown.OriginalCurrency)='" & StringCurrency & "'));")
                     StartingMonth = (DMin("FiscalMonth", "Tbl_Cash_Target_Breakdown", "FiscalYear=" & rst2.Fields("FiscalYear") & " AND FiscalQuarter=" & rst2.Fields("FiscalQuarter"))) - 1
                     For I = 1 To NumQuarters
-                        Set rst = CurrentDb.OpenRecordset("SELECT Tbl_Cash_Target_Breakdown.ExchangeRateToMainCurrency, Tbl_Cash_Target_Breakdown.OriginalCurrency, Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalQuarter, Tbl_Cash_Target_Breakdown.FiscalMonth FROM Tbl_Cash_Target_Breakdown GROUP BY Tbl_Cash_Target_Breakdown.ExchangeRateToMainCurrency, Tbl_Cash_Target_Breakdown.OriginalCurrency, Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalQuarter, Tbl_Cash_Target_Breakdown.FiscalMonth HAVING (((Tbl_Cash_Target_Breakdown.OriginalCurrency)='" & StringCurrency & "') AND ((Tbl_Cash_Target_Breakdown.FiscalYear)=" & rst2.Fields("FiscalYear") & ") AND ((Tbl_Cash_Target_Breakdown.FiscalQuarter)=" & rst2.Fields("FiscalQuarter") & ") AND ((Tbl_Cash_Target_Breakdown.FiscalMonth)=" & StartingMonth + I & ")); ")
+                        Set Rst = CurrentDb.OpenRecordset("SELECT Tbl_Cash_Target_Breakdown.ExchangeRateToMainCurrency, Tbl_Cash_Target_Breakdown.OriginalCurrency, Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalQuarter, Tbl_Cash_Target_Breakdown.FiscalMonth FROM Tbl_Cash_Target_Breakdown GROUP BY Tbl_Cash_Target_Breakdown.ExchangeRateToMainCurrency, Tbl_Cash_Target_Breakdown.OriginalCurrency, Tbl_Cash_Target_Breakdown.FiscalYear, Tbl_Cash_Target_Breakdown.FiscalQuarter, Tbl_Cash_Target_Breakdown.FiscalMonth HAVING (((Tbl_Cash_Target_Breakdown.OriginalCurrency)='" & StringCurrency & "') AND ((Tbl_Cash_Target_Breakdown.FiscalYear)=" & rst2.Fields("FiscalYear") & ") AND ((Tbl_Cash_Target_Breakdown.FiscalQuarter)=" & rst2.Fields("FiscalQuarter") & ") AND ((Tbl_Cash_Target_Breakdown.FiscalMonth)=" & StartingMonth + I & ")); ")
 
-                        .ActiveSheet.Cells(row, 2 + I) = "=" & CCur(.ActiveSheet.Cells(row, 2 + I)) * rst.Fields("ExchangeRateToMainCurrency")
+                        .ActiveSheet.Cells(row, 2 + I) = "=" & CCur(.ActiveSheet.Cells(row, 2 + I)) * Rst.Fields("ExchangeRateToMainCurrency")
                         .ActiveSheet.Cells(row, 2 + NumQuarters + 1) = "=Sum(C" & row & ":" & Chr(67 + NumQuarters - 1) & row & ")"
-                        .ActiveSheet.Cells(row + 1, 2 + I) = "=" & CCur(.ActiveSheet.Cells(row + 1, 2 + I)) * rst.Fields("ExchangeRateToMainCurrency")
+                        .ActiveSheet.Cells(row + 1, 2 + I) = "=" & CCur(.ActiveSheet.Cells(row + 1, 2 + I)) * Rst.Fields("ExchangeRateToMainCurrency")
                         .ActiveSheet.Cells(row + 1, 2 + NumQuarters + 1) = "=Sum(C" & row + 1 & ":" & Chr(67 + NumQuarters - 1) & row + 1 & ")"
 
                     Next I

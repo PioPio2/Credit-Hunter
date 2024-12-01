@@ -955,7 +955,7 @@ Dim ExcApp As Excel.Application
 Dim ExcDoc As Excel.Workbook
 Dim Riga, Column, I As Integer
 Dim Found As Boolean
-Dim rst, InvoicesRst, a As Recordset
+Dim Rst, InvoicesRst, a As Recordset
 Dim RstAdditionalQueryData As Variant
 Dim rngXL As Excel.Range
 
@@ -968,8 +968,8 @@ Rem    Set ExcDoc = ExcApp.Workbooks.Open(GetPahQueryFile & GetNameCreditControl
     ExcApp.Visible = True
     Found = False
     Rem questo ciclo va ripetuto per ciascuna riga con la causale query <> nil
-    Set rst = New ADODB.Recordset
-    With rst
+    Set Rst = New ADODB.Recordset
+    With Rst
         .ActiveConnection = CurrentProject.Connection
         .Open "Tbl_Queries", , adOpenKeyset, adLockOptimistic, adCmdTable
         .MoveFirst
@@ -1032,11 +1032,11 @@ Rem    Set ExcDoc = ExcApp.Workbooks.Open(GetPahQueryFile & GetNameCreditControl
                 .Worksheets(1).Cells(Riga, 8) = InvoicesRst.Fields("amount")
                 .Worksheets(1).Cells(Riga, 9) = InvoicesRst.Fields("Currency")
                 .Worksheets(1).Cells(Riga, 12) = InvoicesRst.Fields("Memo")
-                rst.MoveFirst
-                rst.Find ("ID='" & InvoicesRst.Fields("Tbl_Invoices.Query")) & "'"
-                If Not (rst.EOF) Then
-                    .Worksheets(1).Cells(Riga, 11) = rst.Fields("query")
-                    .Worksheets(1).Cells(Riga, 10) = rst.Fields("Resolution_owner")
+                Rst.MoveFirst
+                Rst.Find ("ID='" & InvoicesRst.Fields("Tbl_Invoices.Query")) & "'"
+                If Not (Rst.EOF) Then
+                    .Worksheets(1).Cells(Riga, 11) = Rst.Fields("query")
+                    .Worksheets(1).Cells(Riga, 10) = Rst.Fields("Resolution_owner")
                 End If
 
 Rem
@@ -1050,7 +1050,7 @@ Rem
     Set ExcApp = Nothing
 
     Rem (wdDoNotSaveChanges)
-    rst.Close
+    Rst.Close
     InvoicesRst.Close
     RstAdditionalQueryData.Close
     QueryFileTochange = False
@@ -1058,13 +1058,13 @@ Rem
 
     Set ExcDoc = Nothing
     Set ExcApp = Nothing
-    Set rst = Nothing
+    Set Rst = Nothing
     Set RstAdditionalQueryData = Nothing
 fine:
 End Sub
 Function FindLastDate() As Date
 
-Dim a, rst, b As Recordset
+Dim a, Rst, b As Recordset
 FindLastDate = DMax("Update_date", "Tbl_Invoices")
 '    With rst
  '       Set rst = New ADODB.Recordset
@@ -1079,13 +1079,13 @@ Rem        Set rst = CurrentDb.OpenRecordset("SELECT Tbl_Invoices.Update_date FR
 End Function
 
 Function FindPreviousDate() As Date
-Dim a, rst, b As Recordset
-    With rst
-        Set rst = New ADODB.Recordset
-        Set rst = CurrentDb.OpenRecordset("SELECT Tbl_Invoices.Update_date FROM Tbl_Invoices GROUP BY Tbl_Invoices.Update_date;")
+Dim a, Rst, b As Recordset
+    With Rst
+        Set Rst = New ADODB.Recordset
+        Set Rst = CurrentDb.OpenRecordset("SELECT Tbl_Invoices.Update_date FROM Tbl_Invoices GROUP BY Tbl_Invoices.Update_date;")
         .MoveLast
         .MovePrevious
-        If rst.RecordCount > 1 Then
+        If Rst.RecordCount > 1 Then
             FindPreviousDate = .Fields("Update_date")
         Else
             FindPreviousDate = DateAdd("d", -1, Now())
@@ -1218,15 +1218,15 @@ Dim provv As Recordset
     End With
 End Function
 
-Function TotalInvoicesSelected(rst As Variant, SelTop, SelHeight As Long) As Currency
+Function TotalInvoicesSelected(Rst As Variant, SelTop, SelHeight As Long) As Currency
     Dim I As Long
-    If rst.RecordCount > 0 Then
+    If Rst.RecordCount > 0 Then
         TotalInvoicesSelected = 0
-        rst.MoveFirst
-        rst.Move (SelTop - 1)
+        Rst.MoveFirst
+        Rst.Move (SelTop - 1)
         For I = 1 To SelHeight
-            TotalInvoicesSelected = TotalInvoicesSelected + rst.Fields("amount")
-            rst.MoveNext
+            TotalInvoicesSelected = TotalInvoicesSelected + Rst.Fields("amount")
+            Rst.MoveNext
         Next I
     End If
 End Function
@@ -1488,11 +1488,11 @@ Sub UpdateChargebackFile(CustomerRst As Variant)
 Dim ExcApp As Excel.Application
 Dim ExcDoc As Excel.Workbook
 Dim row, Riga, Column As Integer
-Dim rst, S As Variant
+Dim Rst, S As Variant
 
-    Set rst = New ADODB.Recordset
-    With rst
-        Set rst = CurrentDb.OpenRecordset("SELECT Tbl_Invoices.*, Tbl_Types.ToFillChargbackFile, Tbl_Invoices.Update_date, Tbl_Invoices.mEMO, Tbl_Invoices.Customer_ID FROM Tbl_Invoices INNER JOIN Tbl_Types ON Tbl_Invoices.Type = Tbl_Types.ID WHERE (((Tbl_Types.ToFillChargbackFile)=True) AND ((Tbl_Invoices.Update_date)=#" & Format(Date, "mm/dd/yy") & "#) AND ((Tbl_Invoices.mEMO) Is Not Null) AND ((Tbl_Invoices.Customer_ID)=" & CustomerRst.Fields("Customer_code") & "));")
+    Set Rst = New ADODB.Recordset
+    With Rst
+        Set Rst = CurrentDb.OpenRecordset("SELECT Tbl_Invoices.*, Tbl_Types.ToFillChargbackFile, Tbl_Invoices.Update_date, Tbl_Invoices.mEMO, Tbl_Invoices.Customer_ID FROM Tbl_Invoices INNER JOIN Tbl_Types ON Tbl_Invoices.Type = Tbl_Types.ID WHERE (((Tbl_Types.ToFillChargbackFile)=True) AND ((Tbl_Invoices.Update_date)=#" & Format(Date, "mm/dd/yy") & "#) AND ((Tbl_Invoices.mEMO) Is Not Null) AND ((Tbl_Invoices.Customer_ID)=" & CustomerRst.Fields("Customer_code") & "));")
         If .RecordCount > 0 Then
             Set ExcApp = CreateObject("Excel.Application")
             Set ExcDoc = ExcApp.Workbooks.Open(GetPathChargbackFile & "\chargebacks.xls")
@@ -1500,17 +1500,17 @@ Dim rst, S As Variant
             row = NumMaxRows(GetPathChargbackFile & "\chargebacks.xls", "", 7)
             .MoveLast
             .MoveFirst
-            While Not rst.EOF
+            While Not Rst.EOF
                 Riga = 7
                 With ExcDoc
-                    While CDbl(.Worksheets(1).Cells(Riga, 1) < CDbl(rst.Fields("Document_Number")))
+                    While CDbl(.Worksheets(1).Cells(Riga, 1) < CDbl(Rst.Fields("Document_Number")))
                         Riga = Riga + 1
                     Wend
-                    If (CDbl(.Worksheets(1).Cells(Riga, 1)) = CDbl(rst.Fields("Document_number"))) Then
-                        .Worksheets(1).Cells(Riga, 4) = rst.Fields("Tbl_Invoices.Memo")
+                    If (CDbl(.Worksheets(1).Cells(Riga, 1)) = CDbl(Rst.Fields("Document_number"))) Then
+                        .Worksheets(1).Cells(Riga, 4) = Rst.Fields("Tbl_Invoices.Memo")
                     End If
                 End With
-                rst.MoveNext
+                Rst.MoveNext
             Wend
             ExcDoc.Save
             ExcDoc.Close
@@ -1518,11 +1518,11 @@ Dim rst, S As Variant
             Set ExcApp = Nothing
         End If
     End With
-    rst.Close
-    Set rst = Nothing
+    Rst.Close
+    Set Rst = Nothing
 End Sub
 Sub OLDUpdateChargebackFileAfterImport()
-Dim rst As Variant
+Dim Rst As Variant
 Dim ExcApp As Excel.Application
 Dim ExcDoc As Excel.Workbook
 Dim row, TestRow, I As Integer
@@ -1532,59 +1532,59 @@ Dim FoundChargeback As Boolean
     CurrentDb.QueryDefs("QueryChargebacksOpenPreviousDate").SQL = "SELECT Tbl_Invoices.*, Tbl_Types.ToFillChargbackFile, Tbl_Invoices.Update_date FROM Tbl_Invoices INNER JOIN Tbl_Types ON Tbl_Invoices.Type = Tbl_Types.ID WHERE (((Tbl_Types.ToFillChargbackFile)=True) AND ((Tbl_Invoices.Update_date)=#" & Format(FindPreviousDate, "mm/dd/yy") & "#));"
 
     Rem newchargebacks
-    Set rst = CurrentDb.OpenRecordset("SELECT QueryChargebacksOpenNow.Customer_ID, Tbl_Customers.Name, QueryChargebacksOpenPreviousDate.Document_Number, QueryChargebacksOpenPreviousDate.*,Tbl_Customers.* FROM (QueryChargebacksOpenPreviousDate LEFT JOIN QueryChargebacksOpenNow ON (QueryChargebacksOpenPreviousDate.Customer_ID = QueryChargebacksOpenNow.Customer_ID) AND (QueryChargebacksOpenPreviousDate.Document_Number = QueryChargebacksOpenNow.Document_Number)) INNER JOIN Tbl_Customers ON QueryChargebacksOpenPreviousDate.Customer_ID = Tbl_Customers.Customer_code WHERE (((QueryChargebacksOpenNow.Customer_ID) Is not Null)) ORDER BY QueryChargebacksOpenPreviousDate.Document_Number;")
+    Set Rst = CurrentDb.OpenRecordset("SELECT QueryChargebacksOpenNow.Customer_ID, Tbl_Customers.Name, QueryChargebacksOpenPreviousDate.Document_Number, QueryChargebacksOpenPreviousDate.*,Tbl_Customers.* FROM (QueryChargebacksOpenPreviousDate LEFT JOIN QueryChargebacksOpenNow ON (QueryChargebacksOpenPreviousDate.Customer_ID = QueryChargebacksOpenNow.Customer_ID) AND (QueryChargebacksOpenPreviousDate.Document_Number = QueryChargebacksOpenNow.Document_Number)) INNER JOIN Tbl_Customers ON QueryChargebacksOpenPreviousDate.Customer_ID = Tbl_Customers.Customer_code WHERE (((QueryChargebacksOpenNow.Customer_ID) Is not Null)) ORDER BY QueryChargebacksOpenPreviousDate.Document_Number;")
 
     Set ExcApp = CreateObject("Excel.Application")
     Set ExcDoc = ExcApp.Workbooks.Open(GetPathChargbackFile & "\chargebacks.xls")
     ExcApp.Visible = False
 
     Rem If there is a new chargeback, Access adds a line to the file
-    If rst.RecordCount > 0 Then
+    If Rst.RecordCount > 0 Then
         row = NumMaxRows(GetPathChargbackFile & "\chargebacks.xls", "", 7) + 1
         TestRow = row
-        rst.MoveFirst
-        While Not rst.EOF
+        Rst.MoveFirst
+        While Not Rst.EOF
             With ExcDoc.Sheets(1)
                 FoundChargeback = False
                 For I = 7 To TestRow
-                    If (.Cells(I, 3) = rst.Fields("QueryChargebacksOpenNow.Customer_ID")) And _
-                    (.Cells(I, 7) = rst.Fields("Date")) And _
-                    (.Cells(I, 1) = CCur(rst.Fields("QueryChargebacksOpenPreviousDate.Document_Number"))) Then
+                    If (.Cells(I, 3) = Rst.Fields("QueryChargebacksOpenNow.Customer_ID")) And _
+                    (.Cells(I, 7) = Rst.Fields("Date")) And _
+                    (.Cells(I, 1) = CCur(Rst.Fields("QueryChargebacksOpenPreviousDate.Document_Number"))) Then
                         FoundChargeback = True
                         I = TestRow
                     End If
                 Next I
 
                 If FoundChargeback = False Then
-                    .Cells(TestRow, 3) = rst.Fields("QueryChargebacksOpenNow.Customer_ID")
-                    .Cells(TestRow, 7) = rst.Fields("Date")
-                    .Cells(TestRow, 1) = CDbl(rst.Fields("QueryChargebacksOpenPreviousDate.Document_Number"))
-                    .Cells(TestRow, 6) = rst.Fields("Amount")
-                    .Cells(TestRow, 5) = rst.Fields("Currency")
-                    .Cells(TestRow, 2) = rst.Fields("Tbl_Customers.Name")
-                    .Cells(TestRow, 8) = GetNameCreditControllerFromID(rst.Fields("credit_controller"))
+                    .Cells(TestRow, 3) = Rst.Fields("QueryChargebacksOpenNow.Customer_ID")
+                    .Cells(TestRow, 7) = Rst.Fields("Date")
+                    .Cells(TestRow, 1) = CDbl(Rst.Fields("QueryChargebacksOpenPreviousDate.Document_Number"))
+                    .Cells(TestRow, 6) = Rst.Fields("Amount")
+                    .Cells(TestRow, 5) = Rst.Fields("Currency")
+                    .Cells(TestRow, 2) = Rst.Fields("Tbl_Customers.Name")
+                    .Cells(TestRow, 8) = GetNameCreditControllerFromID(Rst.Fields("credit_controller"))
                     TestRow = TestRow + 1
                 End If
             End With
-            rst.MoveNext
+            Rst.MoveNext
         Wend
         ExcDoc.Save
     End If
-    Set rst = Nothing
+    Set Rst = Nothing
 
     Rem If a chargeback has been close Access puts the closure date
-    Set rst = CurrentDb.OpenRecordset("SELECT QueryChargebacksOpenNow.Customer_ID, Tbl_Customers.Name, QueryChargebacksOpenPreviousDate.Document_Number, QueryChargebacksOpenPreviousDate.* FROM (QueryChargebacksOpenPreviousDate LEFT JOIN QueryChargebacksOpenNow ON (QueryChargebacksOpenPreviousDate.Customer_ID = QueryChargebacksOpenNow.Customer_ID) AND (QueryChargebacksOpenPreviousDate.Document_Number = QueryChargebacksOpenNow.Document_Number)) INNER JOIN Tbl_Customers ON QueryChargebacksOpenPreviousDate.Customer_ID = Tbl_Customers.Customer_code WHERE (((QueryChargebacksOpenNow.Customer_ID) Is Null)) ORDER BY QueryChargebacksOpenPreviousDate.Document_Number;")
-    If rst.RecordCount > 0 Then
-        rst.MoveFirst
-        While Not rst.EOF
+    Set Rst = CurrentDb.OpenRecordset("SELECT QueryChargebacksOpenNow.Customer_ID, Tbl_Customers.Name, QueryChargebacksOpenPreviousDate.Document_Number, QueryChargebacksOpenPreviousDate.* FROM (QueryChargebacksOpenPreviousDate LEFT JOIN QueryChargebacksOpenNow ON (QueryChargebacksOpenPreviousDate.Customer_ID = QueryChargebacksOpenNow.Customer_ID) AND (QueryChargebacksOpenPreviousDate.Document_Number = QueryChargebacksOpenNow.Document_Number)) INNER JOIN Tbl_Customers ON QueryChargebacksOpenPreviousDate.Customer_ID = Tbl_Customers.Customer_code WHERE (((QueryChargebacksOpenNow.Customer_ID) Is Null)) ORDER BY QueryChargebacksOpenPreviousDate.Document_Number;")
+    If Rst.RecordCount > 0 Then
+        Rst.MoveFirst
+        While Not Rst.EOF
             With ExcDoc.Sheets(1)
-                row = FoundInExcelFile(ExcDoc.Sheets(1), 7, 1, rst.Fields("QueryChargebacksOpenPreviousDate.Document_Number"), 3, rst.Fields("QueryChargebacksOpenPreviousDate.Customer_ID"))
+                row = FoundInExcelFile(ExcDoc.Sheets(1), 7, 1, Rst.Fields("QueryChargebacksOpenPreviousDate.Document_Number"), 3, Rst.Fields("QueryChargebacksOpenPreviousDate.Customer_ID"))
                 Rem put closing date in Excel file
                 If row <> 0 Then
                     .Cells(row, 9) = Format(Date, "dd-mmm-yy")
                 End If
             End With
-            rst.MoveNext
+            Rst.MoveNext
         Wend
         ExcDoc.Save
     End If
@@ -1592,13 +1592,13 @@ Dim FoundChargeback As Boolean
     ExcApp.Close
     Set ExcApp = Nothing
     Set ExcDoc = Nothing
-    Set rst = Nothing
+    Set Rst = Nothing
     DoEvents
 End Sub
 Function GetApproverEmailAddress(CLExcess As Currency, StringTo, StringCC As String) As String
-Dim rst As Recordset
-    Set rst = New ADODB.Recordset
-    With rst
+Dim Rst As Recordset
+    Set Rst = New ADODB.Recordset
+    With Rst
         .ActiveConnection = CurrentProject.Connection
         .Open "TbReleasesApprovalMatrix", , adOpenKeyset, adLockOptimistic, adCmdTable
         .MoveFirst
@@ -1613,7 +1613,7 @@ Dim rst As Recordset
     End With
 End Function
 Sub CopyStatement()
-    Dim rst, rst2 As Variant
+    Dim Rst, rst2 As Variant
     Dim NextFiscalMonthEnd, PrevMonthEnd As Date
     Dim I As Integer
 
@@ -1623,11 +1623,11 @@ Sub CopyStatement()
 
     PrevMonthEnd = Format(DMax("[MonthEnd]", "[tbl_MonthEnd]", "MonthEnd<#" & Format(Date, "mm/dd/yy") & "#"), "mm/dd/yy")
 
-    Set rst = CurrentDb.OpenRecordset("SELECT Tbl_Historical_Statements.Update_date FROM Tbl_Historical_Statements GROUP BY Tbl_Historical_Statements.Update_date HAVING (((Tbl_Historical_Statements.Update_date)>#" & Format(PrevMonthEnd, "mm/dd/yy") & "#));")
-    If rst.RecordCount < 2 Then
+    Set Rst = CurrentDb.OpenRecordset("SELECT Tbl_Historical_Statements.Update_date FROM Tbl_Historical_Statements GROUP BY Tbl_Historical_Statements.Update_date HAVING (((Tbl_Historical_Statements.Update_date)>#" & Format(PrevMonthEnd, "mm/dd/yy") & "#));")
+    If Rst.RecordCount < 2 Then
         CurrentDb.Execute "Insert INTO Tbl_Historical_Statements ( Customer_ID ,Update_date, [Date], Document_Number, Customer_reference, Type, Amount, Overdue_Date, [Currency]) SELECT Tbl_Invoices.Customer_ID, Tbl_Invoices.Update_date, Tbl_Invoices.Date, Tbl_Invoices.Date, Tbl_Invoices.Document_Number , Tbl_Invoices.Type, Tbl_Invoices.Amount, Tbl_Invoices.Overdue_Date, Tbl_Invoices.Currency  FROM Tbl_Invoices WHERE ((Tbl_Invoices.Update_date)=#" & Format(Date, "mm/dd/yy") & "#);"
     Else
-        For I = rst.RecordCount - 1 To 1 Step -1
+        For I = Rst.RecordCount - 1 To 1 Step -1
             CurrentDb.Execute "Delete Tbl_Historical_Statements.Customer_ID FROM Tbl_Historical_Statements WHERE (([Tbl_Historical_Statements].[Update_date]=#" & Format(DMax("Update_date", "Tbl_Historical_Statements"), "mm/dd/yy") & "#));"
         Next I
         CurrentDb.Execute "Insert INTO Tbl_Historical_Statements ( Customer_ID ,Update_date, [Date], Document_Number, Customer_reference, Type, Amount, Overdue_Date, [Currency]) SELECT Tbl_Invoices.Customer_ID, Tbl_Invoices.Update_date, Tbl_Invoices.Date, Tbl_Invoices.Date, Tbl_Invoices.Document_Number , Tbl_Invoices.Type, Tbl_Invoices.Amount, Tbl_Invoices.Overdue_Date, Tbl_Invoices.Currency  FROM Tbl_Invoices WHERE ((Tbl_Invoices.Update_date)=#" & Format(Date, "mm/dd/yy") & "#);"
@@ -1697,9 +1697,9 @@ Sub AttachDocumentsToInvoices(OriginForm As Variant)
 End Sub
 
 Sub AddNewInvoiceAttachment(Attachment As Variant, OriginForm As Variant)
-    Dim rst As Recordset
-    Set rst = New ADODB.Recordset
-    With rst
+    Dim Rst As Recordset
+    Set Rst = New ADODB.Recordset
+    With Rst
         .ActiveConnection = CurrentProject.Connection
         .Open "Tbl_InvoiceAttachments", , adOpenKeyset, adLockOptimistic, adCmdTable
         .AddNew
@@ -1723,20 +1723,20 @@ Sub AddNewInvoiceAttachment(Attachment As Variant, OriginForm As Variant)
 End Sub
 
 Sub ShowAttachDocumentsToInvoices(OriginForm As Variant)
-    Dim rst As Variant
+    Dim Rst As Variant
     Rem show attachments linked to invoices open in the statement
-    Set rst = New ADODB.Recordset
-    With rst
+    Set Rst = New ADODB.Recordset
+    With Rst
 '        Set rst = CurrentDb.OpenRecordset("SELECT Tbl_InvoiceAttachments.AttachName, Tbl_InvoiceAttachments.DocumentID, Tbl_InvoiceAttachments.CustomerID  FROM Tbl_InvoiceAttachments WHERE (((Tbl_InvoiceAttachments.CustomerID)=" & OriginForm.Recordset("Customer_ID") & ") AND ((Tbl_InvoiceAttachments.DocumentID)='" & _
             Left(OriginForm.Recordset("Document_Number") & "       ", 7) & _
             Left(OriginForm.Recordset("Date") & "          ", 10) & OriginForm.Recordset("Type") & _
             Left(OriginForm.Recordset("Customer_reference") & "                 ", 15) & "'));")
-        Set rst = CurrentDb.OpenRecordset("SELECT Tbl_InvoiceAttachments.AttachName, Tbl_InvoiceAttachments.DocumentID, Tbl_InvoiceAttachments.CustomerID  FROM Tbl_InvoiceAttachments WHERE (((Tbl_InvoiceAttachments.CustomerID)=" & OriginForm.Recordset("Customer_ID") & ") AND ((Tbl_InvoiceAttachments.DocumentID)='" & GetDocumentsToInvoices(OriginForm) & "'));")
+        Set Rst = CurrentDb.OpenRecordset("SELECT Tbl_InvoiceAttachments.AttachName, Tbl_InvoiceAttachments.DocumentID, Tbl_InvoiceAttachments.CustomerID  FROM Tbl_InvoiceAttachments WHERE (((Tbl_InvoiceAttachments.CustomerID)=" & OriginForm.Recordset("Customer_ID") & ") AND ((Tbl_InvoiceAttachments.DocumentID)='" & GetDocumentsToInvoices(OriginForm) & "'));")
 
     End With
-    While Not rst.EOF
-        Application.FollowHyperlink rst.Fields("AttachName"), , True
-        rst.MoveNext
+    While Not Rst.EOF
+        Application.FollowHyperlink Rst.Fields("AttachName"), , True
+        Rst.MoveNext
     Wend
 End Sub
 
@@ -1761,16 +1761,16 @@ End Function
 
 Sub AddPaymentsReceived(ExcApp As Excel.Application, doc As Excel.Workbook, CustomerID)
 Dim I As Integer
-Dim rst As Variant
+Dim Rst As Variant
 Dim a As String
 With ExcApp
-    Set rst = New ADODB.Recordset
+    Set Rst = New ADODB.Recordset
     a = "SELECT Tbl_CashCollected.CustomerID, Tbl_CashCollected.[Payment Date], Tbl_CashCollected.Currency, Tbl_CashCollected.Amount, Tbl_CashCollected.[Original amount]  " & _
         " FROM Tbl_CashCollected WHERE (((Tbl_CashCollected.CustomerID)='" & CustomerID & "') AND ((Tbl_CashCollected.[Payment Date])>#" & Format(Date - 180, "mm/dd/yy") & "#)) ORDER BY Tbl_CashCollected.[Payment Date] DESC"
-    Set rst = CurrentDb.OpenRecordset(a)
+    Set Rst = CurrentDb.OpenRecordset(a)
 
-    If rst.RecordCount > 0 Then
-        rst.MoveFirst
+    If Rst.RecordCount > 0 Then
+        Rst.MoveFirst
         I = 1
         While InStr(1, ExcApp.Sheets(I).Name, "Sheet") = 0
             I = I + 1
@@ -1782,11 +1782,11 @@ With ExcApp
         ExcApp.ActiveSheet.Cells(I, 2) = "Currency"
         ExcApp.ActiveSheet.Cells(I, 3) = "Amount"
 
-        For I = 0 To rst.RecordCount - 1
-            ExcApp.ActiveSheet.Cells(I + 2, 1) = Format(rst.Fields("Payment Date"), "dd-mmm-yyyy")
-            ExcApp.ActiveSheet.Cells(I + 2, 2) = rst.Fields("Currency")
-            ExcApp.ActiveSheet.Cells(I + 2, 3) = Format(rst.Fields("Original amount"), "##,##0.00")
-            rst.MoveNext
+        For I = 0 To Rst.RecordCount - 1
+            ExcApp.ActiveSheet.Cells(I + 2, 1) = Format(Rst.Fields("Payment Date"), "dd-mmm-yyyy")
+            ExcApp.ActiveSheet.Cells(I + 2, 2) = Rst.Fields("Currency")
+            ExcApp.ActiveSheet.Cells(I + 2, 3) = Format(Rst.Fields("Original amount"), "##,##0.00")
+            Rst.MoveNext
         Next I
         ExcApp.ActiveSheet.Range("A..C").Columns.AutoFit
         ExcApp.Sheets(1).Select

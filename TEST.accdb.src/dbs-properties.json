@@ -60,6 +60,10 @@
       "Value": "",
       "Type": 12
     },
+    "Continuous Form Record Navigation Keys": {
+      "Value": 0,
+      "Type": 4
+    },
     "DesignMasterID": {
       "Value": "",
       "Type": 15
@@ -177,6 +181,10 @@
       "Type": 1
     },
     "Use BigInt for linking and importing data": {
+      "Value": 0,
+      "Type": 4
+    },
+    "Use DateTime2 for linking and importing data": {
       "Value": 0,
       "Type": 4
     },

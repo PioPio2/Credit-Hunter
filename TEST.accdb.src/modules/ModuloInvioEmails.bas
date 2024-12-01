@@ -342,21 +342,21 @@ Sub InviaEmail2(strTo As String, strcc As String, strSubject As String, strBody 
 End Sub
 Sub SendEmails(strTo As String, strcc As String, strSubject As String, strBody As String, strfilename As String, ParamArray strFiles())
 Dim cdomsg As Variant
-Dim rst As Recordset
+Dim Rst As Recordset
 Dim x As Integer
 If strTo <> "" Then
-    Set rst = New ADODB.Recordset
-    rst.ActiveConnection = CurrentProject.Connection
-    rst.Open "TblGeneral", , adOpenKeyset, adLockOptimistic, adCmdTable
+    Set Rst = New ADODB.Recordset
+    Rst.ActiveConnection = CurrentProject.Connection
+    Rst.Open "TblGeneral", , adOpenKeyset, adLockOptimistic, adCmdTable
 
     Set cdomsg = CreateObject("CDO.message")
     With cdomsg.Configuration.Fields
-        .item("http://schemas.microsoft.com/cdo/configuration/sendusing") = rst.Fields("sendusing") 'NTLM method
-        .item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = rst.Fields("smtpserver")
-        .item("http://schemas.microsoft.com/cdo/configuration/smptserverport") = rst.Fields("SMTPserverport")
-        .item("http://schemas.microsoft.com/cdo/configuration/smtpauthenticate") = rst.Fields("smtpauthenticate")
-        .item("http://schemas.microsoft.com/cdo/configuration/smtpusessl") = rst.Fields("smtpusessl")
-        .item("http://schemas.microsoft.com/cdo/configuration/smtpconnectiontimeout") = rst.Fields("smtpconnectiontimeout")
+        .item("http://schemas.microsoft.com/cdo/configuration/sendusing") = Rst.Fields("sendusing") 'NTLM method
+        .item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = Rst.Fields("smtpserver")
+        .item("http://schemas.microsoft.com/cdo/configuration/smptserverport") = Rst.Fields("SMTPserverport")
+        .item("http://schemas.microsoft.com/cdo/configuration/smtpauthenticate") = Rst.Fields("smtpauthenticate")
+        .item("http://schemas.microsoft.com/cdo/configuration/smtpusessl") = Rst.Fields("smtpusessl")
+        .item("http://schemas.microsoft.com/cdo/configuration/smtpconnectiontimeout") = Rst.Fields("smtpconnectiontimeout")
         .item("http://schemas.microsoft.com/cdo/configuration/sendusername") = DLookup("[E-mailAddress]", "[Tbl_Users]", "UserName='" & fOSUserName() & "'")
         .item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = DLookup("[Password]", "[Tbl_Users]", "UserName='" & fOSUserName() & "'")
         .Update
@@ -387,25 +387,25 @@ If strTo <> "" Then
         End If
         .Send
     End With
-    rst.Close
-    Set rst = Nothing
+    Rst.Close
+    Set Rst = Nothing
     Set cdomsg = Nothing
 Else
     x = MsgBox("Main email recipient is missing. The email will not be sent.", vbCritical, "Error")
 End If
 End Sub
 Function GetAllUserEmails() As String
-Dim rst As Variant
+Dim Rst As Variant
     GetAllUserEmails = ""
-    Set rst = New ADODB.Recordset
-    Set rst = CurrentDb.OpenRecordset("SELECT Tbl_Users.[E-mailAddress] FROM Tbl_Users WHERE (((Tbl_Users.[E-mailAddress]) Is Not Null));")
-    If rst.RecordCount > 0 Then
-        rst.MoveFirst
-        While Not rst.EOF
-            GetAllUserEmails = GetAllUserEmails & "," & rst.Fields("E-mailAddress")
-            rst.MoveNext
+    Set Rst = New ADODB.Recordset
+    Set Rst = CurrentDb.OpenRecordset("SELECT Tbl_Users.[E-mailAddress] FROM Tbl_Users WHERE (((Tbl_Users.[E-mailAddress]) Is Not Null));")
+    If Rst.RecordCount > 0 Then
+        Rst.MoveFirst
+        While Not Rst.EOF
+            GetAllUserEmails = GetAllUserEmails & "," & Rst.Fields("E-mailAddress")
+            Rst.MoveNext
         Wend
         GetAllUserEmails = Mid(GetAllUserEmails, 2, Len(GetAllUserEmails))
     End If
-    Set rst = Nothing
+    Set Rst = Nothing
 End Function
