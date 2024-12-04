@@ -90,12 +90,12 @@ End Function
 
 
 Function QueryCashCollectedSQLParser(Stringa As String, CreditController As Integer, Channel As String) As String
-Dim posiz As Integer
+    Dim posiz As Integer
     ' "SELECT Tbl_Users.Name, Tbl_Customers.RetailOEM, Tbl_Customers.Name, Tbl_CashCollected.[Payment Date], Sum(Tbl_CashCollected.Amount) AS [Amount in EUR], Tbl_Cash_Target.CashTargetInEUR FROM (((Tbl_Customers INNER JOIN Tbl_CashCollected ON Tbl_Customers.Customer_code = Tbl_CashCollected.CustomerID) INNER JOIN Tbl_Currencies ON Tbl_CashCollected.Currency = Tbl_Currencies.CurrencyID) INNER JOIN Tbl_Users ON Tbl_Customers.Credit_controller = Tbl_Users.ID) INNER JOIN Tbl_Cash_Target ON Tbl_Users.ID = Tbl_Cash_Target.CControllerID WHERE ((Tbl_Customers.Credit_controller) = " & Combo6.Column(1) & ") GROUP BY Tbl_Users.Name, Tbl_Customers.Name, Tbl_CashCollected.[Payment Date], Tbl_Cash_Target.CashTargetInEUR HAVING (((Tbl_CashCollected.[Payment Date]) >= #" & format(Text0.Value, "mm/dd/yy") & "# And (Tbl_CashCollected.[Payment Date]) <= #" & format(Text2.Value, "mm/dd/yy") & "#)) ORDER BY Sum(Tbl_CashCollected.Amount) DESC;"
     posiz = InStr(1, Stringa, "ORDER BY")
     If CreditController <> 0 Then
         Stringa = Left(Stringa, posiz - 3) & " AND ((Tbl_Users.ID)=" & CreditController & ")" & Mid(Stringa, posiz - 2, 10000)
-            'Stringa = Left(Stringa, posiz - 3) & " AND ((Tbl_Users.ID)=1)" & " ORDER BY Sum(Tbl_CashCollected.Amount) DESC;"
+        'Stringa = Left(Stringa, posiz - 3) & " AND ((Tbl_Users.ID)=1)" & " ORDER BY Sum(Tbl_CashCollected.Amount) DESC;"
     End If
     If Channel <> "" Then
         posiz = InStr(1, Stringa, "HAVING")
@@ -103,3 +103,7 @@ Dim posiz As Integer
     End If
     QueryCashCollectedSQLParser = Stringa
 End Function
+
+Public Sub HelloWorld()
+    MsgBox "Hello! I'm about to run the export!"
+End Sub

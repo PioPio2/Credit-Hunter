@@ -29,10 +29,10 @@ Public Function ICustomerHeaderSupport_Populate(aCustomerID As String) As Script
     Set RS = Application.CurrentDb.OpenRecordset(SQL)
 
     Set Dict = New Scripting.Dictionary
-    Dim Fld As Variant
+    Dim fld As Variant
     If RS.RecordCount > 0 Then
-        For Each Fld In RS.Fields
-            Dict.Add Fld.Name, Fld.value
+        For Each fld In RS.Fields
+            Dict.Add fld.Name, fld.value
         Next
     End If
     Set ICustomerHeaderSupport_Populate = Dict

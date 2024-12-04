@@ -410,25 +410,25 @@ Dim provv As Recordset
 '    End With
 End Function
 
-Function NormalizeFileName(FileName As String) As String
-    FileName = Replace(FileName, ".", "")
-    FileName = Replace(FileName, Chr(34), "")
-    FileName = Replace(FileName, "/", "")
-    FileName = Replace(FileName, "\", "")
-    FileName = Replace(FileName, "[", "")
-    FileName = Replace(FileName, "]", "")
-    FileName = Replace(FileName, ":", "")
-    FileName = Replace(FileName, ";", "")
-    FileName = Replace(FileName, "=", "")
-    FileName = Replace(FileName, ",", "")
-    NormalizeFileName = FileName
+Function NormalizeFileName(Filename As String) As String
+    Filename = Replace(Filename, ".", "")
+    Filename = Replace(Filename, Chr(34), "")
+    Filename = Replace(Filename, "/", "")
+    Filename = Replace(Filename, "\", "")
+    Filename = Replace(Filename, "[", "")
+    Filename = Replace(Filename, "]", "")
+    Filename = Replace(Filename, ":", "")
+    Filename = Replace(Filename, ";", "")
+    Filename = Replace(Filename, "=", "")
+    Filename = Replace(Filename, ",", "")
+    NormalizeFileName = Filename
 End Function
 
 Function ExcelStatement(Customer As Recordset, CurrencyTab As Variant, rstbanks As Recordset, Optional Monthend As Date, Optional CloseStatement As Boolean) As String
 Dim ExcApp As Excel.Application
 Dim ExcDoc As Excel.Workbook
 Dim ExeWksht As Excel.Worksheet
-Dim Typecurrency, FileName As String
+Dim Typecurrency, Filename As String
 Dim NextEmptyColumn, sheet, Currinv, heet, c, r, row, col, StartingDataRow, StartingDataRow2, StartingDataRow3, InvoiceLine, COLWIDTH As Integer
 Dim ColCustInvn, PullTicketN, OriginalAmount As Integer
 Dim MonthEndAmount, Current, O31Days, O3160Days, O61days As Currency
@@ -934,11 +934,11 @@ DirSave = Replace(DirSave, "*username*", fOSUserName())
  '   MkDir (Dirsave)
 'End If
 
-FileName = Customer.Fields("Name")
-FileName = NormalizeFileName(FileName)
+Filename = Customer.Fields("Name")
+Filename = NormalizeFileName(Filename)
 
-ExcelStatement = DirSave & FileName & " - " & Format((Now), "dd mmm yyyy - hh.mm.ss") & ".xlsx"
-ExcApp.ActiveWorkbook.SaveAs FileName:=ExcelStatement, FileFormat:=xlWorkbookDefault
+ExcelStatement = DirSave & Filename & " - " & Format((Now), "dd mmm yyyy - hh.mm.ss") & ".xlsx"
+ExcApp.ActiveWorkbook.SaveAs Filename:=ExcelStatement, FileFormat:=xlWorkbookDefault
 If CloseStatement = True Then
     ExcApp.Quit
     Set ExcApp = Nothing
@@ -1882,7 +1882,7 @@ Dim I, a As Integer
     S = GetPathExcelDirectory & "Failed Credit Check Releases Today.xls"
 
     ExcApp.Application.DisplayAlerts = False
-    ExcApp.ActiveWorkbook.SaveAs FileName:=S, FileFormat:=xlNormal, Password:="", WriteResPassword:="", ReadOnlyRecommended:=False, CreateBackup:=False
+    ExcApp.ActiveWorkbook.SaveAs Filename:=S, FileFormat:=xlNormal, Password:="", WriteResPassword:="", ReadOnlyRecommended:=False, CreateBackup:=False
     ExcApp.Application.DisplayAlerts = True
     ExcApp.Quit
     Set ExcApp = Nothing

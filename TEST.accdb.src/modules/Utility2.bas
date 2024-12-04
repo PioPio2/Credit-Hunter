@@ -236,7 +236,7 @@ Type tagOPENFILENAME
     strCustomFilter As String
     nMaxCustFilter As Long
     nFilterIndex As Long
-    strFile As String
+    StrFile As String
     nMaxFile As Long
     strFileTitle As String
     nMaxFileTitle As Long
@@ -351,7 +351,7 @@ Function ahtCommonFileOpenSave( _
             Optional ByVal Filter As Variant, _
             Optional ByVal FilterIndex As Variant, _
             Optional ByVal DefaultExt As Variant, _
-            Optional ByVal FileName As Variant, _
+            Optional ByVal Filename As Variant, _
             Optional ByVal DialogTitle As Variant, _
             Optional ByVal hwnd As Variant, _
             Optional ByVal OpenFile As Variant) As Variant
@@ -384,12 +384,12 @@ Dim fResult As Boolean
     If IsMissing(FilterIndex) Then FilterIndex = 1
     If IsMissing(Flags) Then Flags = 0&
     If IsMissing(DefaultExt) Then DefaultExt = ""
-    If IsMissing(FileName) Then FileName = ""
+    If IsMissing(Filename) Then Filename = ""
     If IsMissing(DialogTitle) Then DialogTitle = ""
     If IsMissing(hwnd) Then hwnd = Application.hWndAccessApp
     If IsMissing(OpenFile) Then OpenFile = True
     ' Allocate string space for the returned strings.
-    strfilename = Left(FileName & String(256, 0), 256)
+    strfilename = Left(Filename & String(256, 0), 256)
     strFileTitle = String(256, 0)
     ' Set up the data structure before you call the function
     With OFN
@@ -397,7 +397,7 @@ Dim fResult As Boolean
         .hwndOwner = hwnd
         .StrFilter = Filter
         .nFilterIndex = FilterIndex
-        .strFile = strfilename
+        .StrFile = strfilename
         .nMaxFile = Len(strfilename)
         .strFileTitle = strFileTitle
         .nMaxFileTitle = Len(strFileTitle)
@@ -438,7 +438,7 @@ Dim fResult As Boolean
             ' Return the full array.
             Dim items As Variant
             Dim value As String
-            value = OFN.strFile
+            value = OFN.StrFile
             ' Get rid of empty items:
             Dim I As Integer
             For I = Len(value) To 1 Step -1
@@ -469,7 +469,7 @@ Dim fResult As Boolean
                 ahtCommonFileOpenSave = items(0)
             End If
         Else
-            ahtCommonFileOpenSave = TrimNull(OFN.strFile)
+            ahtCommonFileOpenSave = TrimNull(OFN.StrFile)
         End If
     Else
         ahtCommonFileOpenSave = vbNullString

@@ -10,3 +10,7 @@ End Function
 Public Function AccUnitTestClassFactory_ZclsTestOutlook() As Object
    Set AccUnitTestClassFactory_ZclsTestOutlook = New ZclsTestOutlook
 End Function
+
+Public Function AccUnitTestClassFactory_zclsTestUpdateFiles() As Object
+   Set AccUnitTestClassFactory_zclsTestUpdateFiles = New zclsTestUpdateFiles
+End Function

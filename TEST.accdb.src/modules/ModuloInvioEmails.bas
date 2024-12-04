@@ -28,7 +28,7 @@ Type MapiFile
     Flags As Long
     Position As Long
     PathName As String
-    FileName As String
+    Filename As String
     FileType As String
 End Type
 

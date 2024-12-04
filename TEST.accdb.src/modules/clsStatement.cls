@@ -39,7 +39,7 @@ Private Function FormerExcelStatement(Customer As Recordset, CurrencyTab As Vari
     Dim ExcApp As Excel.Application
     Dim ExcDoc As Excel.Workbook
     Dim ExeWksht As Excel.Worksheet
-    Dim Typecurrency, FileName As String
+    Dim Typecurrency, Filename As String
     Dim NextEmptyColumn, sheet, Currinv, heet, c, r, row, col, StartingDataRow, StartingDataRow2, StartingDataRow3, InvoiceLine, COLWIDTH As Integer
     Dim ColCustInvn, PullTicketN, OriginalAmount As Integer
     Dim MonthEndAmount, Current, O31Days, O3160Days, O61days As Currency
@@ -545,11 +545,11 @@ avanti:
     '   MkDir (Dirsave)
     'End If
 
-    FileName = Customer.Fields("Name")
-    FileName = NormalizeFileName(FileName)
+    Filename = Customer.Fields("Name")
+    Filename = NormalizeFileName(Filename)
 
-    FormerExcelStatement = DirSave & FileName & " - " & Format((Now), "dd mmm yyyy - hh.mm.ss") & ".xlsx"
-    ExcApp.ActiveWorkbook.SaveAs FileName:=FormerExcelStatement, FileFormat:=xlWorkbookDefault
+    FormerExcelStatement = DirSave & Filename & " - " & Format((Now), "dd mmm yyyy - hh.mm.ss") & ".xlsx"
+    ExcApp.ActiveWorkbook.SaveAs Filename:=FormerExcelStatement, FileFormat:=xlWorkbookDefault
     If CloseStatement = True Then
         ExcApp.Quit
         Set ExcApp = Nothing
@@ -595,13 +595,13 @@ Public Function IStatement_CreateStatement(Dependency As iStatementSupport, Head
 
     Call TurnOnCalculations
 
-    Dim FileName As String
-    FileName = Header.getCustomerName
-    FileName = NormalizeFileName(FileName)
+    Dim Filename As String
+    Filename = Header.getCustomerName
+    Filename = NormalizeFileName(Filename)
 
     Dim DirSave As String
     DirSave = Dependency.GetStatementSavePath
-    CompletePath = DirSave & FileName & " - " & Format((Now), "dd mmm yyyy - hh.mm.ss") & ".xlsx"
+    CompletePath = DirSave & Filename & " - " & Format((Now), "dd mmm yyyy - hh.mm.ss") & ".xlsx"
     Call Dependency.SaveStatement(CompletePath)
     If CloseStatement = True Then
         Call Dependency.CloseStatement

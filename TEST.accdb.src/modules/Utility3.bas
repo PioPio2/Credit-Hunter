@@ -338,7 +338,7 @@ Sub CLLimitReport()
 
         With MyXl
             .Application.DisplayAlerts = False
-            .ActiveWorkbook.SaveAs FileName:=FN, FileFormat:=xlNormal, Password:="", WriteResPassword:="", ReadOnlyRecommended:=False, CreateBackup:=False
+            .ActiveWorkbook.SaveAs Filename:=FN, FileFormat:=xlNormal, Password:="", WriteResPassword:="", ReadOnlyRecommended:=False, CreateBackup:=False
             .Application.DisplayAlerts = True
             .Quit
         End With
@@ -617,7 +617,7 @@ Function FillGeneralCashTargetByEmail() As String
 
         With ExcApp
             .Application.DisplayAlerts = False
-            .ActiveWorkbook.SaveAs FileName:=GetPathExcelDirectory() & "GeneralCashTarget.xls", FileFormat:=xlNormal, Password:="", WriteResPassword:="", ReadOnlyRecommended:=False, CreateBackup:=False
+            .ActiveWorkbook.SaveAs Filename:=GetPathExcelDirectory() & "GeneralCashTarget.xls", FileFormat:=xlNormal, Password:="", WriteResPassword:="", ReadOnlyRecommended:=False, CreateBackup:=False
             .Application.DisplayAlerts = True
             .Quit
         End With
@@ -825,7 +825,7 @@ Function FillCashTargetWithChannelByEmail()
 
     With ExcApp
         .Application.DisplayAlerts = False
-        .ActiveWorkbook.SaveAs FileName:=GetPathExcelDirectory() & "GeneralCashTargetWithChannel.xls", FileFormat:=xlNormal, Password:="", WriteResPassword:="", ReadOnlyRecommended:=False, CreateBackup:=False
+        .ActiveWorkbook.SaveAs Filename:=GetPathExcelDirectory() & "GeneralCashTargetWithChannel.xls", FileFormat:=xlNormal, Password:="", WriteResPassword:="", ReadOnlyRecommended:=False, CreateBackup:=False
         .Application.DisplayAlerts = True
         .Quit
     End With
@@ -1027,7 +1027,7 @@ Function FillCashTargetWithCurrencyByEmail()
 
     With ExcApp
         .Application.DisplayAlerts = False
-        .ActiveWorkbook.SaveAs FileName:=GetPathExcelDirectory() & "GeneralCashTargetWithCurrency.xls", FileFormat:=xlNormal, Password:="", WriteResPassword:="", ReadOnlyRecommended:=False, CreateBackup:=False
+        .ActiveWorkbook.SaveAs Filename:=GetPathExcelDirectory() & "GeneralCashTargetWithCurrency.xls", FileFormat:=xlNormal, Password:="", WriteResPassword:="", ReadOnlyRecommended:=False, CreateBackup:=False
         .Application.DisplayAlerts = True
         .Quit
     End With
@@ -1155,7 +1155,7 @@ Function MergeAllCashTargetRerports(MainCashTargetReport, CashTargetWithChannelR
     ReportName = GetPathExcelDirectory() & "MergedCashTargetReports.xls"
     ExcApp.Application.DisplayAlerts = False
     DoEvents
-    ExcApp.ActiveWorkbook.SaveAs FileName:=ReportName, FileFormat:=xlNormal, Password:="", WriteResPassword:="", ReadOnlyRecommended:=False, CreateBackup:=False
+    ExcApp.ActiveWorkbook.SaveAs Filename:=ReportName, FileFormat:=xlNormal, Password:="", WriteResPassword:="", ReadOnlyRecommended:=False, CreateBackup:=False
 
 
     'ExcApp.Application.DisplayAlerts = False
@@ -1602,7 +1602,7 @@ Function FillGeneralCashTargetByEmailInUSD() As String
 
         With ExcApp
             .Application.DisplayAlerts = False
-            .ActiveWorkbook.SaveAs FileName:=GetPathExcelDirectory() & "GeneralCashTargetInUSD.xls", FileFormat:=xlNormal, Password:="", WriteResPassword:="", ReadOnlyRecommended:=False, CreateBackup:=False
+            .ActiveWorkbook.SaveAs Filename:=GetPathExcelDirectory() & "GeneralCashTargetInUSD.xls", FileFormat:=xlNormal, Password:="", WriteResPassword:="", ReadOnlyRecommended:=False, CreateBackup:=False
             .Application.DisplayAlerts = True
             .Quit
         End With

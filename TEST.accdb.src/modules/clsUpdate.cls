@@ -61,18 +61,18 @@ Public Function DownloadFileFromGitHub(GitRawFile, UpdateDestinationFile As Stri
     End If
 End Function
 
-Public Function LatestVersion(GitRawFile, FileName As String) As Variant
-    If IsFile(FileName) = False Then
+Public Function LatestVersion(GitRawFile, Filename As String) As Variant
+    If IsFile(Filename) = False Then
         LatestVersion = 0
     Else
         Dim LatestVersionFond As Variant
-        LatestVersionFond = DownloadFileFromGitHub(GitRawFile, FileName)
+        LatestVersionFond = DownloadFileFromGitHub(GitRawFile, Filename)
         If LatestVersionFond = True Then
             Dim strIn As String
             Dim objFSO As Object
             Set objFSO = CreateObject("Scripting.FileSystemObject")
             Dim objTF As Object
-            Set objTF = objFSO.OpenTextFile(FileName, 1)
+            Set objTF = objFSO.OpenTextFile(Filename, 1)
             strIn = objTF.readall
             strIn = Trim(strIn)
             LatestVersion = CDec(strIn)
