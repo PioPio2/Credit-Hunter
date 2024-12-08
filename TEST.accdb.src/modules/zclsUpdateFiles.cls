@@ -14,6 +14,7 @@ Private SourceColl As Collection
 Private DestinationColl As Collection
 Private MainPathLen As Long
 Private MainPath As String
+Private NFilesCopied As Long
 Public Function Scan(SourcePath, DestinationPath As String) As Integer
     Dim fso As Object    'FileSystemObject
     Set fso = CreateObject("scripting.FileSystemObject")    ' late binding
@@ -46,11 +47,11 @@ Public Function Scan(SourcePath, DestinationPath As String) As Integer
         ListFolders fld, Mask
     Next
     Set DestinationColl = Coll
-' how to change datetime of a file
-'    Dim WhatTime As FileDateToProcess
-'    Dim result As Boolean
-'    result = SetFileDateTime(DestinationColl.item(1).Path & DestinationColl.item(1).FileName, SourceColl.item(1).DateTime, _
-'                             WhichDateToChange:=FileDateLastModified, NoGMTConvert:=False)
+    ' how to change datetime of a file
+    '    Dim WhatTime As FileDateToProcess
+    '    Dim result As Boolean
+    '    result = SetFileDateTime(DestinationColl.item(1).Path & DestinationColl.item(1).FileName, SourceColl.item(1).DateTime, _
+         '                             WhichDateToChange:=FileDateLastModified, NoGMTConvert:=False)
 End Function
 Public Function GetSourceList() As Collection
     Set GetSourceList = SourceColl
@@ -76,7 +77,7 @@ Public Sub ListFiles(fld As Object, Mask As String)
         If fl.Name Like Mask Then
             Set clsFile = New zclsFile
             clsFile.Path = Left(MainPath, MainPathLen - 1)    'fld.Path & "\"
-            clsFile.DateTime = fld.DateLastModified
+            clsFile.DateTime = fl.DateLastModified
             clsFile.FileName = Mid(fld.Path & "\" & fl.Name, MainPathLen, Len(fld.Path & "\" & fl.Name))
             Coll.Add clsFile
             Debug.Print fld.Path & "\" & fl.Name
@@ -87,19 +88,76 @@ Public Function GetDestinationList() As Collection
     Set GetDestinationList = DestinationColl
 End Function
 
-'''''''''''''''''''''''''''''''''''''''''''''''''''
-' Call the SetFileTimeLastModified flavor of SetFileTime.
-'''''''''''''''''''''''''''''''''''''''''''''''''''
-'Dim Res As Long
-'Res = SetFileTimeLastModified( _
-  '          hFile:=FileHandle, _
-  '          CreateTime:=NULL_LONG, _
-  '          LastAccessTime:=NULL_LONG, _
-  '          LastModified:=tFileTime)
-'If Res = 0 Then
-'ErrNum = Err.LastDllError
-'ErrText = GetSystemErrorMessageText(ErrNum)
-'Debug.Print "Error With SetFileTimeLastModified:" & vbCrLf & _
-'            "Err:  " & CStr(ErrNum) & vbCrLf & _
-'            "Desc: " & ErrText
-'
+Public Function Replace(ByRef ErrorN As Long, ByRef ErrorStr As String, ByRef NFiles As Long) As Boolean
+    ErrorN = 0
+    ErrorStr = ""
+    NFiles = 0
+    NFilesCopied = 0
+
+    If SourceColl Is Nothing Then    ' if there is no sourcecoll created then error
+        ErrorN = 1
+        ErrorStr = "SourceColl was not created"
+        Exit Function
+    End If
+
+    If SourceColl.Count = 0 Then    ' if there are no files in source then error
+        ErrorN = 2
+        ErrorStr = "There are is no file in the source folder"
+        Exit Function
+    End If
+
+    ' scan source folder and compare with destination folder
+    ' if any files in source is more recent than the correspondent file in destination then override the one in destination folder
+    Dim SourceCount As Long
+    Dim SourceFile As String
+    Dim fso As Object
+    Set fso = VBA.CreateObject("Scripting.FileSystemObject")
+
+    For SourceCount = 1 To SourceColl.Count    ' scan all files in source
+        SourceFile = SourceColl.item(SourceCount).FileName
+        Dim DestCount As Long
+        Dim DestFile As String
+        Dim OverrideFile As Boolean
+        OverrideFile = False
+        Dim FullSourcePath As String
+        Dim FullDestinationPath As String
+        For DestCount = 1 To DestinationColl.Count    ' scan destination files
+            DestFile = DestinationColl.item(DestCount).FileName
+            If DestFile = SourceFile Then    ' if file found in destination then check the datetime
+                Dim SourceTime As Variant
+                Dim DestTime As Variant
+                SourceTime = SourceColl.item(SourceCount).DateTime
+                DestTime = DestinationColl.item(DestCount).DateTime
+
+                ' if file last modified date/time is more recent then the correspondent file in destination then override the file
+                If SourceTime > DestTime Then
+                    FullSourcePath = SourceColl.item(SourceCount).Path & SourceFile
+                    FullDestinationPath = DestinationColl.item(DestCount).Path & DestFile
+                    OverrideFile = True
+                    '                    Call fso.CopyFile(SourceColl.item(SourceCount).Path & SourceFile, DestinationColl.item(DestCount).Path & DestFile, True)
+                    '                    NFilesCopied = NFilesCopied + 1
+                    '                    NFiles = NFilesCopied
+                    Exit For
+                Else
+                    Exit For
+                End If
+            End If
+
+            ' actioned only if there is a file in source that does not exist in destination folder
+            If DestFile <> SourceFile And DestCount = DestinationColl.Count Then
+                FullSourcePath = SourceColl.item(SourceCount).Path & SourceFile
+                FullDestinationPath = DestinationColl.item(DestCount).Path & SourceFile
+                OverrideFile = True
+            End If
+        Next DestCount
+
+        ' the file in sourcefolder has to override the one in destination folder
+        If OverrideFile = True Then
+            Call fso.CopyFile(FullSourcePath, FullDestinationPath, True)
+            NFilesCopied = NFilesCopied + 1
+            NFiles = NFilesCopied
+            OverrideFile = False
+        End If
+
+    Next SourceCount
+End Function
