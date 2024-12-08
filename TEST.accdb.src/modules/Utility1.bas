@@ -1,7 +1,5 @@
 ﻿Attribute VB_Name = "Utility1"
 Option Compare Database
-
-
 Option Explicit
 Public SpeseLegaliRecuperate, ImportoPagato, CodiceAvvocato, NomeAvvocato, ParcellaAvvocato, DataInizioProceduraConcorsuale As String
 Public DataPagamentoPraticaLegale, DataParcellaAvvocato As Date
@@ -410,25 +408,25 @@ Dim provv As Recordset
 '    End With
 End Function
 
-Function NormalizeFileName(Filename As String) As String
-    Filename = Replace(Filename, ".", "")
-    Filename = Replace(Filename, Chr(34), "")
-    Filename = Replace(Filename, "/", "")
-    Filename = Replace(Filename, "\", "")
-    Filename = Replace(Filename, "[", "")
-    Filename = Replace(Filename, "]", "")
-    Filename = Replace(Filename, ":", "")
-    Filename = Replace(Filename, ";", "")
-    Filename = Replace(Filename, "=", "")
-    Filename = Replace(Filename, ",", "")
-    NormalizeFileName = Filename
+Function NormalizeFileName(FileName As String) As String
+    FileName = Replace(FileName, ".", "")
+    FileName = Replace(FileName, Chr(34), "")
+    FileName = Replace(FileName, "/", "")
+    FileName = Replace(FileName, "\", "")
+    FileName = Replace(FileName, "[", "")
+    FileName = Replace(FileName, "]", "")
+    FileName = Replace(FileName, ":", "")
+    FileName = Replace(FileName, ";", "")
+    FileName = Replace(FileName, "=", "")
+    FileName = Replace(FileName, ",", "")
+    NormalizeFileName = FileName
 End Function
 
 Function ExcelStatement(Customer As Recordset, CurrencyTab As Variant, rstbanks As Recordset, Optional Monthend As Date, Optional CloseStatement As Boolean) As String
 Dim ExcApp As Excel.Application
 Dim ExcDoc As Excel.Workbook
 Dim ExeWksht As Excel.Worksheet
-Dim Typecurrency, Filename As String
+Dim Typecurrency, FileName As String
 Dim NextEmptyColumn, sheet, Currinv, heet, c, r, row, col, StartingDataRow, StartingDataRow2, StartingDataRow3, InvoiceLine, COLWIDTH As Integer
 Dim ColCustInvn, PullTicketN, OriginalAmount As Integer
 Dim MonthEndAmount, Current, O31Days, O3160Days, O61days As Currency
@@ -934,11 +932,11 @@ DirSave = Replace(DirSave, "*username*", fOSUserName())
  '   MkDir (Dirsave)
 'End If
 
-Filename = Customer.Fields("Name")
-Filename = NormalizeFileName(Filename)
+FileName = Customer.Fields("Name")
+FileName = NormalizeFileName(FileName)
 
-ExcelStatement = DirSave & Filename & " - " & Format((Now), "dd mmm yyyy - hh.mm.ss") & ".xlsx"
-ExcApp.ActiveWorkbook.SaveAs Filename:=ExcelStatement, FileFormat:=xlWorkbookDefault
+ExcelStatement = DirSave & FileName & " - " & Format((Now), "dd mmm yyyy - hh.mm.ss") & ".xlsx"
+ExcApp.ActiveWorkbook.SaveAs FileName:=ExcelStatement, FileFormat:=xlWorkbookDefault
 If CloseStatement = True Then
     ExcApp.Quit
     Set ExcApp = Nothing
@@ -1232,7 +1230,7 @@ Function TotalInvoicesSelected(Rst As Variant, SelTop, SelHeight As Long) As Cur
 End Function
 
 Function ExtractDateTimezone(S As String) As Date
-    Dim WDay, NMonth, NSunday As Integer
+    Dim wDay, NMonth, NSunday As Integer
     If Left(S, 1) = "D" Then
         Rem data precisa
         ExtractDateTimezone = DateSerial(Year(Now()), CInt(Mid(S, 4, 2)), CInt(Mid(S, 2, 2)))
@@ -1242,15 +1240,15 @@ Function ExtractDateTimezone(S As String) As Date
         NMonth = CInt(Mid(S, 4, 2))
         ExtractDateTimezone = DateSerial(Year(Now()), NMonth, 1)
         If NSunday < 99 Then
-            WDay = Weekday(ExtractDateTimezone)
-            If WDay <> 1 Then
-                ExtractDateTimezone = DateAdd("d", 8 - WDay, ExtractDateTimezone)
+            wDay = Weekday(ExtractDateTimezone)
+            If wDay <> 1 Then
+                ExtractDateTimezone = DateAdd("d", 8 - wDay, ExtractDateTimezone)
             End If
         Else
             ExtractDateTimezone = DateAdd("m", 1, ExtractDateTimezone)
-            WDay = Weekday(ExtractDateTimezone)
-            If WDay <> 1 Then
-                ExtractDateTimezone = DateAdd("d", 8 - WDay, ExtractDateTimezone)
+            wDay = Weekday(ExtractDateTimezone)
+            If wDay <> 1 Then
+                ExtractDateTimezone = DateAdd("d", 8 - wDay, ExtractDateTimezone)
             End If
             ExtractDateTimezone = DateAdd("d", -7, ExtractDateTimezone)
         End If
@@ -1318,35 +1316,35 @@ End Function
 
 Function DivideTemplateInBits(S As String, NBits As Integer, Customer As Variant, Optional RecipientsName As String) As String
 Dim Sentences()
-Dim POS, I, EndSentence As Integer
+Dim Pos, I, EndSentence As Integer
 Dim RS As DAO.Recordset
 Dim Currenciess As String
 Dim tot As Currency
     ReDim Sentences(NBits)
-    POS = 1
+    Pos = 1
     For I = 1 To Len(S)
         If Mid$(S, I, 1) = "{" Then
             EndSentence = InStr(I, S, "}")
-            Sentences(POS) = Mid$(S, I, EndSentence - I + 1)
+            Sentences(Pos) = Mid$(S, I, EndSentence - I + 1)
             I = EndSentence + 1
         Else
             EndSentence = InStr(I, S, "{") - 1
             If EndSentence < 1 Then
                 EndSentence = Len(S)
             End If
-            Sentences(POS) = Mid$(S, I, EndSentence)
+            Sentences(Pos) = Mid$(S, I, EndSentence)
             I = InStr(I, S, "{") - 1
-            If POS = NBits Then
+            If Pos = NBits Then
                 I = Len(S)
             End If
         End If
-        If Left(Sentences(POS), 1) = "{" Then
-            Sentences(POS) = Mid(Sentences(POS), 2, Len(Sentences(POS)) - 1)
+        If Left(Sentences(Pos), 1) = "{" Then
+            Sentences(Pos) = Mid(Sentences(Pos), 2, Len(Sentences(Pos)) - 1)
         End If
-        If Right(Sentences(POS), 1) = "}" Then
-            Sentences(POS) = Mid(Sentences(POS), 1, Len(Sentences(POS)) - 1)
+        If Right(Sentences(Pos), 1) = "}" Then
+            Sentences(Pos) = Mid(Sentences(Pos), 1, Len(Sentences(Pos)) - 1)
         End If
-        POS = POS + 1
+        Pos = Pos + 1
     Next I
     Rem sostituisce delimitatori a dati
     For I = 1 To UBound(Sentences)
@@ -1882,7 +1880,7 @@ Dim I, a As Integer
     S = GetPathExcelDirectory & "Failed Credit Check Releases Today.xls"
 
     ExcApp.Application.DisplayAlerts = False
-    ExcApp.ActiveWorkbook.SaveAs Filename:=S, FileFormat:=xlNormal, Password:="", WriteResPassword:="", ReadOnlyRecommended:=False, CreateBackup:=False
+    ExcApp.ActiveWorkbook.SaveAs FileName:=S, FileFormat:=xlNormal, Password:="", WriteResPassword:="", ReadOnlyRecommended:=False, CreateBackup:=False
     ExcApp.Application.DisplayAlerts = True
     ExcApp.Quit
     Set ExcApp = Nothing

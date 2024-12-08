@@ -28,7 +28,7 @@ Type MapiFile
     Flags As Long
     Position As Long
     PathName As String
-    Filename As String
+    FileName As String
     FileType As String
 End Type
 
@@ -94,16 +94,16 @@ Public Function Mail()
         MsgBox "Non esiste un supporto MAPI per l'invio di posta elettronica"
         Exit Function
     End If
-    Dim F As Form, Result
+    Dim F As Form, result
     Set F = Forms!Esporta
     If IsNull(F!To) Or F!To = "" Then Exit Function
     If IsNull(F!Subject) Then F!Subject = ""
     If IsNull(F!CC) Then F!CC = ""
     If IsNull(F!Attach) Then F!Attach = ""
     If IsNull(F!Message) Then F!Message = ""
-    Result = SendMail((F!Subject), (F!To), (F!CC), (F!Attach), (F!Message))
-    If Result <> SUCCESS_SUCCESS Then
-        MsgBox "Errore nell'invio: " & Result, 16, "Mail"
+    result = SendMail((F!Subject), (F!To), (F!CC), (F!Attach), (F!Message))
+    If result <> SUCCESS_SUCCESS Then
+        MsgBox "Errore nell'invio: " & result, 16, "Mail"
     Else
         MsgBox "Operazione conclusa!", 64, "Mail"
     End If

@@ -351,7 +351,7 @@ Function ahtCommonFileOpenSave( _
             Optional ByVal Filter As Variant, _
             Optional ByVal FilterIndex As Variant, _
             Optional ByVal DefaultExt As Variant, _
-            Optional ByVal Filename As Variant, _
+            Optional ByVal FileName As Variant, _
             Optional ByVal DialogTitle As Variant, _
             Optional ByVal hwnd As Variant, _
             Optional ByVal OpenFile As Variant) As Variant
@@ -384,12 +384,12 @@ Dim fResult As Boolean
     If IsMissing(FilterIndex) Then FilterIndex = 1
     If IsMissing(Flags) Then Flags = 0&
     If IsMissing(DefaultExt) Then DefaultExt = ""
-    If IsMissing(Filename) Then Filename = ""
+    If IsMissing(FileName) Then FileName = ""
     If IsMissing(DialogTitle) Then DialogTitle = ""
     If IsMissing(hwnd) Then hwnd = Application.hWndAccessApp
     If IsMissing(OpenFile) Then OpenFile = True
     ' Allocate string space for the returned strings.
-    strfilename = Left(Filename & String(256, 0), 256)
+    strfilename = Left(FileName & String(256, 0), 256)
     strFileTitle = String(256, 0)
     ' Set up the data structure before you call the function
     With OFN
@@ -454,15 +454,15 @@ Dim fResult As Boolean
             ' Loop through the items in the "array",
             ' and build full file names:
             Dim numItems As Integer
-            Dim Result() As String
+            Dim result() As String
 
             numItems = UBound(items) + 1
             If numItems > 1 Then
-                ReDim Result(0 To numItems - 2)
+                ReDim result(0 To numItems - 2)
                 For I = 1 To numItems - 1
-                    Result(I - 1) = FixPath(items(0)) & items(I)
+                    result(I - 1) = FixPath(items(0)) & items(I)
                 Next I
-                ahtCommonFileOpenSave = Result
+                ahtCommonFileOpenSave = result
             Else
                 ' If you only select a single item,
                 ' Windows just places it in item 0.

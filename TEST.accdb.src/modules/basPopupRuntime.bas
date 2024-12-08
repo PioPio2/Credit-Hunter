@@ -109,7 +109,7 @@ End Function
  Function CallMenu(Idx As Integer, ChkBox As Boolean)
    '  Questa Routine IMPOSTA la COSTRUZIONE DEL MENU'
 
-   Dim POS           As POINTAPI
+   Dim Pos           As POINTAPI
    Dim x             As Integer
    Dim lngret        As Long
 
@@ -142,6 +142,6 @@ End Function
             mArrMnu(2).NuovoGruppo = False
          End If
     End Select
-    POS = GetCursorPos(Mouse)
+    Pos = GetCursorPos(Mouse)
     lngret = ShowMyPopup(Mouse.x, Mouse.Y)
 End Function

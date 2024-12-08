@@ -10,5 +10,6 @@ Attribute VB_Exposed = False
 Option Compare Database
 Option Explicit
 
-Public Filename As String
+Public Path As String
 Public DateTime As Variant
+Public FileName As String

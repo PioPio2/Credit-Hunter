@@ -9,47 +9,64 @@ Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 Option Compare Database
 Option Explicit
-Dim Coll As Collection
-Public Function Scan(Path As String) As Integer
-    'Dim Coll As Collection
-    Set Coll = New Collection
-
+Private Coll As Collection
+Private SourceColl As Collection
+Private DestinationColl As Collection
+Private MainPathLen As Long
+Private MainPath As String
+Public Function Scan(SourcePath, DestinationPath As String) As Integer
     Dim fso As Object    'FileSystemObject
-    Dim fldStart As Object    'Folder
-    Dim fld As Object    'Folder
-    Dim fl As Object    'File
-    Dim Mask As String
-
     Set fso = CreateObject("scripting.FileSystemObject")    ' late binding
-    'Set fso = New FileSystemObject 'or use early binding (also replace Object types)
 
-    Set fldStart = fso.GetFolder(Path)
-
+' scan destination folder
+    Dim fldStart As Object    'Folder
+    Set fldStart = fso.GetFolder(SourcePath)
+    Dim Mask As String
     Mask = "*.*"
-    'Debug.Print fldStart.Path & "\"
+    Dim fld As Object    'Folder
+    MainPath = SourcePath
+    MainPathLen = Len(SourcePath)
+    Set Coll = New Collection
     ListFiles fldStart, Mask
     For Each fld In fldStart.SubFolders
         ListFiles fld, Mask
         ListFolders fld, Mask
     Next
+    Set SourceColl = Coll
 
+    ' scan destination folder
+    Set Coll = New Collection
+    Set fldStart = fso.GetFolder(DestinationPath)
+    MainPath = DestinationPath
+    MainPathLen = Len(DestinationPath)
+    Mask = "*.*"
+    ListFiles fldStart, Mask
+    For Each fld In fldStart.SubFolders
+        ListFiles fld, Mask
+        ListFolders fld, Mask
+    Next
+    Set DestinationColl = Coll
+' how to change datetime of a file
+'    Dim WhatTime As FileDateToProcess
+'    Dim result As Boolean
+'    result = SetFileDateTime(DestinationColl.item(1).Path & DestinationColl.item(1).FileName, SourceColl.item(1).DateTime, _
+'                             WhichDateToChange:=FileDateLastModified, NoGMTConvert:=False)
 End Function
-Public Function GetFileList() As Collection
-    Set GetFileList = Coll
+Public Function GetSourceList() As Collection
+    Set GetSourceList = SourceColl
 End Function
 Public Function ListFolders(fldStart As Object, Mask As String)
     Dim fld As Object    'Folder
     Dim clsFile As zclsFile
     For Each fld In fldStart.SubFolders
-        Set clsFile = New zclsFile
-        clsFile.Filename = fld.Path & "\"
-        clsFile.DateTime = fld.DateLastModified
-        Coll.Add clsFile
-        Debug.Print fld.Path & "\"
+        '        Set clsFile = New zclsFile
+        '        clsFile.Filename = fld.Path & "\"
+        '        clsFile.DateTime = fld.DateLastModified
+        '        Coll.Add clsFile
+        '        Debug.Print fld.Path & "\"
         ListFiles fld, Mask
         ListFolders fld, Mask
     Next
-
 End Function
 
 Public Sub ListFiles(fld As Object, Mask As String)
@@ -58,16 +75,31 @@ Public Sub ListFiles(fld As Object, Mask As String)
     For Each fl In fld.Files
         If fl.Name Like Mask Then
             Set clsFile = New zclsFile
-            clsFile.Filename = fld.Path & "\"
+            clsFile.Path = Left(MainPath, MainPathLen - 1)    'fld.Path & "\"
             clsFile.DateTime = fld.DateLastModified
+            clsFile.FileName = Mid(fld.Path & "\" & fl.Name, MainPathLen, Len(fld.Path & "\" & fl.Name))
             Coll.Add clsFile
             Debug.Print fld.Path & "\" & fl.Name
         End If
     Next
-    End Sub
-
-    '    Next
-    '
-    'End Sub
-    '
 End Sub
+Public Function GetDestinationList() As Collection
+    Set GetDestinationList = DestinationColl
+End Function
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''
+' Call the SetFileTimeLastModified flavor of SetFileTime.
+'''''''''''''''''''''''''''''''''''''''''''''''''''
+'Dim Res As Long
+'Res = SetFileTimeLastModified( _
+  '          hFile:=FileHandle, _
+  '          CreateTime:=NULL_LONG, _
+  '          LastAccessTime:=NULL_LONG, _
+  '          LastModified:=tFileTime)
+'If Res = 0 Then
+'ErrNum = Err.LastDllError
+'ErrText = GetSystemErrorMessageText(ErrNum)
+'Debug.Print "Error With SetFileTimeLastModified:" & vbCrLf & _
+'            "Err:  " & CStr(ErrNum) & vbCrLf & _
+'            "Desc: " & ErrText
+'

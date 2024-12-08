@@ -73,11 +73,11 @@ Public Sub SendEmailNoAttach()
 
     Dim a As Collection
     Set a = Nothing
-    Dim Result As Boolean
-    Result = App.IOutlook_SendEmailFromTemplate("Test Subject", Header, Details, a, Template, False)
+    Dim result As Boolean
+    result = App.IOutlook_SendEmailFromTemplate("Test Subject", Header, Details, a, Template, False)
     stopwatch.StopAndShowTimer
 
-    Assert.That Result, Iz.EqualTo(True)
+    Assert.That result, Iz.EqualTo(True)
     Assert.AreEqual App.IOutlook_NAttachment, 0
     Assert.IsNotNull OL
 End Sub
@@ -114,12 +114,12 @@ Public Sub SendEmailWithAttach()
     Dim a As Collection
     Set a = New Collection
     a.Add "C:\Users\alberto\OneDrive\Credit Hunter\Tests\Test attachment.txt"
-    Dim Result As Boolean
-    Result = App.IOutlook_SendEmailFromTemplate("Test Subject", Header, Details, a, Template, False)
+    Dim result As Boolean
+    result = App.IOutlook_SendEmailFromTemplate("Test Subject", Header, Details, a, Template, False)
     stopwatch.StopAndShowTimer
 
     Assert.AreEqual App.IOutlook_NAttachment, 1
-    Assert.That Result, Iz.EqualTo(True)
+    Assert.That result, Iz.EqualTo(True)
     Assert.IsNotNull OL
 End Sub
 

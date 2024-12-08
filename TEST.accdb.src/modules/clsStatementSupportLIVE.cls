@@ -155,7 +155,7 @@ Private Function iStatementSupport_OpenStatementTemplate(PathTemplate As String)
 End Function
 
 Private Function iStatementSupport_SaveStatement(CompleteFileName As String) As Boolean
-    ExcelTemplate.SaveAs Filename:=CompleteFileName, FileFormat:=xlWorkbookDefault
+    ExcelTemplate.SaveAs FileName:=CompleteFileName, FileFormat:=xlWorkbookDefault
     iStatementSupport_SaveStatement = True
 End Function
 

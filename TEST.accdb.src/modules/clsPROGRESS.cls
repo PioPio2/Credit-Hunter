@@ -1123,7 +1123,7 @@ Public Function Arrotonda_Eccesso(ByVal Numero As Double, Optional decimali As I
     ' Numero  =Numero in ingresso
     ' Decimali=Decimali desiderati
     ' =========================================================================
-    Dim Result As Variant 'Risultato
+    Dim result As Variant 'Risultato
     Dim Nr As Variant     'Numero da trattare
     Dim Dec As Integer    'Numero decimali
 
@@ -1138,11 +1138,11 @@ Public Function Arrotonda_Eccesso(ByVal Numero As Double, Optional decimali As I
     Nr = Abs(Nr)
 
     'Arrotondo
-    Result = Nr * 10 ^ Dec + 0.99999
-    Result = Fix(Result) / 10 ^ Dec
+    result = Nr * 10 ^ Dec + 0.99999
+    result = Fix(result) / 10 ^ Dec
 
     'Riassegno l'eventuale segno negativo e rendo il risultato
-    Arrotonda_Eccesso = Result * Sgn(Nz(Numero, 0))
+    Arrotonda_Eccesso = result * Sgn(Nz(Numero, 0))
 End Function
 
 Function fTwipsToPixels(lngTwips As Long, lngDirection As Long) As Long

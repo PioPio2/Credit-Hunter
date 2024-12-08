@@ -25,10 +25,17 @@ Public Sub TestScan()
 
     Dim CollectFiles As zclsUpdateFiles
     Set CollectFiles = New zclsUpdateFiles
-    CollectFiles.Scan ("C:\Users\alberto\OneDrive\Credit Hunter\TEST.accdb.src\")
+    Call CollectFiles.Scan("C:\Users\alberto\OneDrive\Credit Hunter\Tests\Source\", "C:\Users\alberto\OneDrive\Credit Hunter\Tests\Destination\")
 
     Dim Actual As Variant
-    Actual = CollectFiles.GetFileList.Count
-    Assert.That Actual, Iz.GreaterThan(0)
+    Actual = CollectFiles.GetSourceList.Count
+    Assert.That Actual, Iz.EqualTo(3)
 
+    Actual = CollectFiles.GetDestinationList.Count
+    Assert.That Actual, Iz.EqualTo(3)
+
+    Dim SL As Collection
+    Set SL = CollectFiles.GetSourceList
+    Dim DL As Collection
+    Set DL = CollectFiles.GetDestinationList
 End Sub
