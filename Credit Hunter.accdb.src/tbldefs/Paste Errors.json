@@ -5,7 +5,7 @@
   },
   "Items": {
     "Name": "Paste Errors",
-    "Connect": ";DATABASE=rel:db\\db2.mdb",
+    "Connect": ";DATABASE=rel:db\\TEST db2.mdb",
     "SourceTableName": "Paste Errors",
     "Attributes": 1073741824
   }

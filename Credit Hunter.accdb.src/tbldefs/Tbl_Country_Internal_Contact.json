@@ -5,7 +5,7 @@
   },
   "Items": {
     "Name": "Tbl_Country_Internal_Contact",
-    "Connect": ";DATABASE=rel:db\\db2.mdb",
+    "Connect": ";DATABASE=rel:db\\TEST db2.mdb",
     "SourceTableName": "Tbl_Country_Internal_Contact",
     "Attributes": 1073741824
   }

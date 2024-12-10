@@ -11,8 +11,9 @@ FROM
 WHERE
   (
     (
-      (Tbl_Customers.Name) Like "*abc*"
-      Or (Tbl_Customers.Name) Like "*def*"
+      (Tbl_Customers.Name) Like '*a*'
+      OR (Tbl_Customers.Name) Like '*c*'
+      OR (Tbl_Customers.Name) Like '*b*'
     )
     AND (
       (Tbl_Invoices.Update_date)= Date()

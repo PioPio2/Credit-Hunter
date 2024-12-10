@@ -5,7 +5,7 @@
   },
   "Items": {
     "Name": "Tbl_Deductions",
-    "Connect": ";DATABASE=rel:db\\db2.mdb",
+    "Connect": ";DATABASE=rel:db\\TEST db2.mdb",
     "SourceTableName": "Tbl_Deductions",
     "Attributes": 1073741824
   }

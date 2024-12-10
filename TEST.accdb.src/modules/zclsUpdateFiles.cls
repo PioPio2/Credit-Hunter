@@ -47,11 +47,6 @@ Public Function Scan(SourcePath, DestinationPath As String) As Integer
         ListFolders fld, Mask
     Next
     Set DestinationColl = Coll
-    ' how to change datetime of a file
-    '    Dim WhatTime As FileDateToProcess
-    '    Dim result As Boolean
-    '    result = SetFileDateTime(DestinationColl.item(1).Path & DestinationColl.item(1).FileName, SourceColl.item(1).DateTime, _
-         '                             WhichDateToChange:=FileDateLastModified, NoGMTConvert:=False)
 End Function
 Public Function GetSourceList() As Collection
     Set GetSourceList = SourceColl
@@ -60,11 +55,6 @@ Public Function ListFolders(fldStart As Object, Mask As String)
     Dim fld As Object    'Folder
     Dim clsFile As zclsFile
     For Each fld In fldStart.SubFolders
-        '        Set clsFile = New zclsFile
-        '        clsFile.Filename = fld.Path & "\"
-        '        clsFile.DateTime = fld.DateLastModified
-        '        Coll.Add clsFile
-        '        Debug.Print fld.Path & "\"
         ListFiles fld, Mask
         ListFolders fld, Mask
     Next
@@ -134,9 +124,6 @@ Public Function Replace(ByRef ErrorN As Long, ByRef ErrorStr As String, ByRef NF
                     FullSourcePath = SourceColl.item(SourceCount).Path & SourceFile
                     FullDestinationPath = DestinationColl.item(DestCount).Path & DestFile
                     OverrideFile = True
-                    '                    Call fso.CopyFile(SourceColl.item(SourceCount).Path & SourceFile, DestinationColl.item(DestCount).Path & DestFile, True)
-                    '                    NFilesCopied = NFilesCopied + 1
-                    '                    NFiles = NFilesCopied
                     Exit For
                 Else
                     Exit For

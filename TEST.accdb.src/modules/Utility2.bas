@@ -173,10 +173,10 @@ Rem bug fixed:as not all payment downloads refer to the previous day an am endme
 Rem bug fixed: the automatic email that highlights the disappeared payments has been fixed now.
 Rem improvement: new ESDC statement layout upload
 Rem new statement now with additional information: so number, factura number, pull ticket number, original invoice amount.
-    Rem of course the scheduler is different.
-    '- So number appears all the time in both, scheduler and statement
-    '- Factura number and pull ticket number appear in the scheduler only if there is data in it and in the statement only if the flag is set
-    '- Original invoice amount. It appears all the time in thescheduler and in the statement only if the flag is set
+Rem of course the scheduler is different.
+'- So number appears all the time in both, scheduler and statement
+'- Factura number and pull ticket number appear in the scheduler only if there is data in it and in the statement only if the flag is set
+'- Original invoice amount. It appears all the time in thescheduler and in the statement only if the flag is set
 Rem in the setup created 3 boolean fields (factura number, pull ticket number and original invoice amount) that decide if to print the info or not in the statement
 
 Rem rel. ########### xxxxx ############
@@ -187,44 +187,44 @@ Rem improvement: replaced the word "terminated with "completed" in the import me
 
 
 Private Type STARTUPINFO
-cb As Long
-lpReserved As String
-lpDesktop As String
-lpTitle As String
-dwX As Long
-dwY As Long
-dwXSize As Long
-dwYSize As Long
-dwXCountChars As Long
-dwYCountChars As Long
-dwFillAttribute As Long
-dwFlags As Long
-wShowWindow As Integer
-cbReserved2 As Integer
-lpReserved2 As Long
-hStdInput As Long
-hStdOutput As Long
-hStdError As Long
+    cb As Long
+    lpReserved As String
+    lpDesktop As String
+    lpTitle As String
+    dwX As Long
+    dwY As Long
+    dwXSize As Long
+    dwYSize As Long
+    dwXCountChars As Long
+    dwYCountChars As Long
+    dwFillAttribute As Long
+    dwFlags As Long
+    wShowWindow As Integer
+    cbReserved2 As Integer
+    lpReserved2 As Long
+    hStdInput As Long
+    hStdOutput As Long
+    hStdError As Long
 End Type
 
 Private Type PROCESS_INFORMATION
-hProcess As Long
-hThread As Long
-dwProcessID As Long
-dwThreadID As Long
+    hProcess As Long
+    hThread As Long
+    dwProcessID As Long
+    dwThreadID As Long
 End Type
 
 Rem Private Declare Function WaitForSingleObject Lib "kernel32" (ByVal _
-hHandle As Long, ByVal dwMilliseconds As Long) As Long
+     hHandle As Long, ByVal dwMilliseconds As Long) As Long
 Private Declare PtrSafe Function CreateProcessA Lib "kernel32" (ByVal _
-lpApplicationName As Long, ByVal lpCommandLine As String, ByVal _
-lpProcessAttributes As Long, ByVal lpThreadAttributes As Long, _
-ByVal bInheritHandles As Long, ByVal dwCreationFlags As Long, _
-ByVal lpEnvironment As Long, ByVal lpCurrentDirectory As Long, _
-lpStartupInfo As STARTUPINFO, lpProcessInformation As _
-PROCESS_INFORMATION) As Long
+                                                                lpApplicationName As Long, ByVal lpCommandLine As String, ByVal _
+                                                                                                                          lpProcessAttributes As Long, ByVal lpThreadAttributes As Long, _
+                                                                ByVal bInheritHandles As Long, ByVal dwCreationFlags As Long, _
+                                                                ByVal lpEnvironment As Long, ByVal lpCurrentDirectory As Long, _
+                                                                lpStartupInfo As STARTUPINFO, lpProcessInformation As _
+                                                                                              PROCESS_INFORMATION) As Long
 Private Declare PtrSafe Function CloseHandle Lib "kernel32" (ByVal _
-hObject As Long) As Long
+                                                             hObject As Long) As Long
 Private Const NORMAL_PRIORITY_CLASS = &H20&
 Private Const INFINITE = -1&
 
@@ -258,10 +258,10 @@ Const LUNGHEZZA_MASSIMA_PERCORSO = 255
 Private Declare PtrSafe Function GetShortPathName Lib "kernel32" Alias "GetShortPathNameA" (ByVal lpszLongPath As String, ByVal lpszShortPath As String, ByVal cchBuffer As Long) As Long
 
 Declare PtrSafe Function aht_apiGetOpenFileName Lib "comdlg32.dll" _
-    Alias "GetOpenFileNameA" (OFN As tagOPENFILENAME) As Boolean
+        Alias "GetOpenFileNameA" (OFN As tagOPENFILENAME) As Boolean
 
 Declare PtrSafe Function aht_apiGetSaveFileName Lib "comdlg32.dll" _
-    Alias "GetSaveFileNameA" (OFN As tagOPENFILENAME) As Boolean
+        Alias "GetSaveFileNameA" (OFN As tagOPENFILENAME) As Boolean
 Declare PtrSafe Function CommDlgExtendedError Lib "comdlg32.dll" () As Long
 
 Declare PtrSafe Sub Sleep Lib "kernel32.dll" (ByVal dwMilliseconds As Long)
@@ -296,30 +296,30 @@ Function TestIt()
     Dim StrFilter As String
     Dim lngFlags As Long
     StrFilter = ahtAddFilterItem(StrFilter, "Access Files (*.mda, *.mdb)", _
-                    "*.MDA;*.MDB")
+                                 "*.MDA;*.MDB")
     StrFilter = ahtAddFilterItem(StrFilter, "dBASE Files (*.dbf)", "*.DBF")
     StrFilter = ahtAddFilterItem(StrFilter, "Text Files (*.txt)", "*.TXT")
     StrFilter = ahtAddFilterItem(StrFilter, "All Files (*.*)", "*.*")
     MsgBox "You selected: " & ahtCommonFileOpenSave(InitialDir:="C:\", _
-        Filter:=StrFilter, FilterIndex:=3, Flags:=lngFlags, _
-        DialogTitle:="Hello! Open Me!")
+                                                    Filter:=StrFilter, FilterIndex:=3, Flags:=lngFlags, _
+                                                    DialogTitle:="Hello! Open Me!")
     ' Since you passed in a variable for lngFlags,
     ' the function places the output flags value in the variable.
     Debug.Print Hex(lngFlags)
 End Function
 
 Function GetOpenFile(Optional varDirectory As Variant, _
-    Optional varTitleForDialog As Variant) As Variant
+                     Optional varTitleForDialog As Variant) As Variant
 ' Here's an example that gets an Access database name.
-Dim StrFilter As String
-Dim lngFlags As Long
-Dim varFileName As Variant
-' Specify that the chosen file must already exist,
-' don't change directories when you're done
-' Also, don't bother displaying
-' the read-only box. It'll only confuse people.
+    Dim StrFilter As String
+    Dim lngFlags As Long
+    Dim varFileName As Variant
+    ' Specify that the chosen file must already exist,
+    ' don't change directories when you're done
+    ' Also, don't bother displaying
+    ' the read-only box. It'll only confuse people.
     lngFlags = ahtOFN_FILEMUSTEXIST Or _
-                ahtOFN_HIDEREADONLY Or ahtOFN_NOCHANGEDIR
+               ahtOFN_HIDEREADONLY Or ahtOFN_NOCHANGEDIR
     If IsMissing(varDirectory) Then
         varDirectory = ""
     End If
@@ -331,14 +331,14 @@ Dim varFileName As Variant
     ' string Duplicate this line with changes as necessary for
     ' more file templates.
     StrFilter = ahtAddFilterItem(StrFilter, _
-                "Access (*.mdb)", "*.MDB;*.MDA")
+                                 "Access (*.mdb)", "*.MDB;*.MDA")
     ' Now actually call to get the file name.
     varFileName = ahtCommonFileOpenSave( _
-                    OpenFile:=True, _
-                    InitialDir:=varDirectory, _
-                    Filter:=StrFilter, _
-                    Flags:=lngFlags, _
-                    DialogTitle:=varTitleForDialog)
+                      OpenFile:=True, _
+                      InitialDir:=varDirectory, _
+                      Filter:=StrFilter, _
+                      Flags:=lngFlags, _
+                      DialogTitle:=varTitleForDialog)
     If Not IsNull(varFileName) Then
         varFileName = TrimNull(varFileName)
     End If
@@ -346,15 +346,15 @@ Dim varFileName As Variant
 End Function
 
 Function ahtCommonFileOpenSave( _
-            Optional ByRef Flags As Variant, _
-            Optional ByVal InitialDir As Variant, _
-            Optional ByVal Filter As Variant, _
-            Optional ByVal FilterIndex As Variant, _
-            Optional ByVal DefaultExt As Variant, _
-            Optional ByVal FileName As Variant, _
-            Optional ByVal DialogTitle As Variant, _
-            Optional ByVal hwnd As Variant, _
-            Optional ByVal OpenFile As Variant) As Variant
+             Optional ByRef Flags As Variant, _
+             Optional ByVal InitialDir As Variant, _
+             Optional ByVal Filter As Variant, _
+             Optional ByVal FilterIndex As Variant, _
+             Optional ByVal DefaultExt As Variant, _
+             Optional ByVal FileName As Variant, _
+             Optional ByVal DialogTitle As Variant, _
+             Optional ByVal hwnd As Variant, _
+             Optional ByVal OpenFile As Variant) As Variant
 ' This is the entry point you'll use to call the common
 ' file open/save dialog. The parameters are listed
 ' below, and all are optional.
@@ -374,10 +374,10 @@ Function ahtCommonFileOpenSave( _
 ' OpenFile: Boolean(True=Open File/False=Save As)
 ' Out:
 ' Return Value: Either Null or the selected filename
-Dim OFN As tagOPENFILENAME
-Dim strfilename As String
-Dim strFileTitle As String
-Dim fResult As Boolean
+    Dim OFN As tagOPENFILENAME
+    Dim strfilename As String
+    Dim strFileTitle As String
+    Dim fResult As Boolean
     ' Give the dialog a caption title.
     If IsMissing(InitialDir) Then InitialDir = CurDir
     If IsMissing(Filter) Then Filter = ""
@@ -424,7 +424,7 @@ Dim fResult As Boolean
         fResult = aht_apiGetSaveFileName(OFN)
     End If
 
- ' The function call filled in the strFileTitle member
+    ' The function call filled in the strFileTitle member
     ' of the structure. You'll have to write special code
     ' to retrieve that if you're interested.
     If fResult Then
@@ -442,9 +442,9 @@ Dim fResult As Boolean
             ' Get rid of empty items:
             Dim I As Integer
             For I = Len(value) To 1 Step -1
-              If Mid$(value, I, 1) <> Chr$(0) Then
-                Exit For
-              End If
+                If Mid$(value, I, 1) <> Chr$(0) Then
+                    Exit For
+                End If
             Next I
             value = Mid(value, 1, I)
 
@@ -478,7 +478,7 @@ End Function
 
 
 Function ahtAddFilterItem(StrFilter As String, _
-    strDescription As String, Optional varItem As Variant) As String
+                          strDescription As String, Optional varItem As Variant) As String
 ' Tack a new chunk onto the file filter.
 ' That is, take the old value, stick onto it the description,
 ' (like "Databases"), a null character, the skeleton
@@ -486,12 +486,12 @@ Function ahtAddFilterItem(StrFilter As String, _
 
     If IsMissing(varItem) Then varItem = "*.*"
     ahtAddFilterItem = StrFilter & _
-                strDescription & vbNullChar & _
-                varItem & vbNullChar
+                       strDescription & vbNullChar & _
+                       varItem & vbNullChar
 End Function
 
 Private Function TrimNull(ByVal strItem As String) As String
-Dim intPos As Integer
+    Dim intPos As Integer
     intPos = InStr(strItem, vbNullChar)
     If intPos > 0 Then
         TrimNull = Left(strItem, intPos - 1)
@@ -517,4 +517,23 @@ Public Function NomeFileDos(szPercorso As String) As String
     If Asc(NomeFileDos) = 0 Then
         NomeFileDos = szPercorso
     End If
+End Function
+
+
+Public Function UpdateSourceFileLIVE() As Integer
+    Const SourceFolder = "C:\Users\alberto\OneDrive\Credit Hunter\TEST.accdb.src\"
+    Const DestinationFolder = "C:\Users\alberto\OneDrive\Credit Hunter\Credit Hunter.accdb.src\"
+
+    Dim CollectFiles As zclsUpdateFiles
+    Set CollectFiles = New zclsUpdateFiles
+    Call CollectFiles.Scan(SourceFolder, DestinationFolder)    ' scan files in the source and destination folders
+
+    Dim Errors As String
+    Dim ErrorN As Long
+    Dim NFiles As Long
+    Call CollectFiles.Replace(ErrorN, Errors, NFiles)    ' update files in destination if necessary
+
+    MsgBox ("Num files updated=" & NFiles)
+
+
 End Function

@@ -5,7 +5,7 @@
   },
   "Items": {
     "Name": "Indirizzi",
-    "Connect": ";DATABASE=rel:db\\db2.mdb",
+    "Connect": ";DATABASE=rel:db\\TEST db2.mdb",
     "SourceTableName": "Indirizzi",
     "Attributes": 1073741824
   }

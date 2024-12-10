@@ -1,10 +1,11 @@
 ﻿Operation =1
 Option =0
-Where ="(((Tbl_Customers.Name) Like \"*abc*\" Or (Tbl_Customers.Name) Like \"*def*\") AN"
-    "D ((Tbl_Invoices.Update_date)=Date()))"
+Where ="(                 ( (Tbl_Customers.Name) Like '*a*' OR (Tbl_Customers.Name) Like"
+    " '*c*' OR (Tbl_Customers.Name) Like '*b*' )                AND (                "
+    "         (                                 Tbl_Invoices.Update_date)=Date()))"
 Begin InputTables
-    Name ="Tbl_Invoices"
     Name ="Tbl_Customers"
+    Name ="Tbl_Invoices"
 End
 Begin OutputColumns
     Expression ="Tbl_Customers.Name"
@@ -70,19 +71,10 @@ Begin
     Left =-1
     Top =-1
     Right =1375
-    Bottom =563
+    Bottom =529
     Left =0
     Top =0
     ColumnsShown =539
-    Begin
-        Left =506
-        Top =35
-        Right =650
-        Bottom =525
-        Top =0
-        Name ="Tbl_Invoices"
-        Name =""
-    End
     Begin
         Left =98
         Top =17
@@ -90,6 +82,15 @@ Begin
         Bottom =161
         Top =0
         Name ="Tbl_Customers"
+        Name =""
+    End
+    Begin
+        Left =506
+        Top =35
+        Right =650
+        Bottom =525
+        Top =0
+        Name ="Tbl_Invoices"
         Name =""
     End
 End
