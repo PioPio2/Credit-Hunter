@@ -5,8 +5,8 @@
   },
   "Items": {
     "MergeBuildDate": null,
-    "FullBuildDate": "2024-12-10T22:26:08.000Z",
-    "ExportDate": "2024-12-10T22:24:53.000Z",
+    "FullBuildDate": null,
+    "ExportDate": "2024-12-12T23:30:53.000Z",
     "FullExportDate": "2024-12-10T22:18:13.000Z",
     "OptionsHash": "b31ed36",
     "LastMergedCommit": "",
@@ -17,459 +17,18 @@
       },
       "DB Properties": {
         "dbs-properties.json": {
-          "FileHash": "e7a671e",
+          "FileHash": "e31b3a4",
           "ExportDate": "2024-12-10T22:13:23.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "da133a4",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "9e30203"
         }
       },
       "Doc Properties": {
         "documents.json": {
-          "FileHash": "d56c36a",
+          "FileHash": "b50dbc6",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "ffa89ef",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
-        }
-      },
-      "Forms": {
-        "Form1.bas": {
-          "FileHash": "32d3a99",
-          "ImportDate": "2024-12-10T22:26:03.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "73b06d8"
-        },
-        "Form2.bas": {
-          "FileHash": "122e6ce",
-          "ImportDate": "2024-12-10T22:26:03.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "5b4c3f3"
-        },
-        "Form21.bas": {
-          "FileHash": "122e6ce",
-          "ImportDate": "2024-12-10T22:26:03.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "3b2ba3b"
-        },
-        "Frm_NEWS.bas": {
-          "FileHash": "058e334",
-          "ImportDate": "2024-12-10T22:26:03.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "64195f4"
-        },
-        "Frm_NEWS_Zoom.bas": {
-          "FileHash": "a03e903",
-          "ImportDate": "2024-12-10T22:26:03.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "0e6dfd6"
-        },
-        "Maschera1.bas": {
-          "FileHash": "b57caab",
-          "ImportDate": "2024-12-10T22:26:03.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "8b2c3f4"
-        },
-        "MskAbout.bas": {
-          "FileHash": "2633ce2",
-          "ImportDate": "2024-12-10T22:26:03.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "5aa2a95"
-        },
-        "MskAging.bas": {
-          "FileHash": "dbd1b51",
-          "ImportDate": "2024-12-10T22:26:03.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "58bd5b8"
-        },
-        "MskAllDisputingCustomers.bas": {
-          "FileHash": "699e4c6",
-          "ImportDate": "2024-12-10T22:26:03.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "b607639"
-        },
-        "MskCashCollectedByCreditController.bas": {
-          "FileHash": "c3702e4",
-          "ImportDate": "2024-12-10T22:26:03.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "362394b"
-        },
-        "MskCashForecastUpload.bas": {
-          "FileHash": "87973df",
-          "ImportDate": "2024-12-10T22:26:03.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "39ca9ae"
-        },
-        "MskCashImport.bas": {
-          "FileHash": "5719bcf",
-          "ImportDate": "2024-12-10T22:26:03.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "36ca81b"
-        },
-        "MskCashTarget.bas": {
-          "FileHash": "4adcc3d",
-          "ImportDate": "2024-12-10T22:26:03.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "120a02b"
-        },
-        "MskCashTargetDetails.bas": {
-          "FileHash": "26c640f",
-          "ImportDate": "2024-12-10T22:26:03.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "fc6982b"
-        },
-        "MskCashTargetReportDistributionList.bas": {
-          "FileHash": "525465e",
-          "ImportDate": "2024-12-10T22:26:03.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "f8bd528"
-        },
-        "MskCashTargets2.bas": {
-          "FileHash": "25be6dd",
-          "ImportDate": "2024-12-10T22:26:03.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "d16e6a6"
-        },
-        "MskChannels.bas": {
-          "ImportDate": "2024-12-10T22:26:03.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "03fabc0"
-        },
-        "MskCLsE-mailReceiverAddresses.bas": {
-          "FileHash": "32d3a99",
-          "ImportDate": "2024-12-10T22:26:03.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "b295b99"
-        },
-        "MskContainer.bas": {
-          "FileHash": "97ca1b0",
-          "ImportDate": "2024-12-10T22:26:03.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "ec26c0c"
-        },
-        "MskCredit Check Release Holds Names.bas": {
-          "ImportDate": "2024-12-10T22:26:03.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "313078b"
-        },
-        "MskCreditControllerSelection.bas": {
-          "FileHash": "af3434a",
-          "ImportDate": "2024-12-10T22:26:03.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "df7e431"
-        },
-        "MskCreditRelease.bas": {
-          "FileHash": "ac2e371",
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "eebad23"
-        },
-        "MskCustomers.bas": {
-          "FileHash": "c55a428",
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "24c3f23"
-        },
-        "MskCustomersList.bas": {
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "6652c8f"
-        },
-        "MskDeleteInvoiceAttachments.bas": {
-          "FileHash": "e3b0c44",
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "50566ab"
-        },
-        "MskDocumentsToBeErasedSubform.bas": {
-          "FileHash": "353c941",
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "3d6dce0"
-        },
-        "MskImportDailyCLs.bas": {
-          "FileHash": "0ca68c7",
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "814bf32"
-        },
-        "MskImportLeilaniFile2.bas": {
-          "FileHash": "465a75d",
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "e2fc670"
-        },
-        "MskImportStatement2.bas": {
-          "FileHash": "cf2ac47",
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "d990097"
-        },
-        "MskInsuranceCL.bas": {
-          "FileHash": "38a811b",
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "9addb20"
-        },
-        "MskInternalEmailAddresses.bas": {
-          "FileHash": "f377392",
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "8a78dab"
-        },
-        "MskLanguages.bas": {
-          "FileHash": "f377392",
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "0916de1"
-        },
-        "MskLast5Payments.bas": {
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "c0ece98"
-        },
-        "MskMagnifier.bas": {
-          "FileHash": "a593c05",
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "578dbc7"
-        },
-        "MskMain.bas": {
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "5c08d2e"
-        },
-        "MskScheduler2.bas": {
-          "FileHash": "4dc9404",
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "5ff256d"
-        },
-        "MskScheduler3.bas": {
-          "FileHash": "d83b95f",
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "156d2f4"
-        },
-        "MskShowInvoiceQuery.bas": {
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "1d04a5b"
-        },
-        "MskSubTarget2.bas": {
-          "FileHash": "981dc1d",
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "e18cb17"
-        },
-        "MskTblBanks.bas": {
-          "FileHash": "f377392",
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "ffe2854"
-        },
-        "MskTblCustomerStatus.bas": {
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "52e875c"
-        },
-        "MskTblEmailAddresses.bas": {
-          "FileHash": "57c99fc",
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "161f6cf"
-        },
-        "MskTblGeneral.bas": {
-          "FileHash": "f377392",
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "61cbab4"
-        },
-        "MskTblQueries.bas": {
-          "FileHash": "f377392",
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "076980b"
-        },
-        "MskTemplate.bas": {
-          "FileHash": "32d3a99",
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "fd8d277"
-        },
-        "MskTemplates.bas": {
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "5512796"
-        },
-        "MskTypesSubform.bas": {
-          "FileHash": "1faa365",
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "8486882"
-        },
-        "MskUser.bas": {
-          "FileHash": "a0ef25f",
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "8d60167"
-        },
-        "MskWhoPaidYesterday2.bas": {
-          "FileHash": "73d09a7",
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "74307d7"
-        },
-        "OLDSottomascheraTbl_credit_check_failures.bas": {
-          "ImportDate": "2024-12-10T22:26:04.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "4330f97"
-        },
-        "Sottomaschera Internal_Email_Addresses_Available.bas": {
-          "FileHash": "d9a15fb",
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "6a16540"
-        },
-        "Sottomaschera QueryCustomerOverdue%3E30days%3C0.bas": {
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "a5890ae"
-        },
-        "Sottomaschera QueryCustomerOverdue%3E30days%3E0.bas": {
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "3c7a07a"
-        },
-        "Sottomaschera QueryInvoicesClosedInLastDate.bas": {
-          "FileHash": "e3b0c44",
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "b6fdcfc"
-        },
-        "Sottomaschera QueryNewChargebacks.bas": {
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "f7c86b6"
-        },
-        "Sottomaschera QueryOnAccounts.bas": {
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "bec5bab"
-        },
-        "Sottomaschera Tbl_Link_Customer_Internal_Email_Address.bas": {
-          "FileHash": "d516a24",
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "349a5ed"
-        },
-        "Sottomaschera TBL_LinkTemplateEmailAddress.bas": {
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "190c149"
-        },
-        "SottomascheraTbl_credit_check_failures.bas": {
-          "FileHash": "dbd1b51",
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "0331602"
-        },
-        "SottomascheraTbl_Invoices.bas": {
-          "FileHash": "77f8c09",
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "93e1630"
-        },
-        "SottomascheraTblNotes.bas": {
-          "FileHash": "d7b231e",
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "8df9d5d"
-        },
-        "SubMaskCurrencies.bas": {
-          "FileHash": "fad4ea2",
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "96052a7"
-        },
-        "SubMaskSchedulerOverview.bas": {
-          "FileHash": "c5f52c1",
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "66bf8b8"
-        },
-        "SubMaskTblInvoices2Rel.bas": {
-          "FileHash": "8e5f836",
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "30ced4f"
-        },
-        "SubMaskTblInvoices2RelII.bas": {
-          "FileHash": "3c14d12",
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "4cdbf20"
-        },
-        "SubMaskTblInvoices2RelIII.bas": {
-          "FileHash": "83ededa",
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "17170de"
-        },
-        "SubMaskTblInvoices2RelIV.bas": {
-          "FileHash": "ff5832f",
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "6f7c73c"
-        },
-        "SubMaskTblInvoices2RelV.bas": {
-          "FileHash": "1b6ad2a",
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "2e6efb5"
-        },
-        "Switchboard.bas": {
-          "FileHash": "cf0cff3",
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "338e90b"
-        },
-        "Tbl_Cash_Target subform.bas": {
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "1803f11"
-        },
-        "Tbl_Currencies subform.bas": {
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "f7de706"
-        },
-        "Tbl_CustomersList subform.bas": {
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "6d67889"
-        },
-        "Tbl_HoldTypesToBeConsideredForCreditCheckReleases subform.bas": {
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "ba1306c"
-        },
-        "Tbl_InvoiceAttachments subform.bas": {
-          "FileHash": "c44230d",
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "5b61503"
-        },
-        "TblExchange rates.bas": {
-          "FileHash": "f377392",
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "ae20bac"
-        },
-        "TblNotes subform.bas": {
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "0787419"
+          "FilePropertiesHash": "ffa89ef"
         }
       },
       "Hidden Attributes": {
@@ -478,364 +37,334 @@
       },
       "Modules": {
         "AccUnit_Factory.bas": {
-          "FileHash": "fc92cec",
+          "FileHash": "0de0d5d",
+          "OtherHash": "c2d7a15",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "f8a4811",
-          "ImportDate": "2024-12-10T22:26:05.000Z"
+          "FilePropertiesHash": "f8a4811"
         },
         "AccUnit_TestClassFactory.bas": {
-          "FileHash": "1aff71d",
-          "ExportDate": "2024-12-10T22:13:33.000Z",
+          "FileHash": "bec3288",
+          "OtherHash": "92f4b23",
+          "ExportDate": "2024-12-12T23:30:48.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "d1ee1f0",
-          "ImportDate": "2024-12-10T22:26:05.000Z"
+          "FilePropertiesHash": "c635d44"
         },
         "basGeneral.bas": {
-          "FileHash": "02d6f2d",
+          "FileHash": "b8d187c",
+          "OtherHash": "12b441e",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "42df368",
-          "ImportDate": "2024-12-10T22:26:05.000Z"
+          "FilePropertiesHash": "1d7d5e4"
         },
         "basPopupRuntime.bas": {
-          "FileHash": "0ebc27f",
+          "FileHash": "47e5a86",
+          "OtherHash": "421d8af",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "d69dfa6",
-          "ImportDate": "2024-12-10T22:26:05.000Z"
+          "FilePropertiesHash": "7fa8e5d"
         },
         "basRetXY_Popup.bas": {
-          "FileHash": "5a4070a",
+          "FileHash": "7f8840e",
+          "OtherHash": "a8ecda2",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "01fec21",
-          "ImportDate": "2024-12-10T22:26:05.000Z"
+          "FilePropertiesHash": "8ca2fc7"
         },
         "clsCustomerDetails.cls": {
-          "FileHash": "28b4fa3",
+          "FileHash": "ac5a21b",
+          "OtherHash": "28b4fa3",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "36fb3df",
-          "ImportDate": "2024-12-10T22:26:05.000Z"
+          "FilePropertiesHash": "36fb3df"
         },
         "clsCustomerHeader.cls": {
-          "FileHash": "5381742",
+          "FileHash": "ec54652",
+          "OtherHash": "f90b56a",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "6c82a91",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "7aba14a"
         },
         "clsCustomerHeaderSupportLIVE.cls": {
-          "FileHash": "91abee6",
+          "FileHash": "96e318d",
+          "OtherHash": "0e1394f",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "2f4f136",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "a449449"
         },
         "clsCustomerList.cls": {
-          "FileHash": "e83ce76",
+          "FileHash": "74fb408",
+          "OtherHash": "675dd4c",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "95fcb7e",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "95fcb7e"
         },
         "clsIniFile.cls": {
-          "FileHash": "1154c44",
-          "ExportDate": "2024-12-10T22:13:33.000Z",
+          "FileHash": "a1aada7",
+          "OtherHash": "0bc2e8b",
+          "ExportDate": "2024-12-12T23:30:48.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "173c628",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "6d63aef"
         },
         "clsOutlook.cls": {
-          "FileHash": "9b85135",
+          "FileHash": "7714a0b",
+          "OtherHash": "72811b4",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "bbc54f1",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "76ce9b1"
         },
         "clsPROGRESS.cls": {
-          "FileHash": "5e5b498",
+          "FileHash": "4e8e715",
+          "OtherHash": "f5db15f",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "1c5d9b1",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "2781563"
         },
         "clsRelinkDB.cls": {
-          "FileHash": "3120d83",
+          "FileHash": "8de3cc7",
+          "OtherHash": "c1dfc1c",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "568b771",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "ab076d9"
         },
         "clsRelinkDBSupportLIVE.cls": {
-          "FileHash": "d83ebdb",
+          "FileHash": "d07f9e6",
+          "OtherHash": "e2b82d4",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "89c9f56",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "89c9f56"
         },
         "clsStatement.cls": {
-          "FileHash": "de4323f",
+          "FileHash": "96fd946",
+          "OtherHash": "7d87f08",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "f4b49c5",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "f4b49c5"
         },
         "clsStatementSupportLIVE.cls": {
-          "FileHash": "52ba2d0",
+          "FileHash": "9c61ac5",
+          "OtherHash": "43dac3a",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "2224c72",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "2224c72"
         },
         "clsTimer.cls": {
-          "FileHash": "a39446a",
+          "FileHash": "b15131c",
+          "OtherHash": "4598a9d",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "13a577e",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "13a577e"
         },
         "clsUpdate.cls": {
-          "FileHash": "1e32418",
-          "ExportDate": "2024-12-10T22:13:33.000Z",
+          "FileHash": "f772567",
+          "OtherHash": "8e23332",
+          "ExportDate": "2024-12-12T23:30:48.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "4c27b61",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "a95bea3"
         },
         "clsUserS.cls": {
-          "FileHash": "baba4f0",
+          "FileHash": "4ecc02b",
+          "OtherHash": "baba4f0",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "b68fa47",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "b68fa47"
         },
         "clsUsersSupport.cls": {
-          "FileHash": "8e7492b",
+          "FileHash": "02b87b9",
+          "OtherHash": "8e8e370",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "f00371d",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "f00371d"
         },
         "clsWhoPaidYesterday.cls": {
-          "FileHash": "d4c7c62",
+          "FileHash": "dd3d3d2",
+          "OtherHash": "e426514",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "425c9e8",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "425c9e8"
         },
         "clsWhoPaidYesterdaySupportLIVE.cls": {
-          "FileHash": "ac38ebc",
+          "FileHash": "4facc66",
+          "OtherHash": "9ac6c68",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "4a974f6",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "4a974f6"
         },
         "clsWhoPaidYesterdaySupportTEST.cls": {
-          "FileHash": "63b1422",
+          "FileHash": "2fffddd",
+          "OtherHash": "63b1422",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "8cdf50e",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "8cdf50e"
         },
         "clsWord.cls": {
-          "FileHash": "da07d86",
+          "FileHash": "22378f5",
+          "OtherHash": "b65a1ba",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "d311efc",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "1b8892e"
         },
         "EmailHTML.bas": {
-          "FileHash": "5c2d5a6",
+          "FileHash": "8821cde",
+          "OtherHash": "d9548db",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "8450a68",
-          "ImportDate": "2024-12-10T22:26:05.000Z"
+          "FilePropertiesHash": "f71b241"
         },
         "ICustomerHeaderSupport.cls": {
-          "FileHash": "e31a367",
+          "FileHash": "71bf0cd",
+          "OtherHash": "e31a367",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "4b12d8c",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "4b12d8c"
         },
         "IMenuMessage.cls": {
-          "FileHash": "adcb581",
+          "FileHash": "1fbc38e",
+          "OtherHash": "adcb581",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "89fbbb7",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "89fbbb7"
         },
         "IOutlook.cls": {
-          "FileHash": "636ff71",
+          "FileHash": "0f7110a",
+          "OtherHash": "bece759",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "fdd4161",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "fdd4161"
         },
         "IStatement.cls": {
-          "FileHash": "5155352",
+          "FileHash": "90aa2ad",
+          "OtherHash": "5155352",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "0cd2e0d",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "0cd2e0d"
         },
         "iStatementSupport.cls": {
-          "FileHash": "d7ad24f",
+          "FileHash": "7691c2d",
+          "OtherHash": "26cb4a0",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "f78dc0e",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "f78dc0e"
         },
         "IWhoPaidYesterday.cls": {
-          "FileHash": "7d46c5d",
+          "FileHash": "7d83a4d",
+          "OtherHash": "7d46c5d",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "2ee93ab",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "2ee93ab"
         },
         "IWhoPaidYesterdaySupport.cls": {
-          "FileHash": "ede4b78",
+          "FileHash": "5d33082",
+          "OtherHash": "5946bd4",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "4b2203f",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "4b2203f"
         },
         "IWord.cls": {
-          "FileHash": "130ecdb",
+          "FileHash": "03e835a",
+          "OtherHash": "56e9df3",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "8ba07ee",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "bfd72cf"
         },
         "modGetSetFileTimes.bas": {
-          "FileHash": "4bad33f",
+          "FileHash": "a980f02",
+          "OtherHash": "168db58",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "8a184f5",
-          "ImportDate": "2024-12-10T22:26:05.000Z"
+          "FilePropertiesHash": "8a184f5"
         },
         "ModuloInvioEmails.bas": {
-          "FileHash": "ec44eaf",
+          "FileHash": "a5eafda",
+          "OtherHash": "6d06cda",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "8b99a90",
-          "ImportDate": "2024-12-10T22:26:05.000Z"
+          "FilePropertiesHash": "b3191d7"
         },
         "ReplaceDBLink.bas": {
-          "FileHash": "ff773fa",
+          "FileHash": "51a0493",
+          "OtherHash": "90ad0a4",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "8025557",
-          "ImportDate": "2024-12-10T22:26:05.000Z"
-        },
-        "TestCustomerHeaderSupportLIVE.bas": {
-          "FileHash": "683a9c1",
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "4624bb1"
-        },
-        "TESTOutlook.bas": {
-          "FileHash": "c4158f6",
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "78909e2"
-        },
-        "TestRelinkDBSupport.bas": {
-          "FileHash": "ad26d8a",
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "86e4624"
-        },
-        "TestRelinkDBSupportLive.bas": {
-          "FileHash": "7ab41c9",
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "83c6984"
-        },
-        "TESTStatement.bas": {
-          "FileHash": "56e6deb",
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "9cf670f"
-        },
-        "TESTWhoPaidYesterday.bas": {
-          "FileHash": "abf51ee",
-          "ImportDate": "2024-12-10T22:26:05.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "e2e5231"
+          "FilePropertiesHash": "9f045b8"
         },
         "Utility1.bas": {
-          "FileHash": "35ec274",
+          "FileHash": "7524c89",
+          "OtherHash": "f4dd57f",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "7774651",
-          "ImportDate": "2024-12-10T22:26:05.000Z"
+          "FilePropertiesHash": "d07ab18"
         },
         "Utility2.bas": {
-          "FileHash": "2be2206",
+          "FileHash": "e7e5bb6",
+          "OtherHash": "a2e1c59",
           "ExportDate": "2024-12-10T22:19:05.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "e127641",
-          "ImportDate": "2024-12-10T22:26:05.000Z"
+          "FilePropertiesHash": "027b301"
         },
         "Utility3.bas": {
-          "FileHash": "d32b3c3",
+          "FileHash": "344c6f6",
+          "OtherHash": "9ae8417",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "6a3a05d",
-          "ImportDate": "2024-12-10T22:26:05.000Z"
+          "FilePropertiesHash": "fc0547f"
         },
         "zclsFile.cls": {
-          "FileHash": "18cbfc8",
+          "FileHash": "9ae6e0b",
+          "OtherHash": "18cbfc8",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "d98c0fe",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "d98c0fe"
         },
         "ZclsTestMultipleStatements.cls": {
-          "FileHash": "54ff22a",
+          "FileHash": "be2bfdc",
+          "OtherHash": "8897afd",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "7ae75aa",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "7ae75aa"
         },
         "ZclsTestOutlook.cls": {
-          "FileHash": "72d0b2c",
+          "FileHash": "6e52fdc",
+          "OtherHash": "e5de2f1",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "864c4a5",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "864c4a5"
+        },
+        "ZclsTestUpdate.cls": {
+          "FileHash": "aaa1fd4",
+          "OtherHash": "5e41e57",
+          "ExportDate": "2024-12-12T23:30:48.000Z",
+          "SourceModified": null,
+          "FilePropertiesHash": "def8f72"
         },
         "zclsTestUpdateFiles.cls": {
-          "FileHash": "fecaeb2",
+          "FileHash": "55fa637",
+          "OtherHash": "de9019d",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "205aec6",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "205aec6"
         },
         "zclsUpdateFiles.cls": {
-          "FileHash": "a7278a1",
+          "FileHash": "8a1913b",
+          "OtherHash": "a7278a1",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "2bb5d6c",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "2bb5d6c"
         },
         "zTestDeleteTables.bas": {
-          "FileHash": "d10c954",
+          "FileHash": "687c13d",
+          "OtherHash": "d10c954",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "49cfd51",
-          "ImportDate": "2024-12-10T22:26:05.000Z"
+          "FilePropertiesHash": "49cfd51"
         }
       },
       "Nav Pane Groups": {
         "nav-pane-groups.json": {
-          "FileHash": "54a53f6",
+          "FileHash": "beca5f0",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "b68fa47",
-          "ImportDate": "2024-12-10T22:26:06.000Z"
+          "FilePropertiesHash": "b68fa47"
         }
       },
       "Proj Properties": {
@@ -844,11 +373,10 @@
       },
       "Project": {
         "project.json": {
-          "FileHash": "220e439",
+          "FileHash": "8ca0d00",
           "ExportDate": "2024-12-10T22:13:23.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "4df9a04",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "4df9a04"
         }
       },
       "Queries": {
@@ -856,463 +384,397 @@
           "FileHash": "bedee96",
           "ExportDate": "2024-12-10T22:13:31.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "baf9f0d",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "baf9f0d"
         },
         "OLDQueryInvoicesClosedInLastDate.bas": {
           "FileHash": "592fedb",
           "ExportDate": "2024-12-10T22:13:31.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "678a904",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "678a904"
         },
         "Query FOR DEACTIVATION.bas": {
           "FileHash": "55f4c9c",
           "ExportDate": "2024-12-10T22:13:31.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "8c22300",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "8c22300"
         },
         "Query11.bas": {
           "FileHash": "a5cf8ce",
           "ExportDate": "2024-12-10T22:13:31.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "d42e290",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "d42e290"
         },
         "Query2.bas": {
           "FileHash": "8aefc43",
           "ExportDate": "2024-12-10T22:13:31.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "b5a35c5",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "b5a35c5"
         },
         "QueryARExposureInMainCurrency.bas": {
           "FileHash": "2d71c64",
           "ExportDate": "2024-12-10T22:13:31.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "f3b6853",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "f3b6853"
         },
         "QueryCashCollected.bas": {
           "FileHash": "46ad989",
           "ExportDate": "2024-12-10T22:13:31.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "4cee068",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "4cee068"
         },
         "QueryCashCollectedPerCreditController.bas": {
           "FileHash": "f773a3f",
           "ExportDate": "2024-12-10T22:13:31.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "647bd01",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "647bd01"
         },
         "QuerycashCSV.bas": {
           "FileHash": "cdeb269",
           "ExportDate": "2024-12-10T22:13:31.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "9f8e122",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "9f8e122"
         },
         "QueryCControllersInUseToday.bas": {
           "FileHash": "1ef6755",
           "ExportDate": "2024-12-10T22:13:31.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "ee0d9ff",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "ee0d9ff"
         },
         "QueryCControllerToDeleteFromCashTarget.bas": {
           "FileHash": "d12f7ad",
           "ExportDate": "2024-12-10T22:13:31.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "7c801ed",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "7c801ed"
         },
         "QueryChargebacks+CMs.bas": {
           "FileHash": "9073474",
           "ExportDate": "2024-12-10T22:13:31.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "d28dfcc",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "d28dfcc"
         },
         "QueryChargebacksClosedYesterday.bas": {
           "FileHash": "a5d6877",
           "ExportDate": "2024-12-10T22:13:31.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "e661b32",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "e661b32"
         },
         "QueryChargebacksOpenNow.bas": {
           "FileHash": "abdc9d3",
           "ExportDate": "2024-12-10T22:13:31.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "a48970f",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "a48970f"
         },
         "QueryChargebacksOpenPreviousDate.bas": {
           "FileHash": "e88932e",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "8976d83",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "8976d83"
         },
         "QueryCheAggiornaLastDatexxxdausaresoloinfaseditest.bas": {
           "FileHash": "657abb0",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "41b5ba3",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "41b5ba3"
         },
         "QueryCSV.bas": {
           "FileHash": "6216900",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "a405e81",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "a405e81"
         },
         "QueryCurrentExchangeRatesToMainCurrency.bas": {
           "FileHash": "738e2b2",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "ab4ae38",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "ab4ae38"
         },
         "QueryCustomerAndCreditController.bas": {
           "FileHash": "e0d4a6a",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "51d9df0",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "51d9df0"
         },
         "QueryCustomerOverdue%3E30days%3C0.bas": {
           "FileHash": "e0bcae2",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "8ca33ac",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "8ca33ac"
         },
         "QueryCustomerOverdue%3E30days%3E0.bas": {
           "FileHash": "c5e22bc",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "baf8381",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "baf8381"
         },
         "QueryCustomerOverdue%3E30daysOnlytotals.bas": {
           "FileHash": "e3abb21",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "4d9a400",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "4d9a400"
         },
         "QueryCustomersCSV.bas": {
           "FileHash": "8c723c4",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "19d46a0",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "19d46a0"
         },
         "QueryCustomersSentOnHoldSince.bas": {
           "FileHash": "681882b",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "62b2267",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "62b2267"
         },
         "QueryCustomersWithStatus.bas": {
           "FileHash": "8f16085",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "c19d9a3",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "c19d9a3"
         },
         "QueryCustomerWithoutCreditController.bas": {
           "FileHash": "4b73cd4",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "321ed69",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "321ed69"
         },
         "QueryDailyExposure.bas": {
           "FileHash": "b42a731",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "1899a96",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "1899a96"
         },
         "QueryDeleteFinal.bas": {
           "FileHash": "5cefd69",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "39ea607",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "39ea607"
         },
         "QueryDeleteHistoricalInvoicesIntercompanies.bas": {
           "FileHash": "d9102f7",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "b8313c0",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "b8313c0"
         },
         "QueryDeleteInsuranceCoverage.bas": {
           "FileHash": "742787a",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "cd75176",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "cd75176"
         },
         "QueryDeleteInvoicesIntercompanies.bas": {
           "FileHash": "27d961e",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "59d8911",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "59d8911"
         },
         "QueryDeleteNewInvoices.bas": {
           "FileHash": "2356dab",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "659d87e",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "659d87e"
         },
         "QueryDeleteOldHistoricalInvoices.bas": {
           "FileHash": "225ac3f",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "c899c9c",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "c899c9c"
         },
         "QueryDeleteOldInvoices.bas": {
           "FileHash": "804e816",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "7a8d340",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "7a8d340"
         },
         "QueryEraseTblCL.bas": {
           "FileHash": "723283d",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "a2598d8",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "a2598d8"
         },
         "QueryEraseTblCreditCheckFailures.bas": {
           "FileHash": "d832511",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "47201ca",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "47201ca"
         },
         "QueryHighestExposure.bas": {
           "FileHash": "2e4ee34",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "2445be3",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "2445be3"
         },
         "QueryInternalCLs.bas": {
           "FileHash": "e39f4f3",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "9253a5c",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "9253a5c"
         },
         "QueryInvoicesClosedInLastDate.bas": {
           "FileHash": "9a37dbb",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "279e1d7",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "4750107"
         },
         "QueryInvoicesLastDate.bas": {
-          "FileHash": "82f8758",
+          "FileHash": "4632f5d",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "9fefb14",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "0bc2829"
         },
         "QueryInvoicesPreviousDate.bas": {
-          "FileHash": "43b2932",
+          "FileHash": "c4203ac",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "1f24c42",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "71f4297"
         },
         "QueryLastPayments.bas": {
           "FileHash": "7f7ba4a",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "c694446",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "c694446"
         },
         "QueryMultipleStatements.bas": {
           "FileHash": "8dd2710",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "622ce79",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "622ce79"
         },
         "QueryNewCControllersAndChannels.bas": {
           "FileHash": "cc70946",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "7404ddd",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "7404ddd"
         },
         "QueryNewChargebacks.bas": {
           "FileHash": "315ec54",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "487ae00",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "487ae00"
         },
         "QueryNewInvoices.bas": {
           "FileHash": "9a2b961",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "00b7b2f",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "00b7b2f"
         },
         "QueryNewPayments.bas": {
           "FileHash": "d56865e",
           "ExportDate": "2024-12-10T22:13:32.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "2b0c614",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "2b0c614"
         },
         "QueryOnAccounts.bas": {
           "FileHash": "910ae61",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "5601965",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "5601965"
         },
         "QueryOverdueEURNow.bas": {
           "FileHash": "b3d653c",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "8ead40a",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "8ead40a"
         },
         "QueryStatementCSV.bas": {
           "FileHash": "7cadee4",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "f726513",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "f726513"
         },
         "QueryStatusnot null.bas": {
           "FileHash": "87d4769",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "91ff7de",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "91ff7de"
         },
         "QueryToday.bas": {
           "FileHash": "6ab07f7",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "1388a14",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "1388a14"
         },
         "QueryToReleaseOrder.bas": {
           "FileHash": "fa53846",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "7188006",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "7188006"
         },
         "QueryToSendReleaseRequest.bas": {
           "FileHash": "14feeaf",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "160d6ed",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "160d6ed"
         },
         "QueryTotalAlreadyCollectedInEUR.bas": {
           "FileHash": "30ba42e",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "a0d3cdb",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "a0d3cdb"
         },
         "QueryTotalExposureConvertedInEUR.bas": {
           "FileHash": "69b9952",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "7866393",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "7866393"
         },
         "QueryTotalInvoicedConvertedInEUR.bas": {
           "FileHash": "ad668e6",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "56947dd",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "56947dd"
         },
         "QueryTotalOverdueOnMonthEndInMainCurrency.bas": {
           "FileHash": "6f92123",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "f9264d3",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "f9264d3"
         },
         "QueryTotalOverdueOver90InMainCurrency.bas": {
           "FileHash": "f489cd3",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "647d1df",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "647d1df"
         },
         "QueryTotOverdueReport1.bas": {
           "FileHash": "d3ed422",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "51b5919",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "51b5919"
         },
         "QueryTotOverdueReport2.bas": {
           "FileHash": "caf80e9",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "a68f587",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "a68f587"
         },
         "QueryUpdatePaymentDateInvoicesHistory.bas": {
           "FileHash": "539ec35",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "0dc44d7",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "0dc44d7"
         },
         "QueryWriteOffs.bas": {
           "FileHash": "5e292e6",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "226073d",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "226073d"
         },
         "Queryyesterday.bas": {
           "FileHash": "0f45420",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "29795bb",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "29795bb"
         },
         "Tbl_Invoices Query.bas": {
           "FileHash": "f114d1f",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "c6ddcca",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "c6ddcca"
         },
         "TmprryQryFrLnkFldsCrtn0123456789.bas": {
           "FileHash": "d1cba14",
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "91360a4",
-          "ImportDate": "2024-12-10T22:26:03.000Z"
+          "FilePropertiesHash": "91360a4"
         }
       },
       "Tables": {
@@ -1322,21 +784,9 @@
           "SourceModified": null,
           "FilePropertiesHash": "5c7bed0"
         },
-        "CreditCheckFailureTXTFileAmended.xml": {
-          "FileHash": "d5b93a5",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "5c7bed0"
-        },
         "Indirizzi.json": {
           "FileHash": "4578929",
           "ExportDate": "2024-12-10T22:13:23.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "563c596"
-        },
-        "Indirizzi.xml": {
-          "FileHash": "4578929",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "563c596"
         },
@@ -1344,8 +794,7 @@
           "FileHash": "6a99c83",
           "ExportDate": "2024-12-10T22:13:23.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "ef1795c",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "ef1795c"
         },
         "Paste Errors.json": {
           "FileHash": "f0eb071",
@@ -1353,35 +802,21 @@
           "SourceModified": null,
           "FilePropertiesHash": "6c53231"
         },
-        "Paste Errors.xml": {
-          "FileHash": "f0eb071",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "6c53231"
-        },
         "Release.xml": {
           "FileHash": "caa6b01",
           "ExportDate": "2024-12-10T22:13:24.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "11fc612",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "11fc612"
         },
         "Switchboard Items.xml": {
           "FileHash": "956e215",
           "ExportDate": "2024-12-10T22:13:24.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "a7e3f66",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "a7e3f66"
         },
         "Tbl_AdditionalQueryData.json": {
           "FileHash": "c578e56",
           "ExportDate": "2024-12-10T22:13:24.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "54233f7"
-        },
-        "Tbl_AdditionalQueryData.xml": {
-          "FileHash": "c578e56",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "54233f7"
         },
@@ -1391,21 +826,9 @@
           "SourceModified": null,
           "FilePropertiesHash": "708fc4a"
         },
-        "Tbl_Areas.xml": {
-          "FileHash": "cf5e8c5",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "708fc4a"
-        },
         "Tbl_Banks.json": {
           "FileHash": "819f35c",
           "ExportDate": "2024-12-10T22:13:24.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "708fc4a"
-        },
-        "Tbl_Banks.xml": {
-          "FileHash": "819f35c",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "708fc4a"
         },
@@ -1415,21 +838,9 @@
           "SourceModified": null,
           "FilePropertiesHash": "d2357aa"
         },
-        "Tbl_Cash_Target.xml": {
-          "FileHash": "6896ac4",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "d2357aa"
-        },
         "Tbl_Cash_Target_Breakdown.json": {
           "FileHash": "6db2d58",
           "ExportDate": "2024-12-10T22:13:24.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "3442ae5"
-        },
-        "Tbl_Cash_Target_Breakdown.xml": {
-          "FileHash": "6db2d58",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "3442ae5"
         },
@@ -1439,21 +850,9 @@
           "SourceModified": null,
           "FilePropertiesHash": "56f47e1"
         },
-        "Tbl_CashCollected.xml": {
-          "FileHash": "02e59e3",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "56f47e1"
-        },
         "Tbl_Channels.json": {
           "FileHash": "bd941fa",
           "ExportDate": "2024-12-10T22:13:25.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "f6e636a"
-        },
-        "Tbl_Channels.xml": {
-          "FileHash": "bd941fa",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "f6e636a"
         },
@@ -1463,21 +862,9 @@
           "SourceModified": null,
           "FilePropertiesHash": "a1fec28"
         },
-        "Tbl_CL.xml": {
-          "FileHash": "6986951",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "a1fec28"
-        },
         "Tbl_Countries.json": {
           "FileHash": "5cd844b",
           "ExportDate": "2024-12-10T22:13:25.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "4abc59e"
-        },
-        "Tbl_Countries.xml": {
-          "FileHash": "5cd844b",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "4abc59e"
         },
@@ -1487,21 +874,9 @@
           "SourceModified": null,
           "FilePropertiesHash": "076dd00"
         },
-        "Tbl_Country_Internal_Contact.xml": {
-          "FileHash": "75e53c9",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "076dd00"
-        },
         "Tbl_credit_check_failures.json": {
           "FileHash": "f454de9",
           "ExportDate": "2024-12-10T22:13:25.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "819e0fe"
-        },
-        "Tbl_credit_check_failures.xml": {
-          "FileHash": "f454de9",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "819e0fe"
         },
@@ -1511,21 +886,9 @@
           "SourceModified": null,
           "FilePropertiesHash": "f485810"
         },
-        "Tbl_Currencies.xml": {
-          "FileHash": "4662d5f",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "f485810"
-        },
         "Tbl_Customer_Status.json": {
           "FileHash": "a853979",
           "ExportDate": "2024-12-10T22:13:26.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "b3ab2fe"
-        },
-        "Tbl_Customer_Status.xml": {
-          "FileHash": "a853979",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "b3ab2fe"
         },
@@ -1535,28 +898,15 @@
           "SourceModified": null,
           "FilePropertiesHash": "d5489ad"
         },
-        "Tbl_Customers.xml": {
-          "FileHash": "31ac6c6",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "d5489ad"
-        },
         "Tbl_CustomersList.xml": {
           "FileHash": "8373852",
           "ExportDate": "2024-12-10T22:13:26.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "7d28d8b",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "7d28d8b"
         },
         "Tbl_DailyExposure.json": {
           "FileHash": "89d1901",
           "ExportDate": "2024-12-10T22:13:26.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "e0e03c8"
-        },
-        "Tbl_DailyExposure.xml": {
-          "FileHash": "89d1901",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "e0e03c8"
         },
@@ -1566,21 +916,9 @@
           "SourceModified": null,
           "FilePropertiesHash": "f485810"
         },
-        "Tbl_Deductions.xml": {
-          "FileHash": "118ade7",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "f485810"
-        },
         "Tbl_DepartmentNames.json": {
           "FileHash": "9dc9275",
           "ExportDate": "2024-12-10T22:13:26.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "b3ab2fe"
-        },
-        "Tbl_DepartmentNames.xml": {
-          "FileHash": "9dc9275",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "b3ab2fe"
         },
@@ -1590,21 +928,9 @@
           "SourceModified": null,
           "FilePropertiesHash": "4f06c0e"
         },
-        "Tbl_DocumentsToBeErased.xml": {
-          "FileHash": "560aadf",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "4f06c0e"
-        },
         "Tbl_EmailAddresses.json": {
           "FileHash": "4337d96",
           "ExportDate": "2024-12-10T22:13:27.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "2a5f3ad"
-        },
-        "Tbl_EmailAddresses.xml": {
-          "FileHash": "4337d96",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "2a5f3ad"
         },
@@ -1614,21 +940,9 @@
           "SourceModified": null,
           "FilePropertiesHash": "e5bc18d"
         },
-        "Tbl_EmailSoftware.xml": {
-          "FileHash": "6836ffc",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "e5bc18d"
-        },
         "Tbl_GeneralChart.json": {
           "FileHash": "459bfb3",
           "ExportDate": "2024-12-10T22:13:27.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "33fd601"
-        },
-        "Tbl_GeneralChart.xml": {
-          "FileHash": "459bfb3",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "33fd601"
         },
@@ -1638,21 +952,9 @@
           "SourceModified": null,
           "FilePropertiesHash": "9ffede3"
         },
-        "Tbl_HelpPages.xml": {
-          "FileHash": "4ff03db",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "9ffede3"
-        },
         "Tbl_Historical_Statements.json": {
           "FileHash": "8bb7a16",
           "ExportDate": "2024-12-10T22:13:27.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "f148081"
-        },
-        "Tbl_Historical_Statements.xml": {
-          "FileHash": "8bb7a16",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "f148081"
         },
@@ -1662,21 +964,9 @@
           "SourceModified": null,
           "FilePropertiesHash": "0d8d8a4"
         },
-        "Tbl_HistoricalCLsAndStatements.xml": {
-          "FileHash": "501ffad",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "0d8d8a4"
-        },
         "Tbl_HoldTypesToBeConsideredForCreditCheckReleases.json": {
           "FileHash": "96089e2",
           "ExportDate": "2024-12-10T22:13:28.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "56ceb92"
-        },
-        "Tbl_HoldTypesToBeConsideredForCreditCheckReleases.xml": {
-          "FileHash": "96089e2",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "56ceb92"
         },
@@ -1686,21 +976,9 @@
           "SourceModified": null,
           "FilePropertiesHash": "832e9e7"
         },
-        "Tbl_InvoiceAttachments.xml": {
-          "FileHash": "87412b9",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "832e9e7"
-        },
         "Tbl_Invoices.json": {
           "FileHash": "c99f2ba",
           "ExportDate": "2024-12-10T22:13:28.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "1f7c78b"
-        },
-        "Tbl_Invoices.xml": {
-          "FileHash": "c99f2ba",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "1f7c78b"
         },
@@ -1710,21 +988,9 @@
           "SourceModified": null,
           "FilePropertiesHash": "1edc6bc"
         },
-        "Tbl_Invoices_History.xml": {
-          "FileHash": "dd34e35",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "1edc6bc"
-        },
         "Tbl_Languages.json": {
           "FileHash": "831b9b1",
           "ExportDate": "2024-12-10T22:13:28.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "f6673a8"
-        },
-        "Tbl_Languages.xml": {
-          "FileHash": "831b9b1",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "f6673a8"
         },
@@ -1734,21 +1000,9 @@
           "SourceModified": null,
           "FilePropertiesHash": "b5df339"
         },
-        "Tbl_Link_Customer_Internal_Email_Address.xml": {
-          "FileHash": "1e0cb79",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "b5df339"
-        },
         "TBL_LinkTemplateEmailAddress.json": {
           "FileHash": "38eee91",
           "ExportDate": "2024-12-10T22:13:28.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "2f87153"
-        },
-        "TBL_LinkTemplateEmailAddress.xml": {
-          "FileHash": "38eee91",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "2f87153"
         },
@@ -1758,21 +1012,9 @@
           "SourceModified": null,
           "FilePropertiesHash": "501a58e"
         },
-        "Tbl_LOGICollectionsManagementReport.xml": {
-          "FileHash": "9dd6637",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "501a58e"
-        },
         "Tbl_MonthEnd.json": {
           "FileHash": "badc19c",
           "ExportDate": "2024-12-10T22:13:29.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "49cae30"
-        },
-        "Tbl_MonthEnd.xml": {
-          "FileHash": "badc19c",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "49cae30"
         },
@@ -1782,21 +1024,9 @@
           "SourceModified": null,
           "FilePropertiesHash": "d22b0d2"
         },
-        "Tbl_NEWS.xml": {
-          "FileHash": "9bff8d5",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "d22b0d2"
-        },
         "Tbl_PaymentData.json": {
           "FileHash": "0037476",
           "ExportDate": "2024-12-10T22:13:29.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "fe14ad1"
-        },
-        "Tbl_PaymentData.xml": {
-          "FileHash": "0037476",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "fe14ad1"
         },
@@ -1806,21 +1036,9 @@
           "SourceModified": null,
           "FilePropertiesHash": "f70c716"
         },
-        "Tbl_queries.xml": {
-          "FileHash": "f2fc3ef",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "f70c716"
-        },
         "Tbl_RSS.json": {
           "FileHash": "4d258c4",
           "ExportDate": "2024-12-10T22:13:29.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "fa0cc2f"
-        },
-        "Tbl_RSS.xml": {
-          "FileHash": "4d258c4",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "fa0cc2f"
         },
@@ -1830,21 +1048,9 @@
           "SourceModified": null,
           "FilePropertiesHash": "501a58e"
         },
-        "Tbl_SmartActivities.xml": {
-          "FileHash": "3c38ab2",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "501a58e"
-        },
         "Tbl_Templates.json": {
           "FileHash": "4c68b6b",
           "ExportDate": "2024-12-10T22:13:30.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "67c6da7"
-        },
-        "Tbl_Templates.xml": {
-          "FileHash": "4c68b6b",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "67c6da7"
         },
@@ -1854,21 +1060,9 @@
           "SourceModified": null,
           "FilePropertiesHash": "6975666"
         },
-        "Tbl_Timezones.xml": {
-          "FileHash": "650760c",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "6975666"
-        },
         "Tbl_Top5ComplainingCustomers.json": {
           "FileHash": "66020ac",
           "ExportDate": "2024-12-10T22:13:30.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "72fcff4"
-        },
-        "Tbl_Top5ComplainingCustomers.xml": {
-          "FileHash": "66020ac",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "72fcff4"
         },
@@ -1878,21 +1072,9 @@
           "SourceModified": null,
           "FilePropertiesHash": "3988513"
         },
-        "Tbl_Top5WorseCustomers.xml": {
-          "FileHash": "44fee0d",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "3988513"
-        },
         "Tbl_Types.json": {
           "FileHash": "8b25cdf",
           "ExportDate": "2024-12-10T22:13:30.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "07571cc"
-        },
-        "Tbl_Types.xml": {
-          "FileHash": "8b25cdf",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "07571cc"
         },
@@ -1902,21 +1084,9 @@
           "SourceModified": null,
           "FilePropertiesHash": "07571cc"
         },
-        "Tbl_Users.xml": {
-          "FileHash": "ffeb7d8",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "07571cc"
-        },
         "Tbl_WhoPaidYesterday.json": {
           "FileHash": "6468aa5",
           "ExportDate": "2024-12-10T22:13:30.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "ef57f63"
-        },
-        "Tbl_WhoPaidYesterday.xml": {
-          "FileHash": "6468aa5",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "ef57f63"
         },
@@ -1926,21 +1096,9 @@
           "SourceModified": null,
           "FilePropertiesHash": "45f57e0"
         },
-        "TblGeneral.xml": {
-          "FileHash": "28be790",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "45f57e0"
-        },
         "TblMain.json": {
           "FileHash": "eb8a416",
           "ExportDate": "2024-12-10T22:13:31.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "0182ce3"
-        },
-        "TblMain.xml": {
-          "FileHash": "eb8a416",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "0182ce3"
         },
@@ -1950,50 +1108,36 @@
           "SourceModified": null,
           "FilePropertiesHash": "eb147b6"
         },
-        "TblNotes.xml": {
-          "FileHash": "dbfee09",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "eb147b6"
-        },
         "TbReleasesApprovalMatrix.json": {
           "FileHash": "2e39ff6",
           "ExportDate": "2024-12-10T22:13:31.000Z",
-          "SourceModified": null,
-          "FilePropertiesHash": "0e856b2"
-        },
-        "TbReleasesApprovalMatrix.xml": {
-          "FileHash": "2e39ff6",
-          "ImportDate": "2024-12-10T22:26:02.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "0e856b2"
         }
       },
       "Themes": {
         "Office Theme.thmx": {
-          "FileHash": "0325bbd",
+          "FileHash": "5403c0e",
+          "OtherHash": "0325bbd",
           "ExportDate": "2024-12-10T22:13:23.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "d981c12",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "d981c12"
         }
       },
       "VB Project": {
         "vbe-project.json": {
-          "FileHash": "b35884e",
+          "FileHash": "b87c8ef",
           "ExportDate": "2024-12-10T22:13:23.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "f16c037",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "3b570c4"
         }
       },
       "VBE References": {
         "vbe-references.json": {
-          "FileHash": "e64cfec",
+          "FileHash": "d2f47e3",
           "ExportDate": "2024-12-10T22:13:23.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "30e4dea",
-          "ImportDate": "2024-12-10T22:26:02.000Z"
+          "FilePropertiesHash": "43b3189"
         }
       }
     }

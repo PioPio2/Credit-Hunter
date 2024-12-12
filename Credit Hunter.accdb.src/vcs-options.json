@@ -52,7 +52,7 @@
     "SchemaExports": {
     },
     "RunBeforeExport": "",
-    "RunAfterExport": "",
+    "RunAfterExport": "UpdateSourceFileLIVE",
     "RunBeforeBuild": "",
     "RunAfterBuild": "",
     "RunBeforeMerge": "",

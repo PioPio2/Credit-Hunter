@@ -12,55 +12,58 @@ Option Explicit
 
 Private Declare PtrSafe Function GetPrivateProfileString Lib "kernel32" Alias "GetPrivateProfileStringA" (ByVal lpApplicationName As String, ByVal lpKeyName As Any, ByVal lpDefault As String, ByVal lpReturnedString As String, ByVal nSize As Long, ByVal lpFilename As String) As Long
 Private Declare PtrSafe Function WritePrivateProfileString Lib "kernel32" Alias "WritePrivateProfileStringA" (ByVal lpApplicationName As String, ByVal lpKeyName As Any, ByVal lpString As Any, ByVal lpFilename As String) As Long
-
+Private FileName As String
+Public Sub SetFileName(aFilename As String)
+    FileName = aFilename
+End Sub
 Private Function IniFileName() As String
-Dim CurrentPath As String
+    Dim CurrentPath As String
     CurrentPath = Application.CurrentProject.Path
-    IniFileName = CurrentPath & "\Credit Hunter.ini"
+    IniFileName = CurrentPath & "\" & FileName
 End Function
 
 
 Public Function ReadIniFileString(ByVal Sect As String, ByVal Keyname As String) As String
-Dim Worked As Long
-Dim RetStr As String * 128
-Dim StrSize As Long
-Dim iNoOfCharInIni As Long
-Dim sIniString As String
-Dim sProfileString As String
+    Dim Worked As Long
+    Dim RetStr As String * 128
+    Dim StrSize As Long
+    Dim iNoOfCharInIni As Long
+    Dim sIniString As String
+    Dim sProfileString As String
 
-  iNoOfCharInIni = 0
-  sIniString = ""
-  If Sect = "" Or Keyname = "" Then
-    MsgBox "Section Or Key To Read Not Specified !!!", vbExclamation, "INI"
-  Else
-    sProfileString = ""
-    RetStr = Space(128)
-    StrSize = Len(RetStr)
-    Worked = GetPrivateProfileString(Sect, Keyname, "", RetStr, StrSize, IniFileName)
-    If Worked Then
-      iNoOfCharInIni = Worked
-      sIniString = Left$(RetStr, Worked)
+    iNoOfCharInIni = 0
+    sIniString = ""
+    If Sect = "" Or Keyname = "" Then
+        MsgBox "Section Or Key To Read Not Specified !!!", vbExclamation, "INI"
+    Else
+        sProfileString = ""
+        RetStr = Space(128)
+        StrSize = Len(RetStr)
+        Worked = GetPrivateProfileString(Sect, Keyname, "", RetStr, StrSize, IniFileName)
+        If Worked Then
+            iNoOfCharInIni = Worked
+            sIniString = Left$(RetStr, Worked)
+        End If
     End If
-  End If
-  ReadIniFileString = sIniString
+    ReadIniFileString = sIniString
 End Function
 
 Public Function WriteIniFileString(ByVal Sect As String, ByVal Keyname As String, ByVal Wstr As String) As String
-Dim Worked As Long
-Dim iNoOfCharInIni As Long
-Dim sIniString As String
-Dim sProfileString As String
+    Dim Worked As Long
+    Dim iNoOfCharInIni As Long
+    Dim sIniString As String
+    Dim sProfileString As String
 
-  iNoOfCharInIni = 0
-  sIniString = ""
-  If Sect = "" Or Keyname = "" Then
-    MsgBox "Section Or Key To Write Not Specified !!!", vbExclamation, "INI"
-  Else
-    Worked = WritePrivateProfileString(Sect, Keyname, Wstr, IniFileName)
-    If Worked Then
-      iNoOfCharInIni = Worked
-      sIniString = Wstr
+    iNoOfCharInIni = 0
+    sIniString = ""
+    If Sect = "" Or Keyname = "" Then
+        MsgBox "Section Or Key To Write Not Specified !!!", vbExclamation, "INI"
+    Else
+        Worked = WritePrivateProfileString(Sect, Keyname, Wstr, IniFileName)
+        If Worked Then
+            iNoOfCharInIni = Worked
+            sIniString = Wstr
+        End If
+        WriteIniFileString = sIniString
     End If
-    WriteIniFileString = sIniString
-  End If
 End Function

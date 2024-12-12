@@ -9,12 +9,33 @@ Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 Option Compare Database
 Option Explicit
+Public Function Scan(IniFileName As String) As Boolean
+' find local rel n#
+    Dim Ini As clsIniFile
+    Set Ini = New clsIniFile
+    Ini.SetFileName (IniFileName)
+    Dim LocalVer As Double
+    LocalVer = Ini.ReadIniFileString("Local Version", "Ver")
 
-Private Function IsFile(ByVal fName As String) As Boolean
-    'Returns TRUE if the provided name points to an existing file.
-    'Returns FALSE if not existing, or if it's a folder
+    ' find remote rel n#
+    Dim OnlineRel As Double
+    OnlineRel = LatestVersion
+    Set Ini = Nothing
+
+    'compare the two and if remote is most updated then flag it
+    Scan = OnlineRel > LocalVer
+End Function
+Public Function Update() As Boolean
+
+End Function
+Public Function Restart() As Boolean
+
+End Function
+Private Function isfile(ByVal fName As String) As Boolean
+'Returns TRUE if the provided name points to an existing file.
+'Returns FALSE if not existing, or if it's a folder
     On Error Resume Next
-    IsFile = ((GetAttr(fName) And vbDirectory) <> vbDirectory)
+    isfile = ((GetAttr(fName) And vbDirectory) <> vbDirectory)
 End Function
 
 Public Function DownloadFileFromGitHub(GitRawFile, UpdateDestinationFile As String) As Boolean
@@ -61,26 +82,18 @@ Public Function DownloadFileFromGitHub(GitRawFile, UpdateDestinationFile As Stri
     End If
 End Function
 
-Public Function LatestVersion(GitRawFile, FileName As String) As Variant
-    If IsFile(FileName) = False Then
-        LatestVersion = 0
-    Else
-        Dim LatestVersionFond As Variant
-        LatestVersionFond = DownloadFileFromGitHub(GitRawFile, FileName)
-        If LatestVersionFond = True Then
-            Dim strIn As String
-            Dim objFSO As Object
-            Set objFSO = CreateObject("Scripting.FileSystemObject")
-            Dim objTF As Object
-            Set objTF = objFSO.OpenTextFile(FileName, 1)
-            strIn = objTF.readall
-            strIn = Trim(strIn)
-            LatestVersion = CDec(strIn)
-            objTF.Close
-        Else
-            LatestVersion = 0
-        End If
-    End If
+Public Function LatestVersion() As Variant
+    Dim Whttp As Object
+    Dim url As String
+    Set Whttp = CreateObject("WinHttp.WinHttpRequest.5.1")
+    url = "https://github.com/PioPio2/Credit-Hunter/raw/refs/heads/main/LatestUpdate/LatestUpdate.txt"   'SharePoint Path For The File
+
+    Dim response As String
+    With Whttp
+        .Open "Get", url
+        .Send
+        LatestVersion = .responseText
+    End With
 End Function
 
 Public Function UpdateLocalReleaseN(RelN As Variant) As Boolean

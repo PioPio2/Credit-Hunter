@@ -6,7 +6,7 @@
   "Items": {
     "MergeBuildDate": null,
     "FullBuildDate": null,
-    "ExportDate": "2024-12-10T22:25:06.000Z",
+    "ExportDate": "2024-12-12T23:31:00.000Z",
     "FullExportDate": "2024-12-10T22:18:13.000Z",
     "OptionsHash": "b31ed36",
     "LastMergedCommit": "",
@@ -44,11 +44,11 @@
           "FilePropertiesHash": "f8a4811"
         },
         "AccUnit_TestClassFactory.bas": {
-          "FileHash": "7186620",
-          "OtherHash": "7c4ace0",
-          "ExportDate": "2024-12-10T22:13:33.000Z",
+          "FileHash": "bec3288",
+          "OtherHash": "92f4b23",
+          "ExportDate": "2024-12-12T23:30:48.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "d1ee1f0"
+          "FilePropertiesHash": "c635d44"
         },
         "basGeneral.bas": {
           "FileHash": "b8d187c",
@@ -100,11 +100,11 @@
           "FilePropertiesHash": "95fcb7e"
         },
         "clsIniFile.cls": {
-          "FileHash": "60783d8",
-          "OtherHash": "21f20e3",
-          "ExportDate": "2024-12-10T22:13:33.000Z",
+          "FileHash": "a1aada7",
+          "OtherHash": "0bc2e8b",
+          "ExportDate": "2024-12-12T23:30:48.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "278c740"
+          "FilePropertiesHash": "6d63aef"
         },
         "clsOutlook.cls": {
           "FileHash": "7714a0b",
@@ -156,11 +156,11 @@
           "FilePropertiesHash": "13a577e"
         },
         "clsUpdate.cls": {
-          "FileHash": "8d47783",
-          "OtherHash": "af1112f",
-          "ExportDate": "2024-12-10T22:13:33.000Z",
+          "FileHash": "f772567",
+          "OtherHash": "8e23332",
+          "ExportDate": "2024-12-12T23:30:48.000Z",
           "SourceModified": null,
-          "FilePropertiesHash": "4c27b61"
+          "FilePropertiesHash": "a95bea3"
         },
         "clsUserS.cls": {
           "FileHash": "4ecc02b",
@@ -329,6 +329,13 @@
           "ExportDate": "2024-12-10T22:13:33.000Z",
           "SourceModified": null,
           "FilePropertiesHash": "864c4a5"
+        },
+        "ZclsTestUpdate.cls": {
+          "FileHash": "aaa1fd4",
+          "OtherHash": "5e41e57",
+          "ExportDate": "2024-12-12T23:30:48.000Z",
+          "SourceModified": null,
+          "FilePropertiesHash": "def8f72"
         },
         "zclsTestUpdateFiles.cls": {
           "FileHash": "55fa637",
